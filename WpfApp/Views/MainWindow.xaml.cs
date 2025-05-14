@@ -26,19 +26,22 @@ namespace WpfApp.Views
                 return;
             }
 
-            var result = await _apiService.Login(username, password);
+            //var result = await _apiService.Login(username, password);
 
-            if (result.Success)
-            {
-                // Navigate to home window
-                var homeWindow = new HomeWindow();
-                homeWindow.Show();
-                this.Close();
-            }
-            else
-            {
-                LoginMessage.Text = result.Message;
-            }
+            //if (result.Success)
+            //{
+            //    // Navigate to home window
+            //    var homeWindow = new HomeWindow();
+            //    homeWindow.Show();
+            //    this.Close();
+            //}
+            //else
+            //{
+            //    LoginMessage.Text = result.Message;
+            //}
+            var homeWindow = new HomeWindow();
+            homeWindow.Show();
+            this.Close();
         }
 
         private async void RegisterButton_Click(object sender, RoutedEventArgs e)

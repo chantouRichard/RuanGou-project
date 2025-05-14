@@ -1,0 +1,45 @@
+﻿<UserControl
+    x:Class="frontend.Views.Pages.SettingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:vm="clr-namespace:frontend.ViewModels"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance vm:SettingViewModel}">
+    <Grid Margin="20">
+        <StackPanel>
+            <!-- 标题 -->
+            <TextBlock FontSize="20" Text="应用程序设置" Margin="0,0,0,20"/>
+
+            <!-- 主题设置 -->
+            <TextBlock Text="主题设置" Margin="0,0,0,5"/>
+            <ComboBox 
+                ItemsSource="{Binding ThemeOptions}" 
+                SelectedItem="{Binding SelectedTheme}"
+                Width="200" HorizontalAlignment="Left">
+                <ComboBoxItem Content="浅色主题"/>
+                <ComboBoxItem Content="深色主题"/>
+            </ComboBox>
+
+            <!-- 语言设置 -->
+            <TextBlock Text="语言设置" Margin="0,20,0,5"/>
+            <ComboBox 
+                ItemsSource="{Binding LanguageOptions}" 
+                SelectedItem="{Binding SelectedLanguage}"
+                Width="200" HorizontalAlignment="Left">
+                <ComboBoxItem Content="中文"/>
+                <ComboBoxItem Content="English"/>
+            </ComboBox>
+
+            <!-- 保存按钮 -->
+            <Button 
+                Content="保存设置" 
+                Command="{Binding SaveSettingsCommand}"
+                Margin="0,30,0,0" 
+                Width="100" 
+                HorizontalAlignment="Left"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

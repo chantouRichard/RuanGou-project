@@ -44,6 +44,14 @@
       "frameworks": {
         "net472": {
           "dependencies": {
+            "CommunityToolkit.Mvvm": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
+            "HandyControl": {
+              "target": "Package",
+              "version": "[3.5.1, )"
+            },
             "Microsoft.Windows.SDK.Contracts": {
               "target": "Package",
               "version": "[10.0.18362.2005, )"
@@ -68,26 +76,7 @@
               "target": "Package",
               "version": "[4.5.0, )"
             }
-          },
-          "imports": [
-            "uap10.0.18362"
-          ],
-          "assetTargetFallback": true,
-          "warn": true
-        }
-      },
-      "runtimes": {
-        "win": {
-          "#import": []
-        },
-        "win-arm64": {
-          "#import": []
-        },
-        "win-x64": {
-          "#import": []
-        },
-        "win-x86": {
-          "#import": []
+          }
         }
       }
     }

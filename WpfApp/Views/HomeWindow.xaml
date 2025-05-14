@@ -3,14 +3,63 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp.Views"
+        xmlns:local="clr-namespace:WpfApp"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="Home" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
-    <Grid>
-        <TextBlock Text="Welcome to the Application!" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"
-                   FontSize="24"/>
+        Title="MainWindow" Height="600" Width="1000">
+    <Grid Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="84" >
+            </RowDefinition>
+            <RowDefinition Height="*">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--上半部分-->
+        <Border Grid.Row="0" BorderThickness="0,0,0,1" BorderBrush="#0072C0" Background="#0072C0">
+            <DockPanel   Margin="20,10"   >
+                <StackPanel>
+                    <DockPanel>
+                        <TextBlock FontSize="20" FontWeight="Bold" Foreground="White">测试单位</TextBlock>
+                    </DockPanel>
+                    <TextBlock FontSize="18"  Foreground="White">实验室气数据管理系统</TextBlock>
+                </StackPanel>
+                <!--<Label Content="欢迎进入主页" FontSize="30" HorizontalAlignment="Left"   VerticalAlignment="Top"  />-->
+                <DockPanel   HorizontalAlignment="Right" >
+                    <WrapPanel VerticalAlignment="Center" Margin="0,0,40,0">
+
+                        <Label Name="labelUserName" Content="超级管理员" FontSize="16"></Label>
+                    </WrapPanel>
+                    <!--<Button Click="Button_Click" Style="{StaticResource Button_Touming}" ToolTip="退出登录" Margin="0,0,30,0"   HorizontalAlignment="Right" VerticalAlignment="Center" >-->
+                </DockPanel>
+            </DockPanel>
+        </Border>
+
+        <!--下半部分-->
+        <Grid Grid.Row="1"      >
+            <!--<Grid  ShowGridLines="True" >-->
+            <Grid ShowGridLines="True"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="244"    ></ColumnDefinition>
+                    <ColumnDefinition Width="*"   ></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <hc:SideMenu Grid.Column="0" Width="auto" x:Name="sideMenu"  ExpandMode="ShowOne">
+                    <hc:SideMenuItem x:Name="K1" Tag="/Views/Pages/Page1.xaml" Header="首页"  MouseLeftButtonUp="Label_MouseDown">
+                        <hc:SideMenuItem.Icon>
+                            <Image Source="/Image/home.png" Width="24" Height="24"/>
+                        </hc:SideMenuItem.Icon>
+                    </hc:SideMenuItem>
+                    <hc:SideMenuItem x:Name="K2" Tag="/Views/Pages/Page2.xaml" Header="数据采集"  MouseLeftButtonUp="Label_MouseDown">
+                        <hc:SideMenuItem.Icon>
+                            <Image Source="/Image/home.png" Width="30" Height="30"/>
+                        </hc:SideMenuItem.Icon>
+                    </hc:SideMenuItem>
+                </hc:SideMenu>
+                <Grid Grid.Column="1" Name="grid1"  >
+                    <!--<Frame Name="frameMain" Source="PageHome.xaml" Margin="10" BorderBrush="Aquamarine" BorderThickness="1"  NavigationUIVisibility="Hidden" />-->
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
