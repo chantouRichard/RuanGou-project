@@ -249,3 +249,5 @@ C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\frontend\obj\Debug\n
 C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\frontend\obj\Debug\net8.0-windows\Views\Pages\OneClickPage.baml
 C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\frontend\obj\Debug\net8.0-windows\Views\Pages\QuickLaunchPage.baml
 C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\frontend\obj\Debug\net8.0-windows\Views\Pages\SystemToolPage.baml
+C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\frontend\obj\Debug\net8.0-windows\Views\FloatingWindow.baml
+C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\frontend\obj\Debug\net8.0-windows\Views\FloatingWindow.g.cs

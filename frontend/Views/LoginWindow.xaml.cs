@@ -6,6 +6,7 @@ using System.Windows;
 using frontend.Services;
 using frontend.Views;
 using frontend.ViewModels;
+using Microsoft.Extensions.Hosting;
 
 namespace frontend.Views
 {
@@ -13,10 +14,11 @@ namespace frontend.Views
     {
         private readonly ApiService _apiService = new ApiService();
 
-        MainWindowViewModel ViewModel { get; }
+        private readonly IHost host;
 
-        public LoginWindow()
+        public LoginWindow(IHost host)
         {
+            this.host = host;
             InitializeComponent();
         }
 
@@ -44,8 +46,10 @@ namespace frontend.Views
             //{
             //    LoginMessage.Text = result.Message;
             //}
-            var mainWindow = Application.Current.MainWindow;
-            mainWindow.Show();
+            //var mainWindow = Application.Current.MainWindow;
+            //mainWindow.Show();
+
+            await host.StartAsync();
             this.Close();
         }
 

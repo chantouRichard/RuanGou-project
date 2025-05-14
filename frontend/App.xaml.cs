@@ -79,17 +79,17 @@ namespace frontend
         /// </summary>
         private async void OnStartup(object sender, StartupEventArgs e) {
             // 启动主机
-            await host.StartAsync();
+            //await host.StartAsync();
 
             // 获取主窗口并隐藏
-            var mainWindow = Application.Current.MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.Hide();
-            }
+            //var mainWindow = Application.Current.MainWindow;
+            //if (mainWindow != null)
+            //{
+            //    mainWindow.Hide();
+            //}
 
             // 创建并显示登录窗口
-            var loginWindow = new LoginWindow();
+            var loginWindow = new LoginWindow(host);
             loginWindow.Show();
         }
         //protected void Application_Startup(object sender, StartupEventArgs e)
