@@ -83,7 +83,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Pages\DataGridChild2Page.xaml.cs">
+    <Compile Update="Views\Pages\CalculatorPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

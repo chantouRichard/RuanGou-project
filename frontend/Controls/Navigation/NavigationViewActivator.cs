@@ -1,4 +1,4 @@
-﻿using frontend.Controls.Navigation.Common;
+﻿using frontend.Controls.Navigation.CommonPage;
 using System.Linq;
 using System;
 using System.Windows;
@@ -26,7 +26,7 @@ internal static class NavigationViewActivator
                 $"PageType of the ${typeof(INavigationViewItem)} must be derived from {typeof(FrameworkElement)}. {pageType} is not."
             );
 
-        if (Controls.Navigation.Common.DesignerHelper.IsInDesignMode)
+        if (Controls.Navigation.CommonPage.DesignerHelper.IsInDesignMode)
             return new Page
             {
                 Content = new TextBlock

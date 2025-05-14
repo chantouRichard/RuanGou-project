@@ -1,4 +1,4 @@
-﻿using frontend.Controls.Navigation.Common;
+﻿using frontend.Controls.Navigation.CommonPage;
 using System.Collections;
 using System.ComponentModel;
 using System.Windows;

@@ -1,4 +1,4 @@
-﻿namespace frontend.Controls.Navigation.Common;
+﻿namespace frontend.Controls.Navigation.CommonPage;
 
 public enum TransitionType
 {

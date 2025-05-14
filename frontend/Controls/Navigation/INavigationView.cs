@@ -1,5 +1,5 @@
 ﻿using frontend.Controls.Contracts;
-using frontend.Controls.Navigation.Common;
+using frontend.Controls.Navigation.CommonPage;
 using System;
 using System.Collections;
 using System.Windows;

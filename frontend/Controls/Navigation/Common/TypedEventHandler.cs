@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 
-namespace frontend.Controls.Navigation.Common;
+namespace frontend.Controls.Navigation.CommonPage;
 
 public delegate void TypedEventHandler<in TSender, in TArgs>(TSender sender, TArgs args)
     where TSender : DependencyObject

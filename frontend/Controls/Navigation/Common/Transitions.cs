@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace frontend.Controls.Navigation.Common;
+namespace frontend.Controls.Navigation.CommonPage;
 
 /// <summary>
 /// Provides tools for <see cref="FrameworkElement"/> animation.

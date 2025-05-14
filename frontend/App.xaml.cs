@@ -63,10 +63,10 @@ namespace frontend
             // Views and ViewModels
             services.AddSingleton<DashboardPage>();
             services.AddSingleton<DashboardViewModel>();
-            services.AddSingleton<DataGridPage>();
-            services.AddSingleton<DataGridViewModel>();
-            services.AddSingleton<DataGridChild1Page>();
-            services.AddSingleton<DataGridChild2Page>();
+            services.AddSingleton<CommonPage>();
+            services.AddSingleton<CommonViewModel>();
+            services.AddSingleton<MemoPage>();
+            services.AddSingleton<CalculatorPage>();
             services.AddSingleton<SettingPage>();
             services.AddSingleton<SettingViewModel>();
 

@@ -1,6 +1,6 @@
 ﻿using frontend.Controls;
 using frontend.Controls.Contracts;
-using frontend.Controls.Navigation.Common;
+using frontend.Controls.Navigation.CommonPage;
 using frontend.Views.Pages;
 using Microsoft.Extensions.Hosting;
 using System;
