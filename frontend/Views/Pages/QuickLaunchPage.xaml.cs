@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using frontend.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace frontend.Views.Pages
 {
@@ -23,6 +25,7 @@ namespace frontend.Views.Pages
         public QuickLaunchPage()
         {
             InitializeComponent();
+            DataContext = App.host.Services.GetService<QuickLaunchViewModel>();
         }
     }
 }

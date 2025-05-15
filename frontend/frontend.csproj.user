@@ -23,9 +23,6 @@
     <Compile Update="Views\Pages\InfoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\Pages\OneClickPage.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\Pages\QuickLaunchPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
