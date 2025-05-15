@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\frontend.csproj": {}
+    "C:\\Download\\RuanGou-project\\frontend\\frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\frontend.csproj": {
+    "C:\\Download\\RuanGou-project\\frontend\\frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\frontend.csproj",
+        "projectUniqueName": "C:\\Download\\RuanGou-project\\frontend\\frontend.csproj",
         "projectName": "frontend",
-        "projectPath": "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\frontend.csproj",
-        "packagesPath": "C:\\Users\\qq864\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\obj\\",
+        "projectPath": "C:\\Download\\RuanGou-project\\frontend\\frontend.csproj",
+        "packagesPath": "C:\\Users\\ls243\\.nuget\\packages\\",
+        "outputPath": "C:\\Download\\RuanGou-project\\frontend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\qq864\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ls243\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,6 +97,10 @@
             "Serilog.Sinks.File": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[9.0.5, )"
             }
           },
           "imports": [
@@ -122,7 +122,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

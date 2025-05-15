@@ -69,6 +69,8 @@ namespace frontend
             services.AddSingleton<CalculatorPage>();
             services.AddSingleton<SettingPage>();
             services.AddSingleton<SettingViewModel>();
+            services.AddSingleton<QuickLaunchPage>();
+            services.AddSingleton<QuickLaunchViewModel>();
 
             // Business Services
             //services.AddTransient<IWorkService, ClientWorkService>();
