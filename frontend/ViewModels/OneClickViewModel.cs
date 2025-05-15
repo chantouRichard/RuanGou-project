@@ -63,7 +63,7 @@ namespace frontend.ViewModels
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                _model.ExecuteSleep(new WindowInteropHelper(activeWindow).Handle);
+                _model.ExecuteSleep();
             }
         }
     }
