@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
@@ -23,10 +23,13 @@ namespace frontend.Models
             Process.Start(new ProcessStartInfo("shutdown", "/r /t 0"));
         }
 
+        [DllImport("powrprof.dll", SetLastError = true)]
+        private static extern bool SetSuspendState(bool hibernate, bool forceCritical, bool disableWakeEvent);
+
         public void ExecuteSleep(IntPtr windowHandle)
         {
-            SendMessage(windowHandle, WM_SYSCOMMAND,
-                (IntPtr)(SC_SCREENSAVE | SC_MONITORPOWER), (IntPtr)2);
+            // 使用系统休眠API替代消息发送
+            SetSuspendState(false, false, false);
         }
     }
 }
