@@ -8,7 +8,52 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
+
     <Grid>
-        <TextBlock FontSize="28" Text="CalculatorPage" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Display -->
+        <Border Grid.Row="0" Background="#FFE0E0E0" Padding="10" Margin="5">
+            <TextBlock x:Name="DisplayText" 
+                      FontSize="36" 
+                      Text="0" 
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Center"/>
+        </Border>
+
+        <!-- Buttons -->
+        <UniformGrid Grid.Row="1" Columns="4" Rows="5" Margin="5">
+            <!-- Row 1 -->
+            <Button Width="50" Height="50" Content="C" Click="OnClearClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="±" Click="OnSignClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="%" Click="OnPercentClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="÷" Click="OnOperatorClick" FontSize="24" Margin="2" Tag="/"/>
+
+            <!-- Row 2 -->
+            <Button Width="50" Height="50" Content="7" Click="OnNumberClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="8" Click="OnNumberClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="9" Click="OnNumberClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="×" Click="OnOperatorClick" FontSize="24" Margin="2" Tag="*"/>
+
+            <!-- Row 3 -->
+            <Button Width="50" Height="50" Content="4" Click="OnNumberClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="5" Click="OnNumberClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="6" Click="OnNumberClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="-" Click="OnOperatorClick" FontSize="24" Margin="2" Tag="-"/>
+
+            <!-- Row 4 -->
+            <Button Width="50" Height="50" Content="1" Click="OnNumberClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="2" Click="OnNumberClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="3" Click="OnNumberClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="+" Click="OnOperatorClick" FontSize="24" Margin="2" Tag="+"/>
+
+            <!-- Row 5 -->
+            <Button Width="50" Height="50" Content="0" Click="OnNumberClick" FontSize="24" Margin="2" Grid.ColumnSpan="2"/>
+            <Button Width="50" Height="50" Content="." Click="OnDecimalClick" FontSize="24" Margin="2"/>
+            <Button Width="50" Height="50" Content="=" Click="OnEqualsClick" FontSize="24" Margin="2" Background="#FF4CAF50" Foreground="White"/>
+        </UniformGrid>
     </Grid>
 </UserControl>
