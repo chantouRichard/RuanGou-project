@@ -96,20 +96,20 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 Content = "信息服务",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Info24},
-                TargetPageType = typeof(SystemToolPage),
+                TargetPageType = typeof(InfoPage),
                 MenuItems = new NavigationViewItem[]
                 {
                     new NavigationViewItem
                     {
                         Content = "天气/节假日",
                         Icon = new SymbolIcon {Symbol = SymbolRegular.CalendarLtr24},
-                        TargetPageType = typeof(OneClickPage)
+                        TargetPageType = typeof(DailyPage)
                     },
                     new NavigationViewItem
                     {
                         Content = "云端提醒功能",
                         Icon = new SymbolIcon {Symbol = SymbolRegular.ClockAlarm20},
-                        TargetPageType = typeof(QuickLaunchPage)
+                        TargetPageType = typeof(CloudRemindPage)
                     }
                 }
             }

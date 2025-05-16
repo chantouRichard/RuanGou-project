@@ -3426,23 +3426,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\qq864\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\m1510\\.nuget\\packages\\": {},
+    "D:\\Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\frontend.csproj",
+      "projectUniqueName": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
       "projectName": "frontend",
-      "projectPath": "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\frontend.csproj",
-      "packagesPath": "C:\\Users\\qq864\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\obj\\",
+      "projectPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+      "packagesPath": "C:\\Users\\m1510\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\qq864\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\m1510\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3451,6 +3451,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

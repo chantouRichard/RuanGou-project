@@ -255,4 +255,3 @@ C:\Users\m1510\Desktop\RuanGou-project\frontend\obj\Debug\net8.0-windows\refint\
 C:\Users\m1510\Desktop\RuanGou-project\frontend\obj\Debug\net8.0-windows\frontend.pdb
 C:\Users\m1510\Desktop\RuanGou-project\frontend\obj\Debug\net8.0-windows\frontend.genruntimeconfig.cache
 C:\Users\m1510\Desktop\RuanGou-project\frontend\obj\Debug\net8.0-windows\ref\frontend.dll
-C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows\Everything64.dll
