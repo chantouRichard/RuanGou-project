@@ -30,20 +30,12 @@ namespace frontend.Views.Pages
                 extensionFilter = item.Tag.ToString();
             }
 
-            bool exactMatch = ExactMatchCheckBox.IsChecked == true;
 
             // 拼接搜索字符串
-            // 精确匹配则加引号包裹关键字
             // 并加上扩展名过滤条件，比如 *.txt
             string searchQuery;
-            if (exactMatch)
-            {
-                searchQuery = $"\"{keyword}\"";
-            }
-            else
-            {
-                searchQuery = keyword;
-            }
+            searchQuery = keyword;
+            
 
             if (extensionFilter != "*")
             {
@@ -83,6 +75,22 @@ namespace frontend.Views.Pages
                 {
                     MessageBox.Show("无法打开文件：" + ex.Message);
                 }
+            }
+        }
+
+        private void SearchBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == System.Windows.Input.Key.Enter)
+            {
+                SearchButton_Click(sender, new RoutedEventArgs());
+            }
+        }
+
+        private void Button_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == System.Windows.Input.Key.Enter)
+            {
+                SearchButton_Click(sender, new RoutedEventArgs());
             }
         }
     }
