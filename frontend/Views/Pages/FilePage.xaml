@@ -8,7 +8,28 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="FilePage">
 
-    <Grid>
-        <TextBlock FontSize="28" Text="文件搜索页面"></TextBlock>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock FontSize="28" Text="文件搜索页面" Grid.Row="0" />
+
+        <StackPanel Orientation="Horizontal" Margin="0,10,0,10" Grid.Row="1" VerticalAlignment="Center">
+            <TextBox Name="SearchBox" Width="250" Height="30" />
+            <ComboBox Name="ExtensionComboBox" Width="100" Height="30" Margin="10,0,0,0" SelectedIndex="0">
+                <ComboBoxItem Content="全部 (*.*)" Tag="*" />
+                <ComboBoxItem Content=".txt 文件" Tag="*.txt" />
+                <ComboBoxItem Content=".docx 文件" Tag="*.docx" />
+                <ComboBoxItem Content=".pdf 文件" Tag="*.pdf" />
+                <ComboBoxItem Content=".exe 文件" Tag="*.exe" />
+            </ComboBox>
+            <CheckBox Name="ExactMatchCheckBox" Content="精确匹配" Margin="10,0,0,0" VerticalAlignment="Center"/>
+            <Button Content="搜索" Width="80" Height="30" Margin="10,0,0,0" Click="SearchButton_Click" />
+        </StackPanel>
+
+        <ListBox Name="ResultsList" Grid.Row="2" SelectionChanged="ResultsList_SelectionChanged"/>
     </Grid>
 </Page>
