@@ -137,19 +137,6 @@
           "SelectedChildIndex": 15,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CalculatorPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\CalculatorPage.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Pages\\CalculatorPage.xaml.cs",
-              "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\CalculatorPage.xaml.cs",
-              "RelativeToolTip": "Views\\Pages\\CalculatorPage.xaml.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAcwD4AAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T08:48:36.585Z",
-              "EditorCaption": ""
-            },
-            {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
@@ -160,6 +147,18 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CalculatorPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\CalculatorPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Pages\\CalculatorPage.xaml.cs",
+              "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\CalculatorPage.xaml.cs",
+              "RelativeToolTip": "Views\\Pages\\CalculatorPage.xaml.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAcwD4AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T08:48:36.585Z"
             },
             {
               "$type": "Document",
@@ -194,8 +193,7 @@
               "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\FloatingWindow.xaml",
               "RelativeToolTip": "Views\\FloatingWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T07:47:45.819Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-14T07:47:45.819Z"
             },
             {
               "$type": "Document",
@@ -342,8 +340,7 @@
               "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\CalculatorPage.xaml",
               "RelativeToolTip": "Views\\Pages\\CalculatorPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-13T09:32:15.097Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T09:32:15.097Z"
             },
             {
               "$type": "Document",

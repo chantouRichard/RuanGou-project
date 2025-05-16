@@ -66,7 +66,7 @@ namespace frontend.Views.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/frontend;component/views/pages/commonpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/frontend;V1.0.0.0;component/views/pages/commonpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Pages\CommonPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
