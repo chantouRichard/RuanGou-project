@@ -3426,23 +3426,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\m1510\\.nuget\\packages\\": {},
-    "D:\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\29586\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+      "projectUniqueName": "C:\\Users\\29586\\RuanGou-project\\frontend\\frontend.csproj",
       "projectName": "frontend",
-      "projectPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
-      "packagesPath": "C:\\Users\\m1510\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\obj\\",
+      "projectPath": "C:\\Users\\29586\\RuanGou-project\\frontend\\frontend.csproj",
+      "packagesPath": "C:\\Users\\29586\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\29586\\RuanGou-project\\frontend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\m1510\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\29586\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3451,7 +3451,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3470,7 +3469,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -3552,7 +3551,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

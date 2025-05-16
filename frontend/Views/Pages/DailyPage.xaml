@@ -5,10 +5,35 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:frontend.Views.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="900"
       Title="DailyPage">
 
-    <Grid>
-        <TextBlock FontSize="28" Text="天气预报和节假日页面"></TextBlock>
-    </Grid>
+    <StackPanel Margin="30">
+        <TextBlock FontSize="28" FontWeight="Bold" Text="天气预报和节假日页面" Margin="0,0,0,20"/>
+
+        <GroupBox Header="天气查询" Margin="0,0,0,20">
+            <StackPanel Margin="10">
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <TextBox x:Name="CityTextBox" Width="200" Height="32" Text="请输入城市名"/>
+                    <Button x:Name="WeatherQueryButton" Content="查询天气" Width="100" Height="32" Margin="10,0,0,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <StackPanel>
+                        <TextBlock x:Name="WeatherResultTextBlock" Text="天气信息将在此显示" FontStyle="Italic" Foreground="Gray"/>
+                        <TextBlock x:Name="TemperatureTextBlock" Text="温度" FontSize="18" Margin="0,10,0,0"/>
+                        <TextBlock x:Name="RainTextBlock" Text="降雨" FontSize="18"/>
+                        <TextBlock x:Name="OtherWeatherTextBlock" Text="其它天气信息" FontSize="16"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Header="节假日信息">
+            <StackPanel Margin="10">
+                <DatePicker x:Name="DatePickerHoliday" Width="200" SelectedDate="{Binding Path=CurrentDate}" />
+                <Button x:Name="HolidayQueryButton" Content="查询节假日" Width="120" Height="32" Margin="10,0,0,0"/>
+                <TextBlock x:Name="HolidayResultTextBlock" Text="节假日信息将在此显示" FontStyle="Italic" Foreground="Gray" Margin="0,10,0,0"/>
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
 </Page>
