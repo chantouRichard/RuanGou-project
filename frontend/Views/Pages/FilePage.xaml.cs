@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace frontend.Views.Pages
 {
@@ -91,6 +92,35 @@ namespace frontend.Views.Pages
             if(e.Key == System.Windows.Input.Key.Enter)
             {
                 SearchButton_Click(sender, new RoutedEventArgs());
+            }
+        }
+
+        private void ExtensionComboBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+            if (comboBox == null) return;
+
+            switch (e.Key)
+            {
+                case Key.Up:
+                    if (comboBox.SelectedIndex > 0)
+                    {
+                        comboBox.SelectedIndex--;
+                    }
+                    e.Handled = true;
+                    break;
+
+                case Key.Down:
+                    if (comboBox.SelectedIndex < comboBox.Items.Count - 1)
+                    {
+                        comboBox.SelectedIndex++;
+                    }
+                    e.Handled = true;
+                    break;
+
+                case Key.Enter:
+                    SearchButton_Click(sender, new RoutedEventArgs());
+                    break;
             }
         }
     }

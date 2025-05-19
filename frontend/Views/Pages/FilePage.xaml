@@ -19,7 +19,8 @@
 
         <StackPanel Orientation="Horizontal" Margin="0,10,0,10" Grid.Row="1" VerticalAlignment="Center">
             <TextBox Name="SearchBox" Width="250" Height="30" KeyDown="SearchBox_KeyDown" />
-            <ComboBox Name="ExtensionComboBox" Width="100" Height="30" Margin="10,0,0,0" SelectedIndex="0">
+            <ComboBox Name="ExtensionComboBox" Width="100" Height="30" Margin="10,0,0,0" 
+          SelectedIndex="0" KeyDown="ExtensionComboBox_KeyDown" >
                 <ComboBoxItem Content="全部 (*.*)" Tag="*" />
                 <ComboBoxItem Content=".txt 文件" Tag="*.txt" />
                 <ComboBoxItem Content=".docx 文件" Tag="*.docx" />
