@@ -41,7 +41,7 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 Content = "常用工具",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.WindowDevTools24 },
-                TargetPageType = typeof(CommonPage),
+                // TargetPageType = typeof(CommonPage),
                 MenuItems = new NavigationViewItem[]
                 {
                     new NavigationViewItem
@@ -63,7 +63,7 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 Content = "系统工具",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.DesktopArrowDown24},
-                TargetPageType = typeof(SystemToolPage),
+                // TargetPageType = typeof(SystemToolPage),
                 MenuItems = new NavigationViewItem[]
                 {
                     new NavigationViewItem
@@ -96,7 +96,7 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 Content = "信息服务",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Info24},
-                TargetPageType = typeof(InfoPage),
+                // TargetPageType = typeof(InfoPage),
                 MenuItems = new NavigationViewItem[]
                 {
                     new NavigationViewItem

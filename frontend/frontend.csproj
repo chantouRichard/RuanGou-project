@@ -28,6 +28,7 @@
     <Resource Include="Assets\Avatar\avatar5.png" />
     <Resource Include="Assets\Avatar\avatar6.png" />
     <Resource Include="Assets\cloud.png" />
+    <Resource Include="Assets\test.jpg" />
     <Resource Include="Assets\icon.ico" />
     <Resource Include="Styles\Fonts\FluentSystemIcons-Filled.ttf" />
     <Resource Include="Styles\Fonts\FluentSystemIcons-Regular.ttf" />
@@ -38,7 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\" />
     <Folder Include="Styles\" />
     <Folder Include="Assets\" />
   </ItemGroup>

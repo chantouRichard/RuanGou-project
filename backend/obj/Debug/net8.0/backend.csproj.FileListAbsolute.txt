@@ -92,3 +92,4 @@ C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\backend\obj\Debug\ne
 C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\backend\obj\Debug\net8.0\backend.pdb
 C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\backend\obj\Debug\net8.0\ref\backend.dll
+C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\backend\obj\Debug\net8.0\backend.sourcelink.json
