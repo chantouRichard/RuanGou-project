@@ -48,7 +48,7 @@ namespace frontend.Views
             //}
             //var mainWindow = Application.Current.MainWindow;
             //mainWindow.Show();
-
+            Properties.Settings.Default.UserId = "2";
             await host.StartAsync();
             this.Close();
         }

@@ -17,6 +17,7 @@ builder.Services.ConfigureSession();
 
 // Register services
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITodoService, TodoService>();
 
 // 添加数据库上下文
 builder.Services.AddDbContext<AppDbContext>(options =>

@@ -9,6 +9,8 @@ namespace backend.Data
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<TodoItem> TodoItems { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>(entity =>
@@ -26,6 +28,9 @@ namespace backend.Data
                       .HasColumnName("updated_at")
                       .HasDefaultValueSql("CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP");
             });
+
+            modelBuilder.Entity<TodoItem>()
+                .HasIndex(t => t.UserId);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

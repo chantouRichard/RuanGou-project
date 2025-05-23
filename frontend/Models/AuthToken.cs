@@ -8,6 +8,7 @@ namespace frontend.Models
 {
     public class AuthToken
     {
+        public string userId { get; set; }
         public string Token { get; set; }
     }
 }
