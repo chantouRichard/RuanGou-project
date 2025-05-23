@@ -30,6 +30,18 @@
             <Button Content="搜索" Width="80" Height="30" Margin="10,0,0,0" Click="SearchButton_Click" KeyDown="Button_KeyDown" />
         </StackPanel>
 
-        <ListBox Name="ResultsList" Grid.Row="2" SelectionChanged="ResultsList_SelectionChanged"/>
+        <ListBox Name="ResultsList"
+         Grid.Row="2"
+         SelectionChanged="ResultsList_SelectionChanged"
+         MouseDoubleClick="ResultsList_MouseDoubleClick"
+         PreviewMouseRightButtonDown="ResultsList_PreviewMouseRightButtonDown">
+
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="复制文件路径" Click="CopyFilePath_Click"/>
+                    <MenuItem Header="打开文件位置" Click="OpenFileLocation_Click"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+        </ListBox>
     </Grid>
 </Page>

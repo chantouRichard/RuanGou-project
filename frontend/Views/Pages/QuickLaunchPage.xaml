@@ -53,7 +53,7 @@
                       SelectedItem="{Binding SelectedShortcut}" BorderThickness="1" BorderBrush="#DDDDDD">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="图标" Width="40">
+                        <GridViewColumn Header="图标" Width="50">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image Source="{Binding IconPath}" Width="32" Height="32" Stretch="Uniform"/>
