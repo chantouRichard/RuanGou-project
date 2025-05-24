@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj": {}
+    "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj": {
+    "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+        "projectUniqueName": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj",
         "projectName": "frontend",
-        "projectPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+        "projectPath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj",
         "packagesPath": "C:\\Users\\m1510\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\obj\\",
+        "outputPath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Visual Studio\\Shared\\NuGetPackages"

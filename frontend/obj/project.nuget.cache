@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6NoitoTsDmA=",
+  "dgSpecHash": "ZAtIDevfEuU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+  "projectFilePath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\m1510\\.nuget\\packages\\commonwin32\\2.1.0.3\\commonwin32.2.1.0.3.nupkg.sha512",
     "C:\\Users\\m1510\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
@@ -72,9 +72,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net8.0-windows7.0”还原包“CommonWin32 2.1.0.3”。此包可能与项目不完全兼容。",
-      "projectPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+      "projectPath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+      "filePath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj",
       "libraryId": "CommonWin32",
       "targetGraphs": [
         "net8.0-windows7.0"
@@ -84,9 +84,9 @@
       "code": "NU1701",
       "level": "Warning",
       "message": "已使用“.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1”而不是项目目标框架“net8.0-windows7.0”还原包“ModernWPF 1.4.6”。此包可能与项目不完全兼容。",
-      "projectPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+      "projectPath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+      "filePath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj",
       "libraryId": "ModernWPF",
       "targetGraphs": [
         "net8.0-windows7.0"
