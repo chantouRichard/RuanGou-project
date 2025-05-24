@@ -7,14 +7,97 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.IO;
+using Microsoft.Win32;
 
 namespace frontend.Views.Pages
 {
     public partial class FilePage : Page
     {
+        private static string EverythingPath;
+
         public FilePage()
         {
             InitializeComponent();
+            LoadEverythingPath();
+            EnsureEverythingRunning();
+        }
+        private void AddEverythingPath_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(SettingsManager.EverythingPath) || !File.Exists(SettingsManager.EverythingPath))
+            {
+                var dialog = new Microsoft.Win32.OpenFileDialog
+                {
+                    Filter = "Everything 可执行文件|Everything.exe",
+                    Title = "请选择 Everything.exe"
+                };
+
+                if (dialog.ShowDialog() == true)
+                {
+                    SettingsManager.EverythingPath = dialog.FileName;
+                    SettingsManager.Save();
+                    MessageBox.Show("Everything 路径已保存！", "成功", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+            else
+            {
+                try
+                {
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = SettingsManager.EverythingPath,
+                        UseShellExecute = true
+                    });
+                }
+                catch (Exception ex)
+                {
+                    var result = MessageBox.Show($"启动失败：{ex.Message}\n是否重新选择 Everything.exe？", "启动失败", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        SettingsManager.EverythingPath = null;
+                        SettingsManager.Save();
+                        AddEverythingPath_Click(sender, e); // 递归重新选择
+                    }
+                }
+            }
+        }
+
+        private void EnsureEverythingRunning()
+        {
+            if (!IsEverythingRunning())
+            {
+                if (!string.IsNullOrEmpty(EverythingPath) && File.Exists(EverythingPath))
+                {
+                    try
+                    {
+                        Process.Start(EverythingPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"启动 Everything 失败: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("未找到 Everything 程序，请先添加路径。");
+                }
+            }
+        }
+
+        private bool IsEverythingRunning()
+        {
+            return Process.GetProcessesByName("Everything").Any();
+        }
+
+        private void SaveEverythingPath()
+        {
+            Properties.Settings.Default.EverythingPath = EverythingPath;
+            Properties.Settings.Default.Save();
+        }
+
+        private void LoadEverythingPath()
+        {
+            EverythingPath = Properties.Settings.Default.EverythingPath;
         }
 
         private async void SearchButton_Click(object sender, RoutedEventArgs e)
