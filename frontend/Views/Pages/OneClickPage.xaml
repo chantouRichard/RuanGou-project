@@ -3,32 +3,279 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:vm="clr-namespace:frontend.ViewModels"
       mc:Ignorable="d"
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="一键操作">
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="一键操作"
+      Background="#F0F4F7"
+      FontFamily="Microsoft YaHei" FontSize="14">
 
-    <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock Text="快速系统操作" 
-                       FontSize="24"
-                       Margin="0,0,0,20"
-                       FontWeight="Bold"/>
+    <Page.Resources>
+        <!-- 卡片样式 -->
+        <Style x:Key="CardBorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="1" BlurRadius="10" Color="#000000" Opacity="0.08"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-            <Button Content="关机操作" 
-                    Width="160" Height="36" Margin="4"
-                    Command="{Binding ShutdownCommand}"
-                    FontSize="14"/>
+        <!-- 区块标题 -->
+        <Style x:Key="SectionTitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
 
-            <Button Content="重启系统" 
-                    Width="160" Height="36" Margin="4"
-                    Command="{Binding RestartCommand}"
-                    FontSize="14"/>
+        <!-- 主按钮样式 -->
+        <Style x:Key="PrimaryActionButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#0078D4"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="MinWidth" Value="180"/>
+            <Setter Property="MinHeight" Value="38"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                    Background="{TemplateBinding Background}"
+                    CornerRadius="4"
+                    SnapsToDevicePixels="True">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                       Storyboard.TargetProperty="Opacity"
+                                       To="0.85" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                       Storyboard.TargetProperty="Opacity"
+                                       To="0.7" Duration="0:0:0.05"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                       Storyboard.TargetProperty="Opacity"
+                                       To="0.5" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-            <Button Content="进入待机" 
-                    Width="160" Height="36" Margin="4"
-                    Command="{Binding SleepCommand}"
-                    FontSize="14"/>
+        <!-- 次级按钮样式 -->
+        <Style x:Key="SecondaryActionButtonStyle" BasedOn="{StaticResource PrimaryActionButtonStyle}" TargetType="Button">
+            <Setter Property="Background" Value="#E81123"/>
+        </Style>
+
+        <!-- 低调按钮样式 -->
+        <Style x:Key="SubtleActionButtonStyle" BasedOn="{StaticResource PrimaryActionButtonStyle}" TargetType="Button">
+            <Setter Property="Background" Value="#606060"/>
+        </Style>
+
+        <!-- 先定义 Expander Header 的 ToggleButton 样式 -->
+        <Style x:Key="CoolExpanderHeaderStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#222222"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border Background="{TemplateBinding Background}"
+                    Padding="{TemplateBinding Padding}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock x:Name="Arrow"
+                           Grid.Column="0"
+                           Text="▶"
+                           FontSize="12"
+                           Margin="0,0,8,0"
+                           RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <RotateTransform Angle="0"/>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                                <ContentPresenter Grid.Column="1"
+                                  VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Arrow" Property="RenderTransform">
+                                    <Setter.Value>
+                                        <RotateTransform Angle="90"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EFEFEF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 然后再定义 Expander 的整体样式 -->
+        <Style x:Key="CoolExpanderStyle" TargetType="Expander">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="#F9F9F9"/>
+            <Setter Property="BorderBrush" Value="#E0E0E0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Expander">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}"
+                    CornerRadius="4"
+                    SnapsToDevicePixels="True">
+                            <DockPanel>
+                                <ToggleButton x:Name="HeaderSite"
+                              DockPanel.Dock="Top"
+                              Content="{TemplateBinding Header}"
+                              IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"
+                              Style="{StaticResource CoolExpanderHeaderStyle}"/>
+                                <ContentPresenter x:Name="ExpandSite"
+                                  DockPanel.Dock="Bottom"
+                                  Margin="{TemplateBinding Padding}"
+                                  Visibility="Collapsed"/>
+                            </DockPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded" Value="True">
+                                <Setter TargetName="ExpandSite" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ListBoxItem 样式 -->
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Padding" Value="10,6"/>
+            <Setter Property="Margin" Value="0,1"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border x:Name="Bd"
+                    Background="{TemplateBinding Background}"
+                    Padding="{TemplateBinding Padding}"
+                    CornerRadius="3">
+                            <ContentPresenter VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#E6F2FF"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Bd" Property="Background" Value="#CCE4FF"/>
+                                <Setter Property="Foreground" Value="#005A9E"/>
+                                <Setter Property="FontWeight" Value="SemiBold"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="20">
+
+            <!-- 系统操作 -->
+            <Border Style="{StaticResource CardBorderStyle}">
+                <StackPanel>
+                    <TextBlock Text="快速系统操作" Style="{StaticResource SectionTitleStyle}"/>
+                    <!-- 替换掉之前的 ItemsControl -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="关机 "
+            Style="{StaticResource PrimaryActionButtonStyle}"
+            Command="{Binding ShutdownCommand}" Margin="8"/>
+                        <Button Content="重启"
+            Style="{StaticResource PrimaryActionButtonStyle}"
+            Command="{Binding RestartCommand}" Margin="8"/>
+                        <Button Content="待机"
+            Style="{StaticResource PrimaryActionButtonStyle}"
+            Command="{Binding SleepCommand}" Margin="8"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+
+            <!-- 内存优化 -->
+            <Border Style="{StaticResource CardBorderStyle}">
+                <StackPanel>
+                    <TextBlock Text="内存优化管理" Style="{StaticResource SectionTitleStyle}"/>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Button Content="手动释放内存(建议)"
+                    Click="ShowProcessList_Click"
+                    Style="{StaticResource SubtleActionButtonStyle}"
+                    Margin="8"/>
+                        <Button Content="自动释放内存"
+                    Click="AutoKillHighMemoryProcesses_Click"
+                    Style="{StaticResource SubtleActionButtonStyle}"
+                    Margin="8"/>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+
+            <!-- 进程列表 -->
+            <Border Style="{StaticResource CardBorderStyle}">
+                <Expander x:Name="ProcessExpander"
+                  Header="查看并管理高内存占用进程"
+                  Style="{StaticResource CoolExpanderStyle}"
+                  IsExpanded="False">
+                    <StackPanel>
+                        <Border BorderBrush="#DDDDDD" BorderThickness="1" CornerRadius="3">
+                            <ListBox x:Name="ProcessListBox"
+                       ItemsSource="{Binding HighMemoryProcesses}"
+                       DisplayMemberPath="DisplayName"
+                       MaxHeight="250"/>
+                        </Border>
+                        <Button Content="结束选中进程"
+                    Click="KillSelectedProcess_Click"
+                    Style="{StaticResource SecondaryActionButtonStyle}"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Right"/>
+                    </StackPanel>
+                </Expander>
+            </Border>
+
         </StackPanel>
-    </Grid>
+    </ScrollViewer>
 </Page>
