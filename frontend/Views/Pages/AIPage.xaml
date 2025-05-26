@@ -2,53 +2,176 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:frontend.Views.Pages"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
-      Title="AIPage">
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="AI Translation"
+      Background="#FFF5F7FA">
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="30">
-            <TextBlock FontSize="28" FontWeight="Bold" Text="AI工具页面" Margin="0,0,0,20"/>
+    <Page.Resources>
+        <!-- 颜色定义 -->
+        <SolidColorBrush x:Key="PrimaryBlue" Color="#FF4285F4"/>
+        <SolidColorBrush x:Key="LightGray" Color="#FFEEEEEE"/>
+        <SolidColorBrush x:Key="DarkGray" Color="#FF333333"/>
+        <SolidColorBrush x:Key="MediumGray" Color="#FF666666"/>
 
-            <!-- 翻译功能区 -->
-            <GroupBox Header="文本翻译" Margin="0,0,0,20">
-                <StackPanel Margin="10">
-                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                        <TextBox x:Name="TranslateInputTextBox" Width="400" Height="32" Margin="0,0,10,0" VerticalAlignment="Center" Text="请输入要翻译的文本"/>
-                        <ComboBox x:Name="LanguageComboBox" Width="120" Height="32" VerticalAlignment="Center">
-                            <ComboBoxItem Content="英文" Tag="en"/>
+        <!-- 圆角按钮样式 -->
+        <Style x:Key="RoundButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="4"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF3367D6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 文本框样式 -->
+        <Style x:Key="ModernTextBox" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#FFDDDDDD"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="AcceptsReturn" Value="True"/>
+        </Style>
+
+        <!-- 标签页样式 -->
+        <Style TargetType="TabItem">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="{StaticResource DarkGray}"/>
+            <Setter Property="Padding" Value="12,6"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="10">
+        <TabControl Background="White">
+            <!-- 文本翻译标签页 -->
+            <TabItem Header="文本翻译">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- 源语言选择 -->
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+                        <TextBlock Text="源语言:" VerticalAlignment="Center" Margin="0,0,10,0"
+                                   Foreground="{StaticResource DarkGray}" FontSize="14"/>
+                        <ComboBox x:Name="SourceLanguageComboBox" Width="150" SelectedIndex="0"
+                                  Style="{StaticResource {x:Type ComboBox}}">
+                            <ComboBoxItem Content="自动检测" Tag="auto"/>
                             <ComboBoxItem Content="中文" Tag="zh"/>
-                            <ComboBoxItem Content="日文" Tag="jp"/>
-                            <!-- 其他语言可自行添加 -->
+                            <ComboBoxItem Content="英语" Tag="en"/>
+                            <ComboBoxItem Content="日语" Tag="jp"/>
+                            <ComboBoxItem Content="韩语" Tag="kor"/>
                         </ComboBox>
-                        <Button x:Name="TranslateButton" Content="翻译" Width="80" Height="32" Margin="10,0,0,0"/>
                     </StackPanel>
-                    <TextBlock x:Name="TranslateResultTextBlock" Text="翻译结果将在此显示" FontStyle="Italic" Foreground="Gray"/>
-                </StackPanel>
-            </GroupBox>
 
-            <!-- 文本总结功能区 -->
-            <GroupBox Header="文本摘要" Margin="0,0,0,20">
-                <StackPanel Margin="10">
-                    <TextBox x:Name="SummaryInputTextBox" Height="80" AcceptsReturn="True" TextWrapping="Wrap" Text="请输入需要总结的长文本"/>
-                    <Button x:Name="SummaryButton" Content="生成摘要" Width="100" Height="32" Margin="0,10,0,0"/>
-                    <TextBlock x:Name="SummaryResultTextBlock" Text="摘要结果将在此显示" FontStyle="Italic" Foreground="Gray" TextWrapping="Wrap"/>
-                </StackPanel>
-            </GroupBox>
+                    <!-- 输入文本框 -->
+                    <TextBox x:Name="SourceText" Grid.Row="1" Style="{StaticResource ModernTextBox}"
+                             Margin="0,0,0,10"/>
 
-            <!-- 图片识别功能区 -->
-            <GroupBox Header="图片识别" Margin="0,0,0,20">
-                <StackPanel Margin="10">
-                    <StackPanel Orientation="Horizontal">
-                        <Button x:Name="SelectImageButton" Content="选择图片" Width="100" Height="32"/>
-                        <Image x:Name="SelectedImagePreview" Width="100" Height="100" Margin="10,0,0,0"/>
-                        <Button x:Name="ImageRecognizeButton" Content="识别图片" Width="100" Height="32" Margin="10,0,0,0"/>
+                    <!-- 目标语言选择 -->
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,0,0,10">
+                        <TextBlock Text="目标语言:" VerticalAlignment="Center" Margin="0,0,10,0"
+                                   Foreground="{StaticResource DarkGray}" FontSize="14"/>
+                        <ComboBox x:Name="TargetLanguageComboBox" Width="150" SelectedIndex="1"
+                                  Style="{StaticResource {x:Type ComboBox}}">
+                            <ComboBoxItem Content="中文" Tag="zh"/>
+                            <ComboBoxItem Content="英语" Tag="en"/>
+                            <ComboBoxItem Content="日语" Tag="jp"/>
+                            <ComboBoxItem Content="韩语" Tag="kor"/>
+                        </ComboBox>
+                        <Button Content="翻译" Width="80" Margin="10,0" Click="TranslateText_Click"
+                                Style="{StaticResource RoundButton}"/>
                     </StackPanel>
-                    <TextBlock x:Name="ImageRecognitionResultTextBlock" Text="图片识别结果将在此显示" FontStyle="Italic" Foreground="Gray" TextWrapping="Wrap" Margin="0,10,0,0"/>
-                </StackPanel>
-            </GroupBox>
-        </StackPanel>
-    </ScrollViewer>
+
+                    <!-- 结果文本框 -->
+                    <TextBox x:Name="TranslatedText" Grid.Row="3" IsReadOnly="True" 
+                             Style="{StaticResource ModernTextBox}" Background="#FFF8F8F8"/>
+                </Grid>
+            </TabItem>
+
+            <!-- 截图翻译标签页 -->
+            <TabItem Header="截图翻译">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- 截图区域 -->
+                    <Border Grid.Row="1" BorderBrush="#FFDDDDDD" BorderThickness="1" 
+                            Background="White" Margin="0,0,0,10" CornerRadius="4">
+                        <Image x:Name="ScreenshotImage" Stretch="Uniform"/>
+                    </Border>
+
+                    <!-- 操作按钮 -->
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center" Margin="0,0,0,10">
+                        <Button Content="截图" Width="80" Margin="5" Click="CaptureScreenshot_Click"
+                                Style="{StaticResource RoundButton}"/>
+                        <Button Content="清除" Width="80" Margin="5" Click="ClearScreenshot_Click"
+                                Style="{StaticResource RoundButton}" Background="#FFEF5350"/>
+                    </StackPanel>
+
+                    <!-- 翻译结果 -->
+                    <TextBox x:Name="ImageTranslationResult" Grid.Row="3" IsReadOnly="True" 
+                             Style="{StaticResource ModernTextBox}" Background="#FFF8F8F8"/>
+
+                    <!-- 语言选择 -->
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center" Margin="0,10,0,0">
+                        <TextBlock Text="从" VerticalAlignment="Center" Margin="0,0,5,0"
+                                   Foreground="{StaticResource DarkGray}" FontSize="14"/>
+                        <ComboBox x:Name="ImageSourceLang" Width="100" SelectedIndex="0"
+                                  Style="{StaticResource {x:Type ComboBox}}">
+                            <ComboBoxItem Content="自动检测" Tag="auto"/>
+                            <ComboBoxItem Content="中文" Tag="zh"/>
+                            <ComboBoxItem Content="英语" Tag="en"/>
+                            <ComboBoxItem Content="日语" Tag="jp"/>
+                            <ComboBoxItem Content="韩语" Tag="kor"/>
+                        </ComboBox>
+                        <TextBlock Text="翻译到" VerticalAlignment="Center" Margin="10,0,5,0"
+                                   Foreground="{StaticResource DarkGray}" FontSize="14"/>
+                        <ComboBox x:Name="ImageTargetLang" Width="100" SelectedIndex="1"
+                                  Style="{StaticResource {x:Type ComboBox}}">
+                            <ComboBoxItem Content="中文" Tag="zh"/>
+                            <ComboBoxItem Content="英语" Tag="en"/>
+                            <ComboBoxItem Content="日语" Tag="jp"/>
+                            <ComboBoxItem Content="韩语" Tag="kor"/>
+                        </ComboBox>
+                        <Button Content="翻译" Width="80" Margin="10,0" Click="TranslateImage_Click"
+                                Style="{StaticResource RoundButton}"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Page>

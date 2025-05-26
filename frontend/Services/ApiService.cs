@@ -1,6 +1,7 @@
-﻿using ModernWpf.Controls;
+﻿using ModernWPF.Controls;
 using Newtonsoft.Json;
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +21,15 @@ namespace frontend.Services
             _httpClient.BaseAddress = new Uri(BaseUrl);
         }
 
+        /* 保持原有的Login方法完全不变 */
         public async Task<ApiResponse<AuthToken>> Login(string username, string password)
         {
-
             try
             {
                 var request = new { Username = username, Password = password };
                 var content = new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json");
 
                 Console.Out.WriteLine("测试1");
-
 
                 var response = await _httpClient.PostAsync("login", content);
                 var responseString = await response.Content.ReadAsStringAsync();
@@ -40,8 +40,7 @@ namespace frontend.Services
 
                 Console.Out.WriteLine(result.Data.Token);
 
-
-                if (result.Success && result.Data!=null)
+                if (result.Success && result.Data != null)
                 {
                     // 存储 token
                     Properties.Settings.Default.AuthToken = result.Data.Token;
@@ -63,6 +62,7 @@ namespace frontend.Services
             }
         }
 
+        /* 保持原有的Register方法完全不变 */
         public async Task<ApiResponse<AuthToken>> Register(string username, string email, string password)
         {
             try
@@ -93,5 +93,7 @@ namespace frontend.Services
                 };
             }
         }
+
+        
     }
 }

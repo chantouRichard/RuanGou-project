@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "frontend/1.0.0": {
         "dependencies": {
+          "CommonWin32": "2.1.0.3",
           "CommunityToolkit.Mvvm": "8.4.0",
           "HandyControl": "3.5.1",
           "Microsoft.Extensions.Hosting": "9.0.4",

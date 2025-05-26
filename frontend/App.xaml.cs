@@ -1,20 +1,21 @@
 ﻿using frontend.Controls;
-using frontend.ViewModels;
-using System;
-using System.IO;
-using System.Reflection.Metadata;
-using System.Windows;
-using System.Windows.Threading;
 using frontend.Controls.Contracts;
+using frontend.Models;
+using frontend.Services;
+using frontend.ViewModels;
+using frontend.Views;
+using frontend.Views.Pages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Extensions.Hosting; // 提供 UseSerilog()
+using System;
+using System.IO;
 using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
-using frontend.Views.Pages;
-using frontend.Views;
-using frontend.Models;
+using System.Reflection.Metadata;
+using System.Windows;
+using System.Windows.Threading;
 
 namespace frontend
 {
@@ -71,6 +72,8 @@ namespace frontend
             services.AddSingleton<SettingViewModel>();
             services.AddSingleton<QuickLaunchPage>();
             services.AddSingleton<QuickLaunchViewModel>();
+            // 在 ConfigureServices 方法中添加：
+            services.AddHttpClient<ITranslationService, TranslationService>();
 
             // Business Services
             //services.AddTransient<IWorkService, ClientWorkService>();

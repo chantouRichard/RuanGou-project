@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,8 +7,92 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\ImageRecognitionController.cs" />
+    <Compile Remove="Models\AccessTokenResponse.cs" />
+    <Compile Remove="Models\AssemblyInfo.cs" />
+    <Compile Remove="Models\TextTranslationRequest.cs" />
+    <Compile Remove="Models\TranslationRecord.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net8.0\backend.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net8.0\backend.GlobalUsings.g.cs" />
+    <Compile Include="obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net8.0\appsettings.Development.json" />
+    <Content Include="bin\Debug\net8.0\appsettings.json" />
+    <Content Include="bin\Debug\net8.0\backend.deps.json" />
+    <Content Include="bin\Debug\net8.0\backend.runtimeconfig.json" />
+    <Content Include="bin\Debug\net8.0\backend.staticwebassets.endpoints.json" />
+    <Content Include="obj\backend.csproj.nuget.dgspec.json" />
+    <Content Include="obj\Debug\net8.0\ApiEndpoints.json" />
+    <Content Include="obj\Debug\net8.0\backend.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\net8.0\backend.sourcelink.json" />
+    <Content Include="obj\Debug\net8.0\EndpointInfo\backend.json" />
+    <Content Include="obj\Debug\net8.0\rbcswa.dswa.cache.json" />
+    <Content Include="obj\Debug\net8.0\rjsmcshtml.dswa.cache.json" />
+    <Content Include="obj\Debug\net8.0\rjsmrazor.dswa.cache.json" />
+    <Content Include="obj\Debug\net8.0\rpswa.dswa.cache.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.build.endpoints.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.build.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.references.upToDateCheck.txt" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.removed.txt" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\Swagger\" />
+    <Folder Include="obj\Debug\net8.0\staticwebassets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\backend.dll" />
+    <None Include="bin\Debug\net8.0\backend.exe" />
+    <None Include="bin\Debug\net8.0\backend.pdb" />
+    <None Include="bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.Logging.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Debug\net8.0\Microsoft.OpenApi.dll" />
+    <None Include="bin\Debug\net8.0\MySqlConnector.dll" />
+    <None Include="bin\Debug\net8.0\Newtonsoft.Json.dll" />
+    <None Include="bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll" />
+    <None Include="bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll" />
+    <None Include="bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll" />
+    <None Include="bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll" />
+    <None Include="obj\backend.csproj.nuget.g.props" />
+    <None Include="obj\backend.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\net8.0\apphost.exe" />
+    <None Include="obj\Debug\net8.0\backend.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net8.0\backend.assets.cache" />
+    <None Include="obj\Debug\net8.0\backend.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net8.0\backend.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net8.0\backend.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net8.0\backend.csproj.Up2Date" />
+    <None Include="obj\Debug\net8.0\backend.dll" />
+    <None Include="obj\Debug\net8.0\backend.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net8.0\backend.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="obj\Debug\net8.0\backend.pdb" />
+    <None Include="obj\Debug\net8.0\EndpointInfo\backend.OpenApiFiles.cache" />
+    <None Include="obj\Debug\net8.0\refint\backend.dll" />
+    <None Include="obj\Debug\net8.0\ref\backend.dll" />
+    <None Include="obj\Debug\net8.0\staticwebassets.build.json.cache" />
+    <None Include="obj\project.nuget.cache" />
   </ItemGroup>
 
 </Project>

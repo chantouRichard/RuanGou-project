@@ -1,9 +1,7 @@
 ﻿using frontend.Services;
-using ModernWpf.Controls;
 using System;
 using System.Windows;
 //using System.Windows.Forms;
-using frontend.Services;
 using frontend.Views;
 using frontend.ViewModels;
 using Microsoft.Extensions.Hosting;
