@@ -1,6 +1,7 @@
-﻿using ModernWpf.Controls;
+﻿using ModernWPF.Controls;
 using Newtonsoft.Json;
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,7 +26,6 @@ namespace frontend.Services
         #region 登录注册相关方法
         public async Task<ApiResponse<AuthToken>> Login(string username, string password)
         {
-
             try
             {
                 var request = new { Username = username, Password = password };
@@ -34,7 +34,7 @@ namespace frontend.Services
                 Console.Out.WriteLine("测试1");
 
 
-                var response = await _httpClient.PostAsync("auth/login", content);
+                var response = await _httpClient.PostAsync("login", content);
                 var responseString = await response.Content.ReadAsStringAsync();
 
                 Console.Out.WriteLine("测试2");
@@ -67,6 +67,7 @@ namespace frontend.Services
             }
         }
 
+        /* 保持原有的Register方法完全不变 */
         public async Task<ApiResponse<AuthToken>> Register(string username, string email, string password)
         {
             try

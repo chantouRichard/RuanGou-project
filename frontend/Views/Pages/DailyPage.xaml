@@ -1,14 +1,151 @@
 ﻿<Page x:Class="frontend.Views.Pages.DailyPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:frontend.Views.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="DailyPage">
+      xmlns:convert="clr-namespace:frontend.Controls.Converters"
+      Title="每日助手" 
+      Background="{DynamicResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <convert:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
-    <Grid>
-        <TextBlock FontSize="28" Text="天气预报和节假日页面"></TextBlock>
+        <!-- 图标资源 -->
+        <PathGeometry x:Key="WeatherIcon" Figures="M12,2 L14,5 L17,5 L15,8 L17,11 L14,11 L12,14 L10,11 L7,11 L9,8 L7,5 L10,5 Z"/>
+        <PathGeometry x:Key="SearchIcon" Figures="M15.5,14h-0.79l-0.28-0.27C15.41,12.59,16,11.11,16,9.5 C16,5.91,13.09,3,9.5,3S3,5.91,3,9.5S5.91,16,9.5,16c1.61,0,3.09-0.59,4.23-1.57l0.27,0.28v0.79l5,4.99L20.49,19L15.5,14z M9.5,14 C7.01,14,5,11.99,5,9.5S7.01,5,9.5,5S14,7.01,14,9.5S11.99,14,9.5,14z"/>
+
+        <!-- 颜色资源 -->
+        <SolidColorBrush x:Key="PrimaryBlue" Color="#FF4285F4"/>
+        <SolidColorBrush x:Key="LightGray" Color="#FFE0E0E0"/>
+        <SolidColorBrush x:Key="DarkGray" Color="#FF333333"/>
+        <SolidColorBrush x:Key="MediumGray" Color="#FF666666"/>
+        <SolidColorBrush x:Key="PlaceholderGray" Color="#FF999999"/>
+
+        <!-- 圆角按钮样式 -->
+        <Style x:Key="RoundCornerButton" TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="4"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF3367D6"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#FF2A56B5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid Margin="20">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFF5F5F5" Offset="0"/>
+                <GradientStop Color="#FFE8F0FE" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Border CornerRadius="8" Background="White" Padding="0">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.1"/>
+            </Border.Effect>
+
+            <StackPanel Margin="15">
+                <!-- 天气预报模块 -->
+                <Border BorderBrush="{StaticResource LightGray}" 
+                        BorderThickness="1" 
+                        CornerRadius="8" 
+                        Padding="15" 
+                        Margin="0,0,0,20"
+                        Background="#FFF9F9F9"
+                        x:Name="WeatherBorder">
+                    <StackPanel>
+                        <!-- 标题带图标 -->
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                            <Path Data="{StaticResource WeatherIcon}" 
+                                  Fill="{StaticResource PrimaryBlue}" 
+                                  Stretch="Uniform"
+                                  Width="20" Height="20"
+                                  Margin="0,0,8,0"/>
+                            <TextBlock Text="天气预报" 
+                                       FontSize="18" 
+                                       FontWeight="Bold"
+                                       Foreground="{StaticResource PrimaryBlue}"/>
+                        </StackPanel>
+
+                        <!-- 城市输入框 -->
+                        <Border BorderBrush="{StaticResource LightGray}" 
+                                BorderThickness="1" 
+                                CornerRadius="4" 
+                                Padding="5" 
+                                Margin="0,0,0,10" 
+                                Width="250"
+                                Background="White">
+                            <Grid>
+                                <TextBox x:Name="CityTextBox" 
+                                         BorderThickness="0"
+                                         Background="Transparent"
+                                         VerticalAlignment="Center"
+                                         Padding="5,0"
+                                         TextWrapping="NoWrap"
+                                         Foreground="{StaticResource DarkGray}"/>
+                                <TextBlock Text="输入城市名称" 
+                                           Foreground="{StaticResource PlaceholderGray}" 
+                                           Margin="5,0"
+                                           VerticalAlignment="Center"
+                                           IsHitTestVisible="False"
+                                           Visibility="{Binding ElementName=CityTextBox, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            </Grid>
+                        </Border>
+
+                        <!-- 查询按钮 -->
+                        <Button Content="查询天气" 
+                                Click="GetWeather_Click" 
+                                Width="120" 
+                                HorizontalAlignment="Left"
+                                Style="{StaticResource RoundCornerButton}">
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="4" ShadowDepth="2" Opacity="0.2"/>
+                            </Button.Effect>
+                        </Button>
+
+                        <!-- 天气信息显示区域 -->
+                        <StackPanel x:Name="WeatherPanel" Margin="0,15" Visibility="Collapsed">
+                            <TextBlock x:Name="CityText" 
+                                       FontSize="16" 
+                                       FontWeight="Bold"
+                                       Foreground="{StaticResource DarkGray}"/>
+
+                            <StackPanel Orientation="Horizontal" Margin="0,5">
+                                <Path Data="{StaticResource WeatherIcon}" 
+                                      Fill="{StaticResource PrimaryBlue}" 
+                                      Stretch="Uniform"
+                                      Width="16" Height="16"
+                                      Margin="0,0,5,0"/>
+                                <TextBlock x:Name="WeatherText" Foreground="{StaticResource MediumGray}"/>
+                            </StackPanel>
+
+                            <TextBlock x:Name="TempText" Margin="0,5" Foreground="{StaticResource MediumGray}"/>
+                            <TextBlock x:Name="WindText" Margin="0,5" Foreground="{StaticResource MediumGray}"/>
+                            <TextBlock x:Name="HumidityText" Margin="0,5" Foreground="{StaticResource MediumGray}"/>
+                            <TextBlock x:Name="TimeText" FontStyle="Italic" Foreground="{StaticResource PlaceholderGray}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
