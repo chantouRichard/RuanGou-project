@@ -1,52 +1,330 @@
-﻿<Window x:Class="frontend.Views.FloatingWindow"
+﻿<Window x:Class="frontend.Views.Windows.FloatingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="FloatingWidget" 
-        Height="120" Width="280"
-        WindowStyle="None" 
+        Title="悬浮助手"
+        Width="320"
+        Height="460"
+        WindowStyle="None"
         AllowsTransparency="True"
-        Background="Transparent" 
+        Background="Transparent"
         Topmost="True"
-        ResizeMode="NoResize">
+        MouseDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen">
 
-    <!-- 圆角外层容器 -->
-    <Border CornerRadius="25">
-        <!-- 线性渐变背景 -->
-        <Border.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#FF4A90E2" Offset="0"/>
-                <!-- 蓝色 -->
-                <GradientStop Color="#FFEA4695" Offset="1"/>
-                <!-- 粉紫 -->
-            </LinearGradientBrush>
-        </Border.Background>
+    <Window.Resources>
+        <Storyboard x:Key="FadeInAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:0.3"/>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" From="0.95" To="1" Duration="0:0:0.3">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase EasingMode="EaseOut" Amplitude="0.2"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" From="0.95" To="1" Duration="0:0:0.3">
+                <DoubleAnimation.EasingFunction>
+                    <BackEase EasingMode="EaseOut" Amplitude="0.2"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
 
-        <Grid>
-            <!-- 标题栏，用于拖动窗口 -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+        <Style x:Key="CoolIconButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="52" />
+            <Setter Property="Height" Value="52" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="#555555" />
+            <Setter Property="BorderBrush" Value="#E0E0E0" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="26">
+                            <TextBlock Text="{TemplateBinding Content}"
+                                       FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" FontSize="{TemplateBinding FontSize}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       RenderTransformOrigin="0.5,0.5">
+                                <TextBlock.RenderTransform>
+                                    <ScaleTransform x:Name="iconScale" ScaleX="1" ScaleY="1"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#F0F0F0" />
+                                <Setter TargetName="border" Property="BorderBrush" Value="#CCCCCC" />
+                                <Setter Property="Foreground" Value="#333333"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#E0E0E0" />
+                                <Setter Property="Foreground" Value="#000000"/>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="iconScale" Storyboard.TargetProperty="ScaleX" To="0.85" Duration="0:0:0.1"/>
+                                            <DoubleAnimation Storyboard.TargetName="iconScale" Storyboard.TargetProperty="ScaleY" To="0.85" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="iconScale" Storyboard.TargetProperty="ScaleX" To="1" Duration="0:0:0.1"/>
+                                            <DoubleAnimation Storyboard.TargetName="iconScale" Storyboard.TargetProperty="ScaleY" To="1" Duration="0:0:0.1"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-            <!-- 悬浮内容区域 -->
-            <ContentControl Grid.Row="0" Content="📌 待办提醒" 
-                            HorizontalAlignment="Left" VerticalAlignment="Center"
-                            Margin="10,0,0,0"
-                            Foreground="White"
-                            FontSize="16"/>
+        <Style x:Key="CoolPrimaryButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#0078D4" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}"
+                                CornerRadius="6"
+                                SnapsToDevicePixels="True">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.85" Duration="0:0:0.15" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.7" Duration="0:0:0.05" />
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contentPresenter" Storyboard.TargetProperty="RenderTransform">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <ScaleTransform ScaleX="0.98" ScaleY="0.98"/>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="border"
+                                                             Storyboard.TargetProperty="Opacity"
+                                                             To="0.5" Duration="0:0:0.15" />
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter x:Name="contentPresenter"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              TextElement.Foreground="{TemplateBinding Foreground}"
+                                              RenderTransformOrigin="0.5,0.5">
+                                <ContentPresenter.RenderTransform>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </ContentPresenter.RenderTransform>
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
-            <!-- 图钉按钮 -->
-            <Button x:Name="btnPin" 
-                    Content="📌" 
-                    Click="TogglePin"
-                    Width="30" Height="30" 
-                    Background="Transparent"
-                    Foreground="White"
-                    HorizontalAlignment="Right" 
-                    VerticalAlignment="Top"
-                    BorderThickness="0"
-                    Padding="0"
-                    Margin="0,-5,0,0"/>
-        </Grid>
+    </Window.Resources>
+
+    <Border x:Name="MainBorder"
+            CornerRadius="16"
+            Background="#FAFAFA"
+            BorderBrush="#D0D0D0"
+            BorderThickness="1"
+            Padding="16"
+            SnapsToDevicePixels="True">
+        <Border.Effect>
+            <DropShadowEffect Color="#AAAAAA" BlurRadius="15" ShadowDepth="1" Opacity="0.5" />
+        </Border.Effect>
+        <Border.RenderTransform>
+            <ScaleTransform ScaleX="1" ScaleY="1" CenterX="160" CenterY="230"/>
+        </Border.RenderTransform>
+        <Border.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard Storyboard="{StaticResource FadeInAnimation}"/>
+            </EventTrigger>
+        </Border.Triggers>
+
+        <StackPanel>
+
+            <Grid Margin="0,0,0,16">
+                <TextBlock Text="悬浮助手(Ctrl+K唤醒/关闭)"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           VerticalAlignment="Center"
+                           Foreground="#333333"/>
+            </Grid>
+
+            <UniformGrid Columns="3" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <Button Style="{StaticResource CoolIconButtonStyle}"
+                        Content="&#xE7E8;"  ToolTip="关机"
+                        Click="Shutdown_Click" />
+                <Button Style="{StaticResource CoolIconButtonStyle}"
+                        Content="&#xE777;"  ToolTip="重启"
+                        Click="Restart_Click" />
+                <Button Style="{StaticResource CoolIconButtonStyle}"
+                        Content="&#xE708;"  ToolTip="待机"
+                        Click="Sleep_Click" />
+            </UniformGrid>
+
+            <Border Height="1" Background="#E0E0E0" Margin="0,0,0,16" SnapsToDevicePixels="True"/>
+
+            <TextBlock Text="我的快捷方式" FontSize="12" FontWeight="Normal" Foreground="#777777" Margin="0,0,0,8"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" MaxHeight="180">
+                <ItemsControl x:Name="ShortcutsPanel" ItemsSource="{Binding}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border x:Name="shortcutItemBorder" Margin="0,2,0,6">
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="8"/>
+                                        <Setter Property="Background" Value="#F9F9F9"/>
+                                        <Setter Property="Padding" Value="8,10"/>
+                                        <Setter Property="BorderThickness" Value="1"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#F0F0F0"/>
+                                                <Setter Property="BorderBrush" Value="#C0C0C0"/>
+                                                <Setter Property="Effect">
+                                                    <Setter.Value>
+                                                        <DropShadowEffect ShadowDepth="1" BlurRadius="4" Opacity="0.15" Color="#666666"/>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button Content="{Binding Name}"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="#444444"
+                                            Background="Transparent"
+                                            BorderThickness="0"
+                                            Cursor="Hand"
+                                            Tag="{Binding}" 
+                                            Click="ShortcutButton_Click"
+                                            HorizontalAlignment="Left">
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <ContentPresenter/>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Foreground" Value="#0078D4"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+
+                                    <Button Grid.Column="1"
+                                            Content="&#xE74D;" FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                                            FontSize="14"
+                                            Width="28"
+                                            Height="28"
+                                            Margin="8,0,0,0"
+                                            Background="Transparent"
+                                            Foreground="#AAAAAA"
+                                            BorderThickness="0"
+                                            Cursor="Hand"
+                                            ToolTip="删除"
+                                            Click="RemoveShortcut_Click"
+                                            Tag="{Binding}">
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <Border Background="{TemplateBinding Background}" CornerRadius="14">
+                                                                <TextBlock Text="{TemplateBinding Content}"
+                                                                           FontFamily="{TemplateBinding FontFamily}"
+                                                                           FontSize="{TemplateBinding FontSize}"
+                                                                           Foreground="{TemplateBinding Foreground}"
+                                                                           HorizontalAlignment="Center"
+                                                                           VerticalAlignment="Center"/>
+                                                            </Border>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Background" Value="#FFE0E0" />
+                                                        <Setter Property="Foreground" Value="#D32F2F" />
+                                                    </Trigger>
+                                                    <Trigger Property="IsPressed" Value="True">
+                                                        <Setter Property="Background" Value="#FFCDCD" />
+                                                        <Setter Property="Foreground" Value="#B71C1C" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+
+            <Button Content="&#xE710; " FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
+                    Style="{StaticResource CoolPrimaryButtonStyle}"
+                    Margin="0,16,0,0"
+                    Height="40"
+                    Click="AddShortcut_Click" />
+        </StackPanel>
     </Border>
 </Window>

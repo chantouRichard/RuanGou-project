@@ -29,7 +29,11 @@ namespace backend.Services
 
             var token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
 
-            var Data = new AuthResponse();
+            var Data = new AuthResponse
+            {
+                Token = token,
+                userId = user.Id // ✅ 这里设置 userId
+            };
 
             Data.Token = token;
             return new ApiResponse<AuthResponse> { Success = true, Data = Data, Message = "Login successful" };
@@ -60,9 +64,11 @@ namespace backend.Services
 
             var token = Convert.ToBase64String(Guid.NewGuid().ToByteArray());
 
-            var Data = new AuthResponse();
-
-            Data.Token = token;
+            var Data = new AuthResponse
+            {
+                Token = token,
+                userId = user.Id // ✅ 这里设置 userId
+            };
             return new ApiResponse<AuthResponse> { Success = true, Data = Data, Message = "Registration successful" };
         }
 

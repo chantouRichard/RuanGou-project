@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "BCrypt.Net-Next/4.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "CommonWin32/2.1.0.3": {
         "type": "package",
         "compile": {
@@ -1155,6 +1168,38 @@
           }
         }
       },
+      "NHotkey/3.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/NHotkey.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/NHotkey.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "NHotkey.Wpf/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NHotkey": "3.0.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/NHotkey.Wpf.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/NHotkey.Wpf.dll": {
+            "related": ".pdb"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
       "Ookii.Dialogs.Wpf/5.0.1": {
         "type": "package",
         "compile": {
@@ -1383,6 +1428,37 @@
     }
   },
   "libraries": {
+    "BCrypt.Net-Next/4.0.3": {
+      "sha512": "W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "type": "package",
+      "path": "bcrypt.net-next/4.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bcrypt.net-next.4.0.3.nupkg.sha512",
+        "bcrypt.net-next.nuspec",
+        "ico.png",
+        "lib/net20/BCrypt.Net-Next.dll",
+        "lib/net20/BCrypt.Net-Next.xml",
+        "lib/net35/BCrypt.Net-Next.dll",
+        "lib/net35/BCrypt.Net-Next.xml",
+        "lib/net462/BCrypt.Net-Next.dll",
+        "lib/net462/BCrypt.Net-Next.xml",
+        "lib/net472/BCrypt.Net-Next.dll",
+        "lib/net472/BCrypt.Net-Next.xml",
+        "lib/net48/BCrypt.Net-Next.dll",
+        "lib/net48/BCrypt.Net-Next.xml",
+        "lib/net5.0/BCrypt.Net-Next.dll",
+        "lib/net5.0/BCrypt.Net-Next.xml",
+        "lib/net6.0/BCrypt.Net-Next.dll",
+        "lib/net6.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.0/BCrypt.Net-Next.dll",
+        "lib/netstandard2.0/BCrypt.Net-Next.xml",
+        "lib/netstandard2.1/BCrypt.Net-Next.dll",
+        "lib/netstandard2.1/BCrypt.Net-Next.xml",
+        "readme.md"
+      ]
+    },
     "CommonWin32/2.1.0.3": {
       "sha512": "yNA2Udhv3SNzoHAjZXPW04LLQLIr652RWTN5oMHeDTcq5ml92tYMaJaZiwqIdLMWd6CXfLv5VQ+EAMMKeE4iJw==",
       "type": "package",
@@ -3031,6 +3107,36 @@
         "packageIcon.png"
       ]
     },
+    "NHotkey/3.0.0": {
+      "sha512": "IEghs0QqWsQYH0uUmvIl0Ye6RaebWRh38eB6ToOkDnQucTYRGFOgtig0gSxlwCszTilYFz3n1ZuY762x+kDR3A==",
+      "type": "package",
+      "path": "nhotkey/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/NHotkey.dll",
+        "lib/net462/NHotkey.pdb",
+        "lib/net6.0-windows7.0/NHotkey.dll",
+        "lib/net6.0-windows7.0/NHotkey.pdb",
+        "nhotkey.3.0.0.nupkg.sha512",
+        "nhotkey.nuspec"
+      ]
+    },
+    "NHotkey.Wpf/3.0.0": {
+      "sha512": "BIUKlhTG5KtFf9OQzWvkmVmktt5/FFj6AOEgag8Uf0R2YdZt5ajUzs3sVskcJcT2TztWlEHKQr1jFj3KQ0D9Nw==",
+      "type": "package",
+      "path": "nhotkey.wpf/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/NHotkey.Wpf.dll",
+        "lib/net462/NHotkey.Wpf.pdb",
+        "lib/net6.0-windows7.0/NHotkey.Wpf.dll",
+        "lib/net6.0-windows7.0/NHotkey.Wpf.pdb",
+        "nhotkey.wpf.3.0.0.nupkg.sha512",
+        "nhotkey.wpf.nuspec"
+      ]
+    },
     "Ookii.Dialogs.Wpf/5.0.1": {
       "sha512": "iZNnZwqTpK0cfR0vkotncP1c025/PHlIdzc7iEKBYwhVv1V0zXp9/RT/O0kMhsmlwXqRxxbE4pdhfinbJXtjPg==",
       "type": "package",
@@ -3409,6 +3515,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "BCrypt.Net-Next >= 4.0.3",
       "CommonWin32 >= 2.1.0.3",
       "CommunityToolkit.Mvvm >= 8.4.0",
       "HandyControl >= 3.5.1",
@@ -3417,6 +3524,7 @@
       "Microsoft.Xaml.Behaviors.Wpf >= 1.1.135",
       "ModernWPF >= 1.4.6",
       "ModernWpfUI >= 0.9.6",
+      "NHotkey.Wpf >= 3.0.0",
       "Newtonsoft.Json >= 13.0.3",
       "Ookii.Dialogs.Wpf >= 5.0.1",
       "Serilog >= 4.2.0",
@@ -3479,6 +3587,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "BCrypt.Net-Next": {
+            "target": "Package",
+            "version": "[4.0.3, )"
+          },
           "CommonWin32": {
             "target": "Package",
             "version": "[2.1.0.3, )"
@@ -3510,6 +3622,10 @@
           "ModernWpfUI": {
             "target": "Package",
             "version": "[0.9.6, )"
+          },
+          "NHotkey.Wpf": {
+            "target": "Package",
+            "version": "[3.0.0, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",

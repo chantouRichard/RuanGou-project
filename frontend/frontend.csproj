@@ -29,6 +29,8 @@
     <None Remove="Assets\Avatar\avatar6.png" />
     <None Remove="Assets\cloud.png" />
     <None Remove="Assets\icon.ico" />
+    <None Remove="Assets\test.jpg" />
+    <None Remove="Assets\welcome.png" />
     <None Remove="Styles\Fonts\FluentSystemIcons-Filled.ttf" />
     <None Remove="Styles\Fonts\FluentSystemIcons-Regular.ttf" />
   </ItemGroup>
@@ -45,6 +47,8 @@
     <Resource Include="Assets\Avatar\avatar6.png" />
     <Resource Include="Assets\cloud.png" />
     <Resource Include="Assets\icon.ico" />
+    <Resource Include="Assets\test.jpg" />
+    <Resource Include="Assets\welcome.png" />
     <Resource Include="Styles\Fonts\FluentSystemIcons-Filled.ttf" />
     <Resource Include="Styles\Fonts\FluentSystemIcons-Regular.ttf" />
   </ItemGroup>
@@ -55,10 +59,10 @@
 
   <ItemGroup>
     <Folder Include="Styles\" />
-    <Folder Include="Assets\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="HandyControl" Version="3.5.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
@@ -67,6 +71,7 @@
 	<PackageReference Include="ModernWPF" Version="1.4.6" />
 	<PackageReference Include="ModernWpfUI" Version="0.9.6" />
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	<PackageReference Include="NHotkey.Wpf" Version="3.0.0" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
     <PackageReference Include="Serilog" Version="4.2.0" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="9.0.0" />

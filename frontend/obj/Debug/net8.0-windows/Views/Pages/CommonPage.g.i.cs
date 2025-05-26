@@ -21,6 +21,7 @@ using HandyControl.Themes;
 using HandyControl.Tools;
 using HandyControl.Tools.Converter;
 using HandyControl.Tools.Extension;
+using NHotkey.Wpf;
 using System;
 using System.Diagnostics;
 using System.Windows;

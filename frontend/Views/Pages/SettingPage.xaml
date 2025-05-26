@@ -3,9 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:vm="clr-namespace:frontend.ViewModels"
+    xmlns:lc="clr-namespace:frontend.Controls"
+    xmlns:local="clr-namespace:frontend"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
     mc:Ignorable="d"
     d:DataContext="{d:DesignInstance vm:SettingViewModel}">
     <Grid Margin="20">
@@ -40,6 +42,9 @@
                 Margin="0,30,0,0" 
                 Width="100" 
                 HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel>
+            <Button Content="Upload Image" Click="OnUploadImageClick" />
         </StackPanel>
     </Grid>
 </UserControl>

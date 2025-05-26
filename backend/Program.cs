@@ -28,6 +28,7 @@ builder.Services.ConfigureSession();
 
 // Register services
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITodoService, TodoService>();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<ICityCodeService, CityCodeService>();
 // 注册 TranslationService
@@ -38,7 +39,7 @@ builder.Services.AddHttpClient<ITranslationService, TranslationService>(client =
     client.Timeout = TimeSpan.FromSeconds(30);
 });
 builder.Services.AddScoped<ITranslationService, TranslationService>();
-  
+
 
 // 添加数据库上下文
 builder.Services.AddDbContext<AppDbContext>(options =>

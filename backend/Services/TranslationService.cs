@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using backend.Models;
+using System.Net.Http.Headers;
 
 namespace backend.Services
 {
@@ -68,37 +69,98 @@ namespace backend.Services
             }
         }
 
-        public async Task<ImageTranslationResult> ImageTranslateAsync(byte[] imageBytes, string from, string to,int v)
+        public async Task<ImageTranslationResult> ImageTranslateAsync(byte[] imageBytes, string from, string to, int v)
         {
+            const string boundary = "----BaiduPictransBoundary";
             try
             {
+                // 1. 获取Token
                 var token = await GetValidAccessTokenAsync();
-                using var content = new MultipartFormDataContent();
 
-                content.Add(new ByteArrayContent(imageBytes), "image", "image.png");
+                // 2. 构建Multipart请求
+                using var content = new MultipartFormDataContent(boundary);
+
+                // 图片部分（关键修正）
+                var imageContent = new ByteArrayContent(imageBytes);
+                imageContent.Headers.ContentType = MediaTypeHeaderValue.Parse(GetImageMimeType(imageBytes));
+                content.Add(imageContent, "image", "translation_image.png");
+
+                // 文本参数（保持小写字段名）
                 content.Add(new StringContent(from.ToLower()), "from");
                 content.Add(new StringContent(to.ToLower()), "to");
-                content.Add(new StringContent(v.ToString()), "v"); // 固定值v=3
+                content.Add(new StringContent(v.ToString()), "v");
+                // ============= 调试输出开始 =============
+                Console.WriteLine("\n=== MultipartContent 详细信息 ===");
+                Console.WriteLine($"Boundary: {content.Headers.ContentType?.Parameters.FirstOrDefault(p => p.Name == "boundary")?.Value}");
+                Console.WriteLine($"Content-Type: {content.Headers.ContentType}");
 
-                var response = await _httpClient.PostAsync(
+                foreach (var part in content)
+                {
+                    Console.WriteLine($"\n-- Part: {part.Headers.ContentDisposition?.Name} --");
+                    Console.WriteLine($"Headers: {string.Join("; ", part.Headers.Select(h => $"{h.Key}={string.Join(",", h.Value)}"))}");
+
+                    if (part is StringContent stringPart)
+                    {
+                        Console.WriteLine($"String Content: {await stringPart.ReadAsStringAsync()}");
+                    }
+                    else if (part is ByteArrayContent bytePart)
+                    {
+                        var bytes = await bytePart.ReadAsByteArrayAsync();
+                        Console.WriteLine($"Byte Length: {bytes.Length}");
+                        Console.WriteLine($"Hex Preview: {BitConverter.ToString(bytes.Take(32).ToArray())}...");
+                    }
+                }
+                // ============= 调试输出结束 =============
+                // 3. 配置HttpClient
+                using var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Accept.Clear();
+                httpClient.Timeout = TimeSpan.FromSeconds(30);
+
+                // 4. 发送请求
+                var response = await httpClient.PostAsync(
                     $"{ImageTranslateUrl}?access_token={token}",
                     content);
 
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                if (!response.IsSuccessStatusCode)
+                // 5. 处理响应（严格匹配您的ImageTranslationResult结构）
+                var result = JsonConvert.DeserializeObject<ImageTranslationResult>(responseContent);
+
+                if (!response.IsSuccessStatusCode || !string.IsNullOrEmpty(result.ErrorCode))
                 {
-                    throw new Exception($"请求失败: {response.StatusCode}\n{responseContent}");
+                    throw new Exception($"翻译失败{(result.ErrorCode != null ? $"[{result.ErrorCode}]" : "")}: {result.ErrorMsg ?? "未知错误"}");
                 }
 
-                return JsonConvert.DeserializeObject<ImageTranslationResult>(responseContent);
+                return result;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"图片翻译异常: {ex}");
-                throw;
+                Console.WriteLine($"图片翻译错误: {ex.Message}\n{ex.StackTrace}");
+                throw new Exception("图片翻译服务暂时不可用", ex);
             }
         }
+
+        private string GetImageMimeType(byte[] imageBytes)
+        {
+            // PNG检测
+            if (imageBytes.Length > 8 &&
+                imageBytes[0] == 0x89 &&
+                imageBytes[1] == 0x50 &&
+                imageBytes[2] == 0x4E &&
+                imageBytes[3] == 0x47)
+            {
+                return "image/png";
+            }
+            // JPEG检测
+            if (imageBytes.Length > 2 &&
+                imageBytes[0] == 0xFF &&
+                imageBytes[1] == 0xD8)
+            {
+                return "image/jpeg";
+            }
+            throw new ArgumentException("不支持的图片格式，仅接受PNG或JPEG");
+        }
+
 
         private async Task<string> GetValidAccessTokenAsync()
         {

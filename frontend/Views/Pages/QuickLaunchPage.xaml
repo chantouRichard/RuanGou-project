@@ -4,10 +4,90 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:frontend.Views.Pages"
-      xmlns:vm="clr-namespace:frontend.ViewModels"
+      xmlns:vm="clr-namespace:frontend.ViewModels" d:DataContext="{d:DesignInstance Type=vm:QuickLaunchViewModel}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="QuickLaunchPage">
+      Title="QuickLaunchPage"
+      FontFamily="Microsoft YaHei" FontSize="14" Background="#FFF0F2F5">
+
+    <Page.Resources>
+        <!-- 卡片式容器样式 -->
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Margin" Value="0,0,0,20"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="#22000000" BlurRadius="8" ShadowDepth="2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 主题按钮样式 -->
+        <Style x:Key="AccentButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                                Background="#2196F3" BorderBrush="AliceBlue"
+                                CornerRadius="6"
+                                SnapsToDevicePixels="True">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#2196F3"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#2196F3"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="border" Property="Opacity" Value="0.6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 小型扁平按钮 -->
+        <Style x:Key="FlatButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#555"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#EEE"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#DDD"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="#AAA"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -17,93 +97,153 @@
         </Grid.RowDefinitions>
 
         <!-- 标题 -->
-        <TextBlock Grid.Row="0" FontSize="28" Text="程序快捷启动" Margin="0,0,0,20"/>
+        <TextBlock Grid.Row="0"
+                   Text="🚀 程序快捷启动"
+                   FontSize="32"
+                   FontWeight="Bold"
+                   Foreground="#2C3E50"
+                   Margin="0,0,0,24"/>
 
         <!-- 添加快捷方式面板 -->
-        <Grid Grid.Row="1" Margin="0,0,0,20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+        <Border Grid.Row="1" Style="{StaticResource CardStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="名称:" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding NewShortcutName, UpdateSourceTrigger=PropertyChanged}" Margin="0,5" Padding="5"/>
+                <TextBlock Grid.Row="0" Grid.Column="0"
+                           Text="名称：" VerticalAlignment="Center"
+                           Margin="0,0,8,0"/>
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="路径:" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding NewShortcutPath, UpdateSourceTrigger=PropertyChanged}" Margin="0,5" Padding="5"/>
-            <Button Grid.Row="1" Grid.Column="2" Content="浏览..." Command="{Binding BrowseFileCommand}" Margin="10,5,0,5" Padding="10,5"/>
+                <!-- 圆角边框包裹 TextBox -->
+                <Border Grid.Row="0" Grid.Column="1"
+                        CornerRadius="4"
+                        BorderBrush="#CCC"
+                        BorderThickness="1"
+                        Background="White">
+                    <TextBox Text="{Binding NewShortcutName, UpdateSourceTrigger=PropertyChanged}"
+                             Padding="6"
+                             Background="Transparent"
+                             BorderThickness="0"/>
+                </Border>
 
-            <Button Grid.Row="0" Grid.RowSpan="2" Grid.Column="3" Content="添加" Command="{Binding AddShortcutCommand}" Margin="10,5,0,5" Padding="20,5"/>
-        </Grid>
+                <TextBlock Grid.Row="1" Grid.Column="0"
+                           Text="路径：" VerticalAlignment="Center"
+                           Margin="0,0,8,0"/>
+
+                <!-- 同理包裹第二个 TextBox -->
+                <Border Grid.Row="1" Grid.Column="1"
+                        CornerRadius="4"
+                        BorderBrush="#CCC"
+                        BorderThickness="1"
+                        Background="White">
+                    <TextBox Text="{Binding NewShortcutPath, UpdateSourceTrigger=PropertyChanged}"
+                             Padding="6"
+                             Background="Transparent"
+                             BorderThickness="0"/>
+                </Border>
+
+                <Button Grid.Row="1" Grid.Column="2"
+                        Content="浏览…"
+                        Command="{Binding DataContext.BrowseFileCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                        Style="{StaticResource FlatButtonStyle}"
+                        Margin="8,0"/>
+
+                <Button Grid.Row="0" Grid.Column="3"
+                        Grid.RowSpan="2"
+                        Content="添加"
+                        Command="{Binding AddShortcutCommand}"
+                        Style="{StaticResource AccentButtonStyle}"
+                        Margin="10,0,0,0"/>
+            </Grid>
+        </Border>
 
         <!-- 快捷方式列表 -->
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
+        <Border Grid.Row="2" Style="{StaticResource CardStyle}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-            <ListView x:Name="ShortcutListView" Grid.Column="0" ItemsSource="{Binding Shortcuts}" 
-                      SelectedItem="{Binding SelectedShortcut}" BorderThickness="1" BorderBrush="#DDDDDD">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="图标" Width="40">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Image Source="{Binding IconPath}" Width="32" Height="32" Stretch="Uniform"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="名称" Width="150">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="路径" Width="300">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Path}" VerticalAlignment="Center"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="使用次数" Width="80">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding UseCount}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="创建时间" Width="150">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding CreateTime, StringFormat={}{0:yyyy-MM-dd HH:mm}}" VerticalAlignment="Center"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="操作" Width="80">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="启动" Command="{Binding DataContext.LaunchShortcutCommand, RelativeSource={RelativeSource AncestorType=ListView}}" 
-                                            CommandParameter="{Binding}" Padding="10,3"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
+                <ListView x:Name="ShortcutListView"
+                          ItemsSource="{Binding Shortcuts}"
+                          SelectedItem="{Binding SelectedShortcut}"
+                          Margin="0,0,8,0"
+                          BorderThickness="0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="图标" Width="60">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding IconPath}"
+                                               Width="32" Height="32"
+                                               Stretch="Uniform"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="名称" Width="150">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Name}"
+                                                   VerticalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="路径" Width="300">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Path}" 
+                                                   VerticalAlignment="Center" 
+                                                   TextTrimming="CharacterEllipsis"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="使用次数" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding UseCount}"
+                                                   HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="创建时间" Width="150">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding CreateTime, StringFormat=\{0:yyyy-MM-dd HH:mm\}}"
+                                                   HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="操作" Width="80">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="启动"
+                                                Command="{Binding DataContext.LaunchShortcutCommand, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                CommandParameter="{Binding}"
+                                                Style="{StaticResource AccentButtonStyle}"
+                                                Padding="6,2"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
 
-            <Button Grid.Column="1" Content="删除" 
-                    Command="{Binding RemoveShortcutCommand}" 
-                    IsEnabled="{Binding ElementName=ShortcutListView, Path=SelectedItem, Converter={StaticResource NullToBooleanConverter}}"
-                    Margin="10,0,0,0" Padding="10,5" VerticalAlignment="Top"/>
-        </Grid>
+                <Button Grid.Column="1"
+                        Content="删除"
+                        Command="{Binding RemoveShortcutCommand}"
+                        Style="{StaticResource AccentButtonStyle}"
+                        IsEnabled="{Binding SelectedShortcut, Converter={StaticResource NullToBooleanConverter}}"
+                        VerticalAlignment="Top" Padding="6,2"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

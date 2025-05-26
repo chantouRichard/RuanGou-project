@@ -23,10 +23,16 @@
     <Compile Update="Views\Pages\InfoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Pages\HotkeyBindingPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Pages\QuickLaunchPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Pages\SystemToolPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Pages\UserPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using frontend.Controls;
 using frontend.Models;
+using frontend.Views;
 using frontend.Views.Pages;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -41,7 +42,7 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 Content = "常用工具",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.WindowDevTools24 },
-                TargetPageType = typeof(CommonPage),
+                // TargetPageType = typeof(CommonPage),
                 MenuItems = new NavigationViewItem[]
                 {
                     new NavigationViewItem
@@ -63,7 +64,7 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 Content = "系统工具",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.DesktopArrowDown24},
-                TargetPageType = typeof(SystemToolPage),
+                // TargetPageType = typeof(SystemToolPage),
                 MenuItems = new NavigationViewItem[]
                 {
                     new NavigationViewItem
@@ -77,6 +78,13 @@ public partial class MainWindowViewModel : ObservableObject
                         Content = "快捷启动",
                         Icon = new SymbolIcon {Symbol = SymbolRegular.Play20},
                         TargetPageType = typeof(QuickLaunchPage)
+                    },
+                                        // 添加 HotkeyBindingPage 导航项
+                    new NavigationViewItem
+                    {
+                        Content = "热键绑定",
+                        Icon = new SymbolIcon {Symbol = SymbolRegular.Keyboard20}, // 可根据需求修改图标
+                        TargetPageType = typeof(HotkeyBindingWindow)
                     },
                     new NavigationViewItem
                     {
@@ -96,7 +104,7 @@ public partial class MainWindowViewModel : ObservableObject
             {
                 Content = "信息服务",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Info24},
-                TargetPageType = typeof(InfoPage),
+                // TargetPageType = typeof(InfoPage),
                 MenuItems = new NavigationViewItem[]
                 {
                     new NavigationViewItem
@@ -117,6 +125,12 @@ public partial class MainWindowViewModel : ObservableObject
 
         NavigationFooter = new ObservableCollection<object>
         {
+            new NavigationViewItem()
+            {
+                Content = "我的",
+                Icon = new SymbolIcon {Symbol = SymbolRegular.People12},
+                TargetPageType = typeof(UserPage)
+            },
             new NavigationViewItem()
             {
                 Content = "设置",

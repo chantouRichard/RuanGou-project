@@ -3,57 +3,173 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:frontend.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignHeight="600"
+    d:DesignWidth="1000"
     mc:Ignorable="d">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Grid Background="#FFF0F0F0" HorizontalAlignment="Center" Width="1000" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="40"/>
+            <!-- 中间留空间隔 -->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <!-- Display -->
-        <Border Grid.Row="0" Background="#FFE0E0E0" Padding="10" Margin="5">
-            <TextBlock x:Name="DisplayText" 
-                      FontSize="36" 
-                      Text="0" 
-                      HorizontalAlignment="Right"
-                      VerticalAlignment="Center"/>
-        </Border>
+        <!-- 基础计算器 -->
+        <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border Width="240" Height="320" Background="White" CornerRadius="8" 
+                   BorderThickness="1" BorderBrush="#FFE0E0E0"
+                   Padding="0" Margin="160,0,0,0" Effect="{StaticResource ShadowEffect}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-        <!-- Buttons -->
-        <UniformGrid Grid.Row="1" Columns="4" Rows="5" Margin="5">
-            <!-- Row 1 -->
-            <Button Width="50" Height="50" Content="C" Click="OnClearClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="±" Click="OnSignClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="%" Click="OnPercentClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="÷" Click="OnOperatorClick" FontSize="24" Margin="2" Tag="/"/>
+                    <!-- 模式选择 -->
+                    <ComboBox Grid.Row="0" Margin="10,10,10,5" 
+                             FontSize="14" Height="30"
+                             SelectedIndex="0">
+                        <ComboBoxItem Content="标准模式"/>
+                        <ComboBoxItem Content="科学模式"/>
+                        <ComboBoxItem Content="程序员模式"/>
+                    </ComboBox>
 
-            <!-- Row 2 -->
-            <Button Width="50" Height="50" Content="7" Click="OnNumberClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="8" Click="OnNumberClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="9" Click="OnNumberClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="×" Click="OnOperatorClick" FontSize="24" Margin="2" Tag="*"/>
+                    <!-- 显示屏 -->
+                    <Border Grid.Row="1" Background="#FFF5F5F5" 
+                           CornerRadius="4" Margin="10,0,10,10"
+                           BorderThickness="1" BorderBrush="#FFE0E0E0">
+                        <TextBlock x:Name="DisplayText" 
+                                  FontSize="32" 
+                                  Text="0" 
+                                  Padding="10,5"
+                                  HorizontalAlignment="Right"
+                                  VerticalAlignment="Center"
+                                  TextTrimming="CharacterEllipsis"/>
+                    </Border>
 
-            <!-- Row 3 -->
-            <Button Width="50" Height="50" Content="4" Click="OnNumberClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="5" Click="OnNumberClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="6" Click="OnNumberClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="-" Click="OnOperatorClick" FontSize="24" Margin="2" Tag="-"/>
+                    <!-- 按钮面板 -->
+                    <UniformGrid Grid.Row="2" Columns="4" Rows="5" Margin="10,0,10,10">
+                        <!-- 第一行 -->
+                        <Button Content="C" FontSize="16" Margin="3" Background="#FFF5F5F5" Click="OnClearClick"/>
+                        <Button Content="±" FontSize="16" Margin="3" Background="#FFF5F5F5" Click="OnSignClick"/>
+                        <Button Content="%" FontSize="16" Margin="3" Background="#FFF5F5F5" Click="OnPercentClick"/>
+                        <Button Content="÷" FontSize="16" Margin="3" Background="#FFE0E0E0" Click="OnOperatorClick" Tag="/"/>
 
-            <!-- Row 4 -->
-            <Button Width="50" Height="50" Content="1" Click="OnNumberClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="2" Click="OnNumberClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="3" Click="OnNumberClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="+" Click="OnOperatorClick" FontSize="24" Margin="2" Tag="+"/>
+                        <!-- 第二行 -->
+                        <Button Content="7" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="8" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="9" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="×" FontSize="16" Margin="3" Background="#FFE0E0E0" Click="OnOperatorClick" Tag="*"/>
 
-            <!-- Row 5 -->
-            <Button Width="50" Height="50" Content="0" Click="OnNumberClick" FontSize="24" Margin="2" Grid.ColumnSpan="2"/>
-            <Button Width="50" Height="50" Content="." Click="OnDecimalClick" FontSize="24" Margin="2"/>
-            <Button Width="50" Height="50" Content="=" Click="OnEqualsClick" FontSize="24" Margin="2" Background="#FF4CAF50" Foreground="White"/>
-        </UniformGrid>
+                        <!-- 第三行 -->
+                        <Button Content="4" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="5" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="6" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="-" FontSize="16" Margin="3" Background="#FFE0E0E0" Click="OnOperatorClick" Tag="-"/>
+
+                        <!-- 第四行 -->
+                        <Button Content="1" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="2" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="3" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="+" FontSize="16" Margin="3" Background="#FFE0E0E0" Click="OnOperatorClick" Tag="+"/>
+
+                        <!-- 第五行 -->
+                        <Button Content="0" FontSize="16" Margin="3" Background="White" Click="OnNumberClick"/>
+                        <Button Content="." FontSize="16" Margin="3" Background="White" Click="OnDecimalClick"/>
+                        <Button Content="=" FontSize="16" Margin="3" Background="#FF4CAF50" Foreground="White" Click="OnEqualsClick"/>
+                    </UniformGrid>
+                </Grid>
+            </Border>
+
+            <TextBlock Text="计算器 v1.0" HorizontalAlignment="Center" Margin="0,20,0,0"
+                      Foreground="#FF808080" FontSize="12"/>
+        </StackPanel>
+
+        <!-- 扩展工具区域 -->
+        <!-- 扩展工具区域 -->
+        <Grid Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Width="500" Margin="10,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="280"/>
+                <RowDefinition Height="280"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="250"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- 进制转换器 -->
+            <Border Grid.Row="0" Grid.Column="0" Background="White" CornerRadius="8" Padding="10" Margin="10,10,10,10"
+            BorderThickness="1" BorderBrush="#FFE0E0E0" Effect="{StaticResource ShadowEffect}">
+                <StackPanel Height="208">
+                    <TextBlock Text="进制转换器" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ComboBox x:Name="BaseFromCombo" SelectedIndex="2">
+                        <ComboBoxItem Content="二进制 (Bin)" Tag="2"/>
+                        <ComboBoxItem Content="八进制 (Oct)" Tag="8"/>
+                        <ComboBoxItem Content="十进制 (Dec)" Tag="10"/>
+                        <ComboBoxItem Content="十六进制 (Hex)" Tag="16"/>
+                    </ComboBox>
+                    <TextBox x:Name="BaseInput" Margin="0,5"/>
+                    <ComboBox x:Name="BaseToCombo" SelectedIndex="0">
+                        <ComboBoxItem Content="二进制 (Bin)" Tag="2"/>
+                        <ComboBoxItem Content="八进制 (Oct)" Tag="8"/>
+                        <ComboBoxItem Content="十进制 (Dec)" Tag="10"/>
+                        <ComboBoxItem Content="十六进制 (Hex)" Tag="16"/>
+                    </ComboBox>
+                    <Button Content="转换" Margin="0,10,0,0" Click="OnBaseConvertClick"/>
+                    <TextBlock x:Name="BaseResult" FontSize="14" Margin="0,5" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+
+            <!-- 单位转换器 -->
+            <Border Grid.Row="0" Grid.Column="1" Background="White" CornerRadius="8" Padding="10" Margin="10,10,10,10"
+            BorderThickness="1" BorderBrush="#FFE0E0E0" Effect="{StaticResource ShadowEffect}">
+                <StackPanel Height="240">
+                    <TextBlock Text="单位转换器" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <ComboBox x:Name="UnitTypeCombo" SelectionChanged="OnUnitTypeChanged">
+                        <ComboBoxItem Content="长度（米/公里/英尺）"/>
+                        <ComboBoxItem Content="时间（秒/分钟/小时）"/>
+                        <ComboBoxItem Content="速度（米/秒 -> 公里/小时）"/>
+                    </ComboBox>
+                    <TextBox x:Name="UnitInput" Margin="0,5"/>
+                    <ComboBox x:Name="UnitFromCombo"/>
+                    <ComboBox x:Name="UnitToCombo"/>
+                    <Button Content="转换" Margin="0,10,0,0" Click="OnUnitConvertClick"/>
+                    <TextBlock x:Name="UnitResult" FontSize="14" Margin="0,5" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+
+            <!-- DDL 倒计时计算器 -->
+            <Border Grid.Row="1" Grid.Column="0" Background="White" CornerRadius="8" Padding="10" Margin="10,10,10,10"
+            BorderThickness="1" BorderBrush="#FFE0E0E0" Effect="{StaticResource ShadowEffect}">
+                <StackPanel Height="240">
+                    <TextBlock Text="DDL 倒计时计算器" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="开始日期（可选）"/>
+                    <DatePicker x:Name="DdlStartDatePicker" Margin="0,5"/>
+                    <TextBlock Text="结束日期（DDL）"/>
+                    <DatePicker x:Name="DdlEndDatePicker" Margin="0,5"/>
+                    <Button Content="计算剩余天数" Margin="0,10,0,0" Click="OnDdlCalculateClick"/>
+                    <TextBlock x:Name="DdlResult" FontSize="14" Margin="0,5" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+
+            <!-- 第四个空位：你可以再加一个新的计算器 -->
+            <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="8" Padding="10" Margin="10,10,10,10"
+BorderThickness="1" BorderBrush="#FFE0E0E0" Effect="{StaticResource ShadowEffect}">
+                <StackPanel>
+                    <TextBlock Text="BMI 计算器" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="身高（cm）"/>
+                    <TextBox x:Name="BmiHeightInput" Margin="0,5"/>
+                    <TextBlock Text="体重（kg）"/>
+                    <TextBox x:Name="BmiWeightInput" Margin="0,5"/>
+                    <Button Content="计算 BMI" Margin="0,10,0,0" Click="OnBmiCalculateClick"/>
+                    <TextBlock x:Name="BmiResult" FontSize="14" Margin="0,5" TextWrapping="Wrap"/>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+
     </Grid>
 </UserControl>

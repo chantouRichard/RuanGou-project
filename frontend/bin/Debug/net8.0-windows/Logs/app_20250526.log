@@ -1,52 +1,102 @@
-2025-05-26 01:26:16 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 01:26:16 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 01:26:16 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 01:27:20 [ERR] () 程序退出了
-2025-05-26 01:28:46 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 01:28:46 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 01:28:46 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 01:30:18 [ERR] () 程序退出了
-2025-05-26 01:38:16 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 01:38:16 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 01:38:16 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 01:38:25 [INF] (frontend.ViewModels.QuickLaunchViewModel) 从文件加载了 3 个快捷方式
-2025-05-26 01:38:25 [INF] (frontend.ViewModels.QuickLaunchViewModel) 快捷方式数据已保存
-2025-05-26 01:49:14 [ERR] () 程序退出了
-2025-05-26 01:56:37 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 01:56:37 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 01:56:37 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 02:07:27 [ERR] () 程序退出了
-2025-05-26 02:11:12 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 02:11:12 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 02:11:12 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 02:29:18 [ERR] () 程序退出了
-2025-05-26 02:29:34 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 02:29:34 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 02:29:34 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 02:34:26 [ERR] () 程序退出了
-2025-05-26 02:37:36 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 02:37:36 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 02:37:36 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 02:38:11 [ERR] () 程序退出了
-2025-05-26 02:44:01 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 02:44:01 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 02:44:01 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 02:49:40 [ERR] () 程序退出了
-2025-05-26 02:55:53 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 02:55:53 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 02:55:53 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 02:56:04 [ERR] () 程序退出了
-2025-05-26 02:59:03 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 02:59:03 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 02:59:03 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 03:00:24 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 03:00:24 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 03:00:24 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 03:00:51 [ERR] () 程序退出了
-2025-05-26 03:05:01 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 03:05:01 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 03:05:01 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 03:09:32 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
-2025-05-26 03:09:32 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
-2025-05-26 03:09:32 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
-2025-05-26 03:15:22 [ERR] () 程序退出了
+2025-05-26 15:07:00 [ERR] (Microsoft.Extensions.Hosting.Internal.Host) Hosting failed to start
+System.Windows.Markup.XamlParseException: “在“System.Windows.Markup.StaticExtension”上提供值时引发了异常。”，行号为“26”，行位置为“17”。
+ ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.TypeInitializationException: The type initializer for 'frontend.SkinManager' threw an exception.
+ ---> System.IO.IOException: 找不到资源“assets/test.jpg”。
+   at MS.Internal.AppModel.ResourcePart.GetStreamCore(FileMode mode, FileAccess access)
+   at System.IO.Packaging.PackagePart.GetStream(FileMode mode, FileAccess access)
+   at MS.Internal.IO.Packaging.PackagePartExtensions.GetSeekableStream(PackagePart packPart, FileMode mode, FileAccess access)
+   at System.IO.Packaging.PackWebResponse.CachedResponse.GetResponseStream()
+   at System.Windows.Media.Imaging.BitmapDecoder.SetupDecoderFromUriOrStream(Uri uri, Stream stream, BitmapCacheOption cacheOption, Guid& clsId, Boolean& isOriginalWritable, Stream& uriStream, UnmanagedMemoryStream& unmanagedMemoryStream, SafeFileHandle& safeFilehandle)
+   at System.Windows.Media.Imaging.BitmapDecoder.CreateFromUriOrStream(Uri baseUri, Uri uri, Stream stream, BitmapCreateOptions createOptions, BitmapCacheOption cacheOption, RequestCachePolicy uriCachePolicy, Boolean insertInDecoderCache)
+   at System.Windows.Media.Imaging.BitmapImage.FinalizeCreation()
+   at frontend.SkinManager..ctor() in C:\Users\29586\RuanGou-project\frontend\SkinManager.cs:line 21
+   at frontend.SkinManager..cctor() in C:\Users\29586\RuanGou-project\frontend\SkinManager.cs:line 16
+   --- End of inner exception stack trace ---
+   at frontend.SkinManager.get_Current() in C:\Users\29586\RuanGou-project\frontend\SkinManager.cs:line 16
+   at InvokeStub_SkinManager.get_Current(Object, Object, IntPtr*)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   --- End of inner exception stack trace ---
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Windows.Markup.StaticExtension.GetFieldOrPropertyValue(Type type, String name, Object& value)
+   at System.Windows.Markup.StaticExtension.ProvideValue(IServiceProvider serviceProvider)
+   at MS.Internal.Xaml.Runtime.ClrObjectRuntime.CallProvideValue(MarkupExtension me, IServiceProvider serviceProvider)
+   --- End of inner exception stack trace ---
+   at System.Windows.Markup.XamlReader.RewrapException(Exception e, IXamlLineInfo lineInfo, Uri baseUri)
+   at System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   at System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   at System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   at System.Windows.Application.LoadComponent(Object component, Uri resourceLocator)
+   at frontend.MainWindow.InitializeComponent() in C:\Users\29586\RuanGou-project\frontend\Views\MainWindow.xaml:line 1
+   at frontend.MainWindow..ctor(MainWindowViewModel viewModel) in C:\Users\29586\RuanGou-project\frontend\Views\MainWindow.xaml.cs:line 26
+   at InvokeStub_MainWindow..ctor(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at frontend.ApplicationHostService.HandleActivationAsync() in C:\Users\29586\RuanGou-project\frontend\Services\App\ApplicationHostService.cs:line 55
+   at frontend.ApplicationHostService.StartAsync(CancellationToken cancellationToken) in C:\Users\29586\RuanGou-project\frontend\Services\App\ApplicationHostService.cs:line 34
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-05-26 15:10:13 [ERR] (Microsoft.Extensions.Hosting.Internal.Host) Hosting failed to start
+System.Windows.Markup.XamlParseException: “在“System.Windows.Markup.StaticExtension”上提供值时引发了异常。”，行号为“26”，行位置为“17”。
+ ---> System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.TypeInitializationException: The type initializer for 'frontend.SkinManager' threw an exception.
+ ---> System.IO.IOException: 找不到资源“assets/test.jpg”。
+   at MS.Internal.AppModel.ResourcePart.GetStreamCore(FileMode mode, FileAccess access)
+   at System.IO.Packaging.PackagePart.GetStream(FileMode mode, FileAccess access)
+   at MS.Internal.IO.Packaging.PackagePartExtensions.GetSeekableStream(PackagePart packPart, FileMode mode, FileAccess access)
+   at System.IO.Packaging.PackWebResponse.CachedResponse.GetResponseStream()
+   at System.Windows.Media.Imaging.BitmapDecoder.SetupDecoderFromUriOrStream(Uri uri, Stream stream, BitmapCacheOption cacheOption, Guid& clsId, Boolean& isOriginalWritable, Stream& uriStream, UnmanagedMemoryStream& unmanagedMemoryStream, SafeFileHandle& safeFilehandle)
+   at System.Windows.Media.Imaging.BitmapDecoder.CreateFromUriOrStream(Uri baseUri, Uri uri, Stream stream, BitmapCreateOptions createOptions, BitmapCacheOption cacheOption, RequestCachePolicy uriCachePolicy, Boolean insertInDecoderCache)
+   at System.Windows.Media.Imaging.BitmapImage.FinalizeCreation()
+   at frontend.SkinManager..ctor() in C:\Users\29586\RuanGou-project\frontend\SkinManager.cs:line 21
+   at frontend.SkinManager..cctor() in C:\Users\29586\RuanGou-project\frontend\SkinManager.cs:line 16
+   --- End of inner exception stack trace ---
+   --- End of inner exception stack trace ---
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.GetValue(Object obj, Object[] index)
+   at System.Windows.Markup.StaticExtension.GetFieldOrPropertyValue(Type type, String name, Object& value)
+   at System.Windows.Markup.StaticExtension.ProvideValue(IServiceProvider serviceProvider)
+   at MS.Internal.Xaml.Runtime.ClrObjectRuntime.CallProvideValue(MarkupExtension me, IServiceProvider serviceProvider)
+   --- End of inner exception stack trace ---
+   at System.Windows.Markup.XamlReader.RewrapException(Exception e, IXamlLineInfo lineInfo, Uri baseUri)
+   at System.Windows.Markup.WpfXamlLoader.Load(XamlReader xamlReader, IXamlObjectWriterFactory writerFactory, Boolean skipJournaledProperties, Object rootObject, XamlObjectWriterSettings settings, Uri baseUri)
+   at System.Windows.Markup.WpfXamlLoader.LoadBaml(XamlReader xamlReader, Boolean skipJournaledProperties, Object rootObject, XamlAccessLevel accessLevel, Uri baseUri)
+   at System.Windows.Markup.XamlReader.LoadBaml(Stream stream, ParserContext parserContext, Object parent, Boolean closeStream)
+   at System.Windows.Application.LoadComponent(Object component, Uri resourceLocator)
+   at frontend.MainWindow.InitializeComponent() in C:\Users\29586\RuanGou-project\frontend\Views\MainWindow.xaml:line 1
+   at frontend.MainWindow..ctor(MainWindowViewModel viewModel) in C:\Users\29586\RuanGou-project\frontend\Views\MainWindow.xaml.cs:line 26
+   at InvokeStub_MainWindow..ctor(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at frontend.ApplicationHostService.HandleActivationAsync() in C:\Users\29586\RuanGou-project\frontend\Services\App\ApplicationHostService.cs:line 55
+   at frontend.ApplicationHostService.StartAsync(CancellationToken cancellationToken) in C:\Users\29586\RuanGou-project\frontend\Services\App\ApplicationHostService.cs:line 34
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-05-26 17:37:29 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-26 17:37:29 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-26 17:37:29 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\29586\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-26 17:37:38 [INF] (frontend.ViewModels.SettingViewModel) 初始化设置页面数据
+2025-05-26 17:37:48 [INF] (frontend.ViewModels.QuickLaunchViewModel) 从文件加载了 3 个快捷方式
+2025-05-26 17:37:49 [INF] (frontend.ViewModels.QuickLaunchViewModel) 快捷方式数据已保存
+2025-05-26 17:38:31 [ERR] () 程序退出了
