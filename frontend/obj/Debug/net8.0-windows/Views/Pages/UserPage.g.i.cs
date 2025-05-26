@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using NHotkey.Wpf;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -54,7 +55,7 @@ namespace frontend.Views.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/frontend;V1.0.0.0;component/views/pages/userpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/frontend;component/views/pages/userpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Pages\UserPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -182,64 +182,6 @@ namespace frontend.Services
             }
         }
 
-        #endregion
-
-        #region 用户相关接口
-
-        public async Task<ApiResponse<User>> getUserInfo()
-        {
-            try
-            {
-                var response = await _httpClient.GetAsync($"user?userId={Properties.Settings.Default.UserId}");
-                var responseString = await response.Content.ReadAsStringAsync();
-
-                var result = JsonConvert.DeserializeObject<ApiResponse<User>>(responseString);
-
-                Console.Out.WriteLine(result.Data.Username);
-
-                return result;
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine("Error:", e);
-
-                return new ApiResponse<User>
-                {
-                    Success = false,
-                    Message = $"An error occurred: {e.Message}"
-                };
-            }
-        }
-
-        #endregion
-
-        #region 用户相关接口
-
-        public async Task<ApiResponse<User>> getUserInfo()
-        {
-            try
-            {
-                var response = await _httpClient.GetAsync($"user?userId={Properties.Settings.Default.UserId}");
-                var responseString = await response.Content.ReadAsStringAsync();
-
-                var result = JsonConvert.DeserializeObject<ApiResponse<User>>(responseString);
-
-                Console.Out.WriteLine(result.Data.Username);
-
-                return result;
-            }
-            catch(Exception e)
-            {
-                Console.WriteLine("Error:", e);
-
-                return new ApiResponse<User>
-                {
-                    Success = false,
-                    Message = $"An error occurred: {e.Message}"
-                };
-            }
-        }
-
         public async Task<ApiResponse<User>> updateUser(User user)
         {
             try
