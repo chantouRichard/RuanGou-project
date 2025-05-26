@@ -28,6 +28,7 @@
                 <ComboBoxItem Content=".exe 文件" Tag="*.exe" />
             </ComboBox>
             <Button Content="搜索" Width="80" Height="30" Margin="10,0,0,0" Click="SearchButton_Click" KeyDown="Button_KeyDown" />
+            <Button Content="启动Everything" Width="118" Height="30" Margin="10,0,0,0" Click="AddEverythingPath_Click" />
         </StackPanel>
 
         <ListBox Name="ResultsList"

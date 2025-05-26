@@ -121,3 +121,59 @@ System.Windows.Markup.XamlParseException: “在“System.Windows.Baml2006.TypeC
 2025-05-24 03:23:53 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\qq864\Desktop\Project\软构项目\RuanGou-project\frontend\bin\Debug\net8.0-windows"
 2025-05-24 03:23:55 [INF] (frontend.ViewModels.SettingViewModel) 初始化设置页面数据
 2025-05-24 03:25:16 [ERR] () 程序退出了
+2025-05-24 15:10:11 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:10:11 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:10:11 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:10:16 [INF] (frontend.ViewModels.QuickLaunchViewModel) 从文件加载了 4 个快捷方式
+2025-05-24 15:10:24 [INF] (frontend.ViewModels.QuickLaunchViewModel) 快捷方式数据已保存
+2025-05-24 15:10:26 [INF] (frontend.ViewModels.QuickLaunchViewModel) 快捷方式数据已保存
+2025-05-24 15:12:00 [ERR] () 程序退出了
+2025-05-24 15:14:25 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:14:25 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:14:25 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:14:34 [ERR] () 程序退出了
+2025-05-24 15:14:43 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:14:43 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:14:43 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:14:55 [ERR] () 程序退出了
+2025-05-24 15:16:13 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:16:13 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:16:13 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:16:23 [ERR] () 程序退出了
+2025-05-24 15:19:18 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:19:18 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:19:18 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:21:34 [ERR] () 程序退出了
+2025-05-24 15:21:43 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:21:43 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:21:43 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:22:02 [ERR] () 程序退出了
+2025-05-24 15:30:14 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:30:14 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:30:14 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:31:08 [ERR] () 程序退出了
+2025-05-24 15:36:31 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:36:31 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:36:31 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:40:27 [ERR] () 程序退出了
+2025-05-24 15:45:28 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:45:28 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:45:28 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:45:57 [ERR] () 程序退出了
+2025-05-24 15:48:10 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:48:10 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:48:10 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 15:48:36 [ERR] () 程序退出了
+2025-05-24 15:50:53 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 15:50:53 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 15:50:53 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 16:16:02 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 16:16:02 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 16:16:02 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 16:17:29 [ERR] () 程序退出了
+2025-05-24 17:45:29 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2025-05-24 17:45:29 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Production"
+2025-05-24 17:45:29 [INF] (Microsoft.Hosting.Lifetime) Content root path: "C:\Users\m1510\Desktop\test\RuanGou-project\frontend\bin\Debug\net8.0-windows"
+2025-05-24 17:45:33 [INF] (frontend.ViewModels.QuickLaunchViewModel) 从文件加载了 4 个快捷方式
+2025-05-24 17:45:34 [INF] (frontend.ViewModels.QuickLaunchViewModel) 快捷方式数据已保存
+2025-05-24 17:45:45 [ERR] () 程序退出了

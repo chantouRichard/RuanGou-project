@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using frontend.Controls;
 using frontend.Models;
+using frontend.Views;
 using frontend.Views.Pages;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -77,6 +78,13 @@ public partial class MainWindowViewModel : ObservableObject
                         Content = "快捷启动",
                         Icon = new SymbolIcon {Symbol = SymbolRegular.Play20},
                         TargetPageType = typeof(QuickLaunchPage)
+                    },
+                                        // 添加 HotkeyBindingPage 导航项
+                    new NavigationViewItem
+                    {
+                        Content = "热键绑定",
+                        Icon = new SymbolIcon {Symbol = SymbolRegular.Keyboard20}, // 可根据需求修改图标
+                        TargetPageType = typeof(HotkeyBindingWindow)
                     },
                     new NavigationViewItem
                     {

@@ -2,6 +2,7 @@
 using frontend.Controls.Contracts;
 using frontend.ViewModels;
 using frontend.Views;
+using frontend.Views.Windows;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Windows.Threading;
