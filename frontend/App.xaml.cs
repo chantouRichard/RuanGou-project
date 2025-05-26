@@ -68,6 +68,7 @@ namespace frontend
             services.AddSingleton<MemoPage>();
             services.AddSingleton<CalculatorPage>();
             services.AddSingleton<SettingPage>();
+            services.AddSingleton<UserPage>();
             services.AddSingleton<SettingViewModel>();
             services.AddSingleton<QuickLaunchPage>();
             services.AddSingleton<QuickLaunchViewModel>();

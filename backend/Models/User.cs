@@ -16,5 +16,9 @@ namespace backend.Models
 
         [Column("updated_at")]
         public DateTime? UpdatedAt { get; set; }
+
+        // 新增头像字段：保存图片路径或URL
+        [Column("avatar_url")]
+        public string AvatarUrl { get; set; }
     }
 }

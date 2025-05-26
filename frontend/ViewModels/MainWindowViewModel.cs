@@ -127,6 +127,12 @@ public partial class MainWindowViewModel : ObservableObject
         {
             new NavigationViewItem()
             {
+                Content = "我的",
+                Icon = new SymbolIcon {Symbol = SymbolRegular.People12},
+                TargetPageType = typeof(UserPage)
+            },
+            new NavigationViewItem()
+            {
                 Content = "设置",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Settings24 },
                 TargetPageType = typeof(SettingPage)
