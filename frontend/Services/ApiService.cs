@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using frontend.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Reflection.Metadata;
 
 namespace frontend.Services
 {
@@ -152,6 +153,55 @@ namespace frontend.Services
             var responseString = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<ApiResponse<TodoItem>>(responseString);
         }
+        #endregion
+
+        #region 用户相关接口
+
+        public async Task<ApiResponse<User>> getUserInfo()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"user?userId={Properties.Settings.Default.UserId}");
+                var responseString = await response.Content.ReadAsStringAsync();
+
+                var result = JsonConvert.DeserializeObject<ApiResponse<User>>(responseString);
+
+                Console.Out.WriteLine(result.Data.Username);
+
+                return result;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error:", e);
+
+                return new ApiResponse<User>
+                {
+                    Success = false,
+                    Message = $"An error occurred: {e.Message}"
+                };
+            }
+        }
+
+        public async Task<ApiResponse<User>> updateUser(User user)
+        {
+            try
+            {
+                var content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PutAsync($"user?userId={Properties.Settings.Default.UserId}", content);
+                response.EnsureSuccessStatusCode();
+
+                var responseString = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<ApiResponse<User>>(responseString);
+            }catch(Exception e)
+            {
+                return new ApiResponse<User>
+                {
+                    Success = false,
+                    Message = $"An error occurred: {e.Message}"
+                };
+            }
+        }
+
         #endregion
     }
 }
