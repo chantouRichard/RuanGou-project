@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:frontend.Views.Pages"
+      xmlns:local="clr-namespace:frontend"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="700"
       Title="User Profile"
@@ -17,7 +17,8 @@
 
         <!-- 顶部标题 -->
         <TextBlock Text="User Profile"
-                   FontSize="24"
+                   FontFamily="{Binding Source={x:Static local:SkinManager.Current}, Path=FontFamily}"
+                   FontSize="{Binding EffectiveFontSize}"
                    FontWeight="Bold"
                    Foreground="#1A3B7B"
                    Margin="0,0,0,20"/>
@@ -50,10 +51,10 @@
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
                 <!-- 用户名 -->
                 <StackPanel Margin="0,0,0,15">
-                    <TextBlock Text="Username" 
+                    <TextBlock Text="昵称" 
                                Foreground="#4D8DFF"
                                Margin="0,0,0,2"/>
-                    <TextBox Text="{Binding CurrentUser.Username, UpdateSourceTrigger=PropertyChanged}"
+                    <TextBox Text="{Binding CurrentUser.Nickname, UpdateSourceTrigger=PropertyChanged}"
                              Padding="8"
                              Width="300"
                              BorderBrush="#A0B8E0"/>
@@ -61,7 +62,7 @@
 
                 <!-- 邮箱 -->
                 <StackPanel Margin="0,0,0,15">
-                    <TextBlock Text="Email" 
+                    <TextBlock Text="邮箱" 
                                Foreground="#4D8DFF"
                                Margin="0,0,0,2"/>
                     <TextBox Text="{Binding CurrentUser.Email, UpdateSourceTrigger=PropertyChanged}"
@@ -72,7 +73,7 @@
 
                 <!-- 密码 -->
                 <StackPanel Margin="0,0,0,20">
-                    <TextBlock Text="New Password" 
+                    <TextBlock Text="新密码" 
                                Foreground="#4D8DFF"
                                Margin="0,0,0,2"/>
                     <PasswordBox Padding="8"
@@ -94,7 +95,7 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Margin="0,20,0,0">
-            <Button Content="Save Changes"
+            <Button Content="保存"
                     Width="120"
                     Height="36"
                     Background="#4D8DFF"
@@ -109,7 +110,7 @@
                 </Button.Resources>
             </Button>
 
-            <Button Content="Change Avatar"
+            <Button Content="更换头像"
                     Width="120"
                     Height="36"
                     Foreground="#4D8DFF"

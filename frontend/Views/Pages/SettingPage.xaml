@@ -4,47 +4,116 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:hc="https://handyorg.github.io/handycontrol"
-    xmlns:lc="clr-namespace:frontend.Controls"
-    xmlns:local="clr-namespace:frontend"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+    xmlns:vm="clr-namespace:frontend.ViewModels"
+    xmlns:local="clr-namespace:frontend.Converters"
     mc:Ignorable="d"
     d:DataContext="{d:DesignInstance vm:SettingViewModel}">
-    <Grid Margin="20">
-        <StackPanel>
-            <!-- 标题 -->
-            <TextBlock FontSize="20" Text="应用程序设置" Margin="0,0,0,20"/>
 
-            <!-- 主题设置 -->
-            <TextBlock Text="主题设置" Margin="0,0,0,5"/>
-            <ComboBox 
-                ItemsSource="{Binding ThemeOptions}" 
-                SelectedItem="{Binding SelectedTheme}"
-                Width="200" HorizontalAlignment="Left">
-                <ComboBoxItem Content="浅色主题"/>
-                <ComboBoxItem Content="深色主题"/>
-            </ComboBox>
+    <UserControl.Resources>
+        <local:ColorConverter x:Key="ColorConverter"/>
+    </UserControl.Resources>
 
-            <!-- 语言设置 -->
-            <TextBlock Text="语言设置" Margin="0,20,0,5"/>
-            <ComboBox 
-                ItemsSource="{Binding LanguageOptions}" 
-                SelectedItem="{Binding SelectedLanguage}"
-                Width="200" HorizontalAlignment="Left">
-                <ComboBoxItem Content="中文"/>
-                <ComboBoxItem Content="English"/>
-            </ComboBox>
+    <Border Padding="20" Background="#F5F5F5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <!-- 左边原来的设置内容 -->
+                <ColumnDefinition Width="Auto" />
+                <!-- 右边新增字体设置 -->
+            </Grid.ColumnDefinitions>
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
 
-            <!-- 保存按钮 -->
-            <Button 
-                Content="保存设置" 
-                Command="{Binding SaveSettingsCommand}"
-                Margin="0,30,0,0" 
-                Width="100" 
-                HorizontalAlignment="Left"/>
-        </StackPanel>
-        <StackPanel>
-            <Button Content="Upload Image" Click="OnUploadImageClick" />
-        </StackPanel>
-    </Grid>
+                <!-- 标题 -->
+                <TextBlock FontSize="24" FontWeight="Bold" Text="应用程序设置" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <!-- 皮肤设置 -->
+                <GroupBox BorderBrush="#3B82F6" BorderThickness="4" Header="皮肤设置" Padding="10" Margin="0,0,0,20">
+                    <ComboBox Width="200">
+                        <ComboBoxItem Content="默认皮肤"/>
+                        <ComboBoxItem Content="高对比度"/>
+                        <ComboBoxItem Content="柔和模式"/>
+                    </ComboBox>
+                </GroupBox>
+
+                <!-- 透明度 -->
+                <GroupBox BorderBrush="#3B82F6" BorderThickness="4" Header="透明度设置" Padding="10" Margin="0,0,0,20">
+                    <StackPanel>
+                        <TextBlock Text="外部透明度" Margin="0,0,0,5"/>
+                        <Slider Minimum="0.1" Maximum="1.0" Value="{Binding OutOpacity, Mode=TwoWay}" Width="200"/>
+                        <TextBlock Text="{Binding OutOpacity, StringFormat={}{0:F2}}" Margin="0,0,0,10"/>
+
+                        <TextBlock Text="内部透明度" Margin="0,10,0,5"/>
+                        <Slider Minimum="0.1" Maximum="1.0" Value="{Binding InOpacity, Mode=TwoWay}" Width="200"/>
+                        <TextBlock Text="{Binding InOpacity, StringFormat={}{0:F2}}" Margin="0,0,0,10"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <!-- 主题设置 -->
+                <GroupBox BorderBrush="#3B82F6" BorderThickness="4" Header="主题设置" Padding="10" Margin="0,0,0,20">
+                    <ComboBox Width="200" SelectedValuePath="Content" SelectedValue="{Binding SelectedTheme, Mode=TwoWay}">
+                        <ComboBoxItem Content="浅色主题"/>
+                        <ComboBoxItem Content="深色主题"/>
+                        <ComboBoxItem Content="高对比度"/>
+                        <ComboBoxItem Content="柔和模式"/>
+                    </ComboBox>
+                </GroupBox>
+
+                <!-- 上传图片 -->
+                <GroupBox BorderBrush="#3B82F6" BorderThickness="4" Header="背景设置" Padding="10" Margin="0,0,0,20">
+                    <Button Content="上传图片" Click="OnUploadImageClick" Width="100"/>
+                </GroupBox>
+
+                <!-- 保存按钮 -->
+                <Border Background="#3B82F6" Margin="0,0,0,10">
+                    <Button 
+                        Content="保存设置"
+                        Command="{Binding SaveSettingsCommand}"
+                        Background="Transparent"
+                        Foreground="White"
+                        BorderThickness="0"
+                        Padding="8,4"
+                        FontWeight="Bold"/>
+                </Border>
+
+                </StackPanel>
+            </ScrollViewer>
+            <!-- 右侧字体设置栏 -->
+            <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                <TextBlock FontSize="18" FontWeight="Bold" Text="字体设置" Margin="0,0,0,10"/>
+
+                <TextBlock Text="字体增量：" />
+                <Slider Minimum="-5" Maximum="30" Value="{Binding AddFontSize}" Width="250"/>
+                <TextBlock Text="{Binding AddFontSize}" Margin="0,0,0,10"/>
+
+                <TextBlock Text="字体：" />
+                <ComboBox Width="200"
+          SelectedValuePath="Content"
+          SelectedValue="{Binding FontFamily, Mode=TwoWay}">
+                    <ComboBoxItem Content="Consolas"/>
+                    <ComboBoxItem Content="鸿雷行书简体"/>
+                    <ComboBoxItem Content="Microsoft YaHei"/>
+                    <ComboBoxItem Content="Arial"/>
+                </ComboBox>
+
+
+                <TextBlock Text="字体颜色：" Margin="10,10,0,0"/>
+                <hc:ColorPicker SelectedBrush="{Binding FontBrush, Mode=TwoWay}" Width="200" />
+
+                <TextBox Text="{Binding FontColor}" Width="250"/>
+                <TextBlock Text="示例：#000000" FontSize="10" Foreground="Gray"/>
+
+                <!-- 示例效果 -->
+                <TextBlock Text="字体预览：" Margin="10,20,0,0"/>
+                <TextBlock 
+                    Text="Hello,world!"
+                    FontSize="{Binding ActualFontSize}"
+                    FontFamily="{Binding FontFamily}"
+                    Foreground="{Binding FontColor, Converter={StaticResource ColorConverter}}"
+                    Width="250"
+                    TextWrapping="Wrap"/>
+            </StackPanel>
+        </Grid>
+    </Border>
 </UserControl>

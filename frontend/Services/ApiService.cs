@@ -161,7 +161,7 @@ namespace frontend.Services
         {
             try
             {
-                var response = await _httpClient.GetAsync($"user?userId={Properties.Settings.Default.UserId}");
+                var response = await _httpClient.GetAsync($"user?id={Properties.Settings.Default.UserId}");
                 var responseString = await response.Content.ReadAsStringAsync();
 
                 var result = JsonConvert.DeserializeObject<ApiResponse<User>>(responseString);
@@ -186,8 +186,18 @@ namespace frontend.Services
         {
             try
             {
+                var userIdStr = Properties.Settings.Default.UserId;
+
+                if (int.TryParse(userIdStr, out int userId))
+                {
+                    user.Id = userId;
+                }
+                else
+                {
+                    user.Id = 0;
+                }
                 var content = new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json");
-                var response = await _httpClient.PutAsync($"user?userId={Properties.Settings.Default.UserId}", content);
+                var response = await _httpClient.PutAsync("user", content);
                 response.EnsureSuccessStatusCode();
 
                 var responseString = await response.Content.ReadAsStringAsync();

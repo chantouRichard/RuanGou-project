@@ -20,6 +20,10 @@ namespace frontend
         private double In_opacity = 0.4;
         private ImageSource Background_pic = new BitmapImage(new Uri("pack://application:,,,/frontend;component/Assets/test.jpg"));
 
+        private int Add_fontSize = 20;
+        private string Font_family = "consola";
+        private string Font_color = "#000000";
+
         public double OutOpacity
         {
             get => Out_opacity;
@@ -40,6 +44,35 @@ namespace frontend
             }
         }
 
+        public int AddFontSize
+        {
+            get => Add_fontSize;
+            set
+            {
+                Add_fontSize = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string FontFamily
+        {
+            get => Font_family;
+            set
+            {
+                Font_family = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string FontColor
+        {
+            get => Font_color;
+            set
+            {
+                Font_color = value;
+                OnPropertyChanged();
+            }
+        }
         public ImageSource BackgroundPic
         {
             get => Background_pic;

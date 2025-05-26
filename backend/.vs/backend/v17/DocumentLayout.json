@@ -3,40 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\services\\todoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\todoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\services\\itodoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\itodoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\services\\todoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\todoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\services\\itodoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\itodoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:models\\authresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
@@ -61,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\backend\\models\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -99,32 +111,67 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Services\\UserService.cs",
+              "RelativeToolTip": "Services\\UserService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAcwCAAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T03:35:50.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Services\\IUserService.cs",
+              "RelativeDocumentMoniker": "Services\\IUserService.cs",
+              "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Services\\IUserService.cs",
+              "RelativeToolTip": "Services\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T03:35:41.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T03:34:41.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "TodoController.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Controllers\\TodoController.cs",
               "RelativeDocumentMoniker": "Controllers\\TodoController.cs",
               "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Controllers\\TodoController.cs",
               "RelativeToolTip": "Controllers\\TodoController.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAywDwAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T03:03:04.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-26T03:03:04.179Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "TodoService.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Services\\TodoService.cs",
               "RelativeDocumentMoniker": "Services\\TodoService.cs",
               "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Services\\TodoService.cs",
               "RelativeToolTip": "Services\\TodoService.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAA3wB0AAAB/AAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAIwEsAAAB+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T07:08:01.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T07:08:01.467Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "ITodoService.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Services\\ITodoService.cs",
               "RelativeDocumentMoniker": "Services\\ITodoService.cs",
@@ -132,12 +179,11 @@
               "RelativeToolTip": "Services\\ITodoService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T07:07:45.047Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T07:07:45.047Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "TodoItem.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Models\\TodoItem.cs",
               "RelativeDocumentMoniker": "Models\\TodoItem.cs",
@@ -149,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -161,7 +207,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "ApiResponse.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Models\\ApiResponse.cs",
               "RelativeDocumentMoniker": "Models\\ApiResponse.cs",
@@ -173,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "backend.http",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\backend.http",
               "RelativeDocumentMoniker": "backend.http",
@@ -185,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "ServiceExtensions.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Extensions\\ServiceExtensions.cs",
               "RelativeDocumentMoniker": "Extensions\\ServiceExtensions.cs",
@@ -197,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Services\\IAuthService.cs",
               "RelativeDocumentMoniker": "Services\\IAuthService.cs",
@@ -209,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Services\\AuthService.cs",
@@ -221,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "AuthResponse.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Models\\AuthResponse.cs",
               "RelativeDocumentMoniker": "Models\\AuthResponse.cs",
@@ -233,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "RegisterRequest.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Models\\RegisterRequest.cs",
               "RelativeDocumentMoniker": "Models\\RegisterRequest.cs",
@@ -245,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Models\\LoginRequest.cs",
               "RelativeDocumentMoniker": "Models\\LoginRequest.cs",
@@ -257,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -265,48 +311,47 @@
               "RelativeToolTip": "Controllers\\AuthController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T07:28:53.399Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-27T07:28:53.399Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAIBjwBMAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-25T06:43:10.394Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAywAsAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-25T06:40:50.301Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
               "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\Models\\User.cs",
               "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-25T06:39:51.034Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",

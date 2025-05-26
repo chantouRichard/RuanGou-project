@@ -22,6 +22,17 @@ namespace frontend.Models
             }
         }
 
+        private string _nickname;
+        public string Nickname
+        {
+            get => _nickname;
+            set
+            {
+                _nickname = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string _email;
         public string Email
         {

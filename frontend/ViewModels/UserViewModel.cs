@@ -8,12 +8,38 @@ using frontend.Models;
 using Microsoft.Win32;
 using BCrypt.Net;
 using System.IO;
+using frontend.Services;
 
 namespace frontend.ViewModels
 {
     public class UserViewModel : INotifyPropertyChanged
     {
         private User _currentUser;
+        private readonly ApiService _apiService;
+
+        //全局字体设置
+        private double baseFontSize = 14.0;
+        public double BaseFontSize => baseFontSize;
+
+        public int AddFontSize
+        {
+            get => SkinManager.Current.AddFontSize;
+            set
+            {
+                if (SkinManager.Current.AddFontSize != value)
+                {
+                    SkinManager.Current.AddFontSize = value;
+                    OnPropertyChanged(nameof(AddFontSize));
+                    OnPropertyChanged(nameof(EffectiveFontSize)); // 通知更新
+                }
+            }
+        }
+
+        public double EffectiveFontSize => BaseFontSize + AddFontSize;
+
+        //
+
+
         public User CurrentUser
         {
             get => _currentUser;
@@ -30,32 +56,81 @@ namespace frontend.ViewModels
         public UserViewModel()
         {
             // 初始化示例数据
-            CurrentUser = new User
-            {
-                Id = 1,
-                Username = "JohnDoe",
-                Email = "john.doe@example.com",
-                CreatedAt = DateTime.Now.AddMonths(-3),
-                AvatarUrl = "pack://application:,,,/Assets/DefaultIcon.png"
-            };
+            //CurrentUser = new User
+            //{
+            //    Id = 1,
+            //    Username = "JohnDoe",
+            //    Email = "john.doe@example.com",
+            //    CreatedAt = DateTime.Now.AddMonths(-3),
+            //    AvatarUrl = "pack://application:,,,/Assets/DefaultIcon.png"
+            //};
+            _apiService = new ApiService();
+
+            CurrentUser = new User(); // 初始化空对象
+            LoadUserInfoAsync(); // 异步加载数据
 
             SaveCommand = new UserRelayCommand(ExecuteSave);
             ChangeAvatarCommand = new UserRelayCommand(ExecuteChangeAvatar);
         }
 
-        private void ExecuteSave(object parameter)
+        private async void LoadUserInfoAsync()
         {
-            if (parameter is PasswordBox passwordBox && !string.IsNullOrEmpty(passwordBox.Password))
+            try
             {
-                CurrentUser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(passwordBox.Password);
-                MessageBox.Show("Password updated successfully!", "Success",
+                var result = await _apiService.getUserInfo();
+                CurrentUser = result.Data;
+
+                if(CurrentUser.AvatarUrl == null)
+                {
+                    CurrentUser.AvatarUrl = "pack://application:,,,/Assets/DefaultIcon.png";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"加载用户信息失败: {ex.Message}");
+            }
+        }
+
+        public async Task<User> getUserInfo()
+        {
+            var result = await _apiService.getUserInfo();
+
+            return result.Data;
+        }
+
+        private async void ExecuteSave(object parameter)
+        {
+            if(CurrentUser.Nickname == "" || CurrentUser.Email=="" || CurrentUser.PasswordHash == "")
+            {
+                MessageBox.Show("请输入全部字段", "Failed",
                     MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+            var result = await _apiService.updateUser(CurrentUser);
+
+            if (result.Success)
+            {
+                MessageBox.Show("更新信息成功", "Success",
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
             }
             else
             {
-                MessageBox.Show("User information updated!", "Success",
+                MessageBox.Show("更新信息失败", "Failed",
                     MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
             }
+            //if (parameter is PasswordBox passwordBox && !string.IsNullOrEmpty(passwordBox.Password))
+            //{
+            //    CurrentUser.PasswordHash = BCrypt.Net.BCrypt.HashPassword(passwordBox.Password);
+            //    MessageBox.Show("Password updated successfully!", "Success",
+            //        MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("User information updated!", "Success",
+            //        MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
         }
 
         private void ExecuteChangeAvatar(object parameter)

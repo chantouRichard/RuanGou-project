@@ -29,7 +29,7 @@ namespace backend.Controllers
 
             var result = await _todoService.GetAllAsync(userIdStr);
 
-            return result ;
+            return result;
         }
 
         [HttpGet("{id}")]

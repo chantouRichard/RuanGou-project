@@ -1,48 +1,41 @@
-﻿using frontend.Controls;
+﻿// SettingPage.xaml.cs
+using frontend.Controls;
 using frontend.ViewModels;
 using Microsoft.Win32;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
-namespace frontend.Views.Pages;
-
-/// <summary>
-/// SettingPage.xaml 的交互逻辑
-/// </summary>
-public partial class SettingPage : INavigableView<SettingViewModel>
+namespace frontend.Views.Pages
 {
-    public SettingViewModel ViewModel { get; }
-
-    public SettingPage(SettingViewModel viewModel)
+    public partial class SettingPage : INavigableView<SettingViewModel>
     {
-        ViewModel = viewModel;
-        DataContext = this;
+        public SettingViewModel ViewModel { get; }
 
-        InitializeComponent();
-    }
-
-    private void OnUploadImageClick(object sender, RoutedEventArgs e)
-    {
-        // 1. 打开文件选择对话框
-        OpenFileDialog openFileDialog = new OpenFileDialog
+        public SettingPage(SettingViewModel viewModel)
         {
-            Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg",
-            Title = "Select an image"
-        };
+            ViewModel = viewModel;
+            InitializeComponent();
+            DataContext = ViewModel;
+        }
 
-        if (openFileDialog.ShowDialog() == true)
+        private void OnUploadImageClick(object sender, RoutedEventArgs e)
         {
-            // 2. 读取文件并转换为 ImageSource
-            string filePath = openFileDialog.FileName;
-            BitmapImage bitmap = new BitmapImage();
+            var openFileDialog = new OpenFileDialog
+            {
+                Filter = "Image files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg",
+                Title = "Select an image"
+            };
 
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(filePath);
-            bitmap.CacheOption = BitmapCacheOption.OnLoad; // 立即加载，避免文件锁定
-            bitmap.EndInit();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                var bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(openFileDialog.FileName);
+                bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                bitmap.EndInit();
 
-            // 3. 更新 SkinManager 的 BackgroundPic
-            SkinManager.Current.BackgroundPic = bitmap;
+                SkinManager.Current.BackgroundPic = bitmap;
+            }
         }
     }
 }
