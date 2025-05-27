@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
+using frontend.Models;
 
 namespace frontend.Views.Pages
 {
@@ -43,7 +46,7 @@ namespace frontend.Views.Pages
 
         #region 书籍推荐相关
 
-        private ObservableCollection<string> _books = new ObservableCollection<string>();
+        private readonly HttpClient _httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:5166/") };
 
         #endregion
 
@@ -71,8 +74,7 @@ namespace frontend.Views.Pages
             #endregion
 
             #region 书籍推荐初始化
-            LoadBooks();
-            BooksListView.ItemsSource = _books;
+            
             #endregion
         }
 
@@ -272,17 +274,45 @@ namespace frontend.Views.Pages
         #endregion
 
         #region 书籍逻辑
-        private void LoadBooks()
+        private async void RecommendButton_Click(object sender, RoutedEventArgs e)
         {
-            // 这里用静态示例数据，实际项目可从接口或数据库加载
-            _books.Clear();
-            _books.Add("《高效能人士的七个习惯》");
-            _books.Add("《深度工作》");
-            _books.Add("《原则》");
-            _books.Add("《刻意练习》");
-            _books.Add("《穷查理宝典》");
-        }
-        #endregion 
-    }
+            try
+            {
+                var book = await _httpClient.GetFromJsonAsync<BookItem>("api/books/recommend");
+                if (book != null)
+                {
 
+                    BooksListView.ItemsSource = new List<BookItem> { book };
+                }
+                else
+                    MessageBox.Show("没有推荐的书籍！");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"请求失败: {ex.Message}");
+            }
+        }
+
+        private async void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var query = SearchBox.Text;
+                if (string.IsNullOrWhiteSpace(query))
+                {
+                    MessageBox.Show("请输入搜索关键词！");
+                    return;
+                }
+
+                var books = await _httpClient.GetFromJsonAsync<List<BookItem>>($"api/books/search?query={Uri.EscapeDataString(query)}");
+                BooksListView.ItemsSource = books ?? new List<BookItem>();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"请求失败: {ex.Message}");
+            }
+        }
+    }
+    #endregion
 }
+

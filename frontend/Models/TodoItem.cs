@@ -58,7 +58,7 @@ namespace frontend.Models
              if (timeLeft.TotalSeconds <= 0)
                     return "已到期";
 
-             return $"{(int)timeLeft.TotalDays}天 {timeLeft.Hours}小时{timeLeft.Minutes}分钟";
+             return $"{(int)timeLeft.TotalDays}天{timeLeft.Hours}时{timeLeft.Minutes}分";
         }
 
         public void UpdateRemainingTime()

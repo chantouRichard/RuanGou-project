@@ -37,7 +37,7 @@ namespace backend.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // 配置 MySQL 数据库连接字符串（根据你的实际情况修改）
-            var connectionString = "server=localhost;port=3306;database=myapidb;user=root;password=minatoaqua3710;";
+            var connectionString = "server=localhost;port=3306;database=myapidb;user=root;password=123456;";
 
             Console.Out.WriteLine("控制台报错输出:");
 
