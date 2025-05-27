@@ -103,6 +103,9 @@
                    FontWeight="Bold"
                    Foreground="#2C3E50"
                    Margin="0,0,0,24"/>
+        <CheckBox x:Name="StartupCheckBox" Content="开机自启"
+                                          FontSize="18" FontWeight="Medium"
+                                          Foreground="#2C3E50" Checked="StartupCheckBox_Checked" Unchecked="StartupCheckBox_Unchecked" Margin="651,18,0,0" VerticalAlignment="Top"/>
 
         <!-- 添加快捷方式面板 -->
         <Border Grid.Row="1" Style="{StaticResource CardStyle}">

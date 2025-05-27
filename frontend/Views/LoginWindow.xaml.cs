@@ -2,6 +2,11 @@
 using System;
 using System.Windows;
 //using System.Windows.Forms;
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using Microsoft.Win32; // 引入注册表操作的命名空间
+using System.Reflection; // 用于获取当前执行文件路径
 using frontend.Views;
 using frontend.ViewModels;
 using Microsoft.Extensions.Hosting;

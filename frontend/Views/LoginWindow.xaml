@@ -4,82 +4,217 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Login/Register" Height="500" Width="800"
+        Title="Login/Register" Height="600" Width="1000"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True"
         Background="Transparent"
         ResizeMode="NoResize">
 
+    <!-- 窗口资源 -->
+    <Window.Resources>
+        <!-- 现代化按钮样式 -->
+        <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="Background" Value="#4A90E2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="48"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8"
+                                Padding="{TemplateBinding Padding}">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="8" Opacity="0.2" ShadowDepth="2" Color="#4A90E2"/>
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <Border.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                          To="#5BA0F2" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"
+                                                          To="#4A90E2" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Border.Triggers>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 现代化输入框样式 -->
+        <Style x:Key="ModernTextBox" TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#E0E6ED"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="MinHeight" Value="48"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"
+                                MinHeight="{TemplateBinding MinHeight}">
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                        Margin="{TemplateBinding Padding}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Focusable="False"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#4A90E2"/>
+                                <Setter Property="Background" Value="#F8FAFE"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="#4A90E2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 现代化密码框样式 -->
+        <Style x:Key="ModernPasswordBox" TargetType="PasswordBox">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="#E0E6ED"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Padding" Value="16,12"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="MinHeight" Value="48"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8"
+                                MinHeight="{TemplateBinding MinHeight}">
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                        Margin="{TemplateBinding Padding}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Focusable="False"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="#4A90E2"/>
+                                <Setter Property="Background" Value="#F8FAFE"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="#4A90E2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <!-- 窗口阴影效果 -->
     <Window.Effect>
-        <DropShadowEffect BlurRadius="20" ShadowDepth="0" Color="#50000000"/>
+        <DropShadowEffect BlurRadius="25" ShadowDepth="0" Color="#30000000"/>
     </Window.Effect>
 
     <!-- 主容器 -->
-    <Border CornerRadius="30">
+    <Border CornerRadius="16" Background="White">
         <Border.Effect>
-            <DropShadowEffect BlurRadius="10" Opacity="0.2" ShadowDepth="0"/>
+            <DropShadowEffect BlurRadius="15" Opacity="0.1" ShadowDepth="0"/>
         </Border.Effect>
 
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="104*"/>
-                <ColumnDefinition Width="111*"/>
-            </Grid.ColumnDefinitions>
-            <!-- 渐变背景 -->
-            <Grid.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0c87de" Offset="0"/>
-                    <GradientStop Color="#29d0f1" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+            <!-- 背景渐变装饰 -->
+            <Border CornerRadius="16" Opacity="0.05">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#4A90E2" Offset="0"/>
+                        <GradientStop Color="#7B68EE" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
 
-            <!-- 内容区域 -->
-            <Grid Width="800" Height="450" Background="White" 
-                  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="30,0,30,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="14*"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+            <!-- 主要内容区域 -->
+            <Grid Margin="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="350"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- 左侧装饰区域 -->
-                <Border Grid.Column="0" Width="240" Background="#FFF5F5F5" Grid.RowSpan="2" CornerRadius="20,20,20,20">
-                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Image Source="/Assets/welcome.png" Width="200" Margin="0,0,0,20"/>
-                        <TextBlock Text="欢迎使用桌面助手~" FontSize="24" FontWeight="Bold" 
-                                   HorizontalAlignment="Center" Foreground="#333"/>
-                        <TextBlock Text="请先登录和注册" FontSize="16" 
-                                   HorizontalAlignment="Center" Foreground="#666" Margin="0,10,0,0"/>
+                <!-- 左侧欢迎区域 -->
+                <Border Grid.Column="0" CornerRadius="16,0,0,16">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                            <GradientStop Color="#667eea" Offset="0"/>
+                            <GradientStop Color="#764ba2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40">
+                        <!-- 欢迎图标区域 -->
+                        <Border Width="120" Height="120" CornerRadius="60" 
+                                Background="White" Opacity="0.9" Margin="0,0,0,30">
+                            <Grid>
+                                <Ellipse Width="80" Height="80" Fill="#4A90E2" Opacity="0.2"/>
+                                <TextBlock Text="🚀" FontSize="48" HorizontalAlignment="Center" 
+                                          VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+
+                        <TextBlock Text="欢迎使用" FontSize="28" FontWeight="Light" 
+                                   HorizontalAlignment="Center" Foreground="White" Margin="0,0,0,8"/>
+                        <TextBlock Text="桌面助手" FontSize="32" FontWeight="Bold" 
+                                   HorizontalAlignment="Center" Foreground="White" Margin="0,0,0,16"/>
+                        <TextBlock Text="高效办公，智能管理" FontSize="16" FontWeight="Light"
+                                   HorizontalAlignment="Center" Foreground="#E0E6ED" 
+                                   TextWrapping="Wrap" TextAlignment="Center"/>
                     </StackPanel>
                 </Border>
 
                 <!-- 右侧表单区域 -->
-                <Grid Grid.Column="1" Margin="40,40,40,10">
-                    <TabControl BorderThickness="0">
+                <Grid Grid.Column="1" Margin="60,40,60,40">
+                    <TabControl BorderThickness="0" Background="Transparent" Margin="0,0,0,-22">
                         <TabControl.Resources>
                             <Style TargetType="TabItem">
                                 <Setter Property="Template">
                                     <Setter.Value>
                                         <ControlTemplate TargetType="TabItem">
-                                            <Grid Name="Panel" Background="Transparent">
+                                            <Border Name="Panel" Background="Transparent" 
+                                                   CornerRadius="25" Margin="0,0,8,0" MinWidth="100">
                                                 <ContentPresenter x:Name="ContentSite"
                                                     VerticalAlignment="Center"
                                                     HorizontalAlignment="Center"
                                                     ContentSource="Header"
-                                                    Margin="20,10"/>
-                                            </Grid>
+                                                    Margin="30,15"/>
+                                            </Border>
                                             <ControlTemplate.Triggers>
                                                 <Trigger Property="IsSelected" Value="True">
-                                                    <Setter TargetName="Panel" Property="Background" Value="Transparent"/>
-                                                    <Setter Property="Foreground" Value="#1aaae3"/>
-                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                    <Setter TargetName="Panel" Property="Background" Value="#F0F7FF"/>
+                                                    <Setter Property="Foreground" Value="#4A90E2"/>
+                                                    <Setter Property="FontWeight" Value="SemiBold"/>
                                                 </Trigger>
                                                 <Trigger Property="IsSelected" Value="False">
-                                                    <Setter Property="Foreground" Value="#666"/>
+                                                    <Setter Property="Foreground" Value="#8E8E93"/>
+                                                    <Setter Property="FontWeight" Value="Medium"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="Panel" Property="Background" Value="#F8F8F8"/>
                                                 </Trigger>
                                             </ControlTemplate.Triggers>
                                         </ControlTemplate>
@@ -90,215 +225,147 @@
 
                         <!-- 登录标签页 -->
                         <TabItem Header="登录">
-                            <StackPanel VerticalAlignment="Center">
-                                <TextBlock Text="登录" FontSize="24" FontWeight="Bold" 
-                                           Foreground="#333" Margin="0,0,0,30"/>
 
+                            <StackPanel VerticalAlignment="Top" Margin="0,30,0,30">
+                                <TextBlock Text="登录账户" FontSize="32" FontWeight="Bold" 
+                                               Foreground="#2C3E50" Margin="0,0,0,10"/>
+                                <TextBlock Text="请输入您的登录信息" FontSize="16" 
+                                               Foreground="#7F8C8D" Margin="0,0,0,40"/>
                                 <!-- 用户名输入框 -->
-                                <Grid Margin="0,0,0,15">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="用户名：" FontSize="20" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="Black"/>
-                                    <Border Grid.Column="1" CornerRadius="5" BorderThickness="1" BorderBrush="#DDD" 
-            Background="White" Width="330">
-                                        <TextBox x:Name="LoginUsername" BorderThickness="0" Padding="15,10" 
-                 FontSize="14" Background="Transparent" Width="330">
-                                            <TextBox.ToolTip>
-                                                <ToolTip Content="Enter your username"/>
-                                            </TextBox.ToolTip>
-                                        </TextBox>
-                                    </Border>
-                                </Grid>
+                                <TextBlock Text="用户名" FontSize="18" FontWeight="Medium"
+                                              Foreground="#2C3E50" Margin="0,0,0,10"/>
+                                <TextBox x:Name="LoginUsername"
+                                            Margin="0,0,0,25" Height="45" Text="">
+                                    <TextBox.ToolTip>
+                                        <ToolTip Content="Enter your username"/>
+                                    </TextBox.ToolTip>
+                                </TextBox>
 
                                 <!-- 密码输入框 -->
-                                <Grid Margin="0,0,0,25">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Text="密码：" FontSize="20" VerticalAlignment="Center" Margin="0,0,10,0" Foreground="Black"/>
-                                    <Border Grid.Column="1" CornerRadius="5" BorderThickness="1" BorderBrush="#DDD" 
-            Background="White" Width="330" Margin="0,0,-20,0">
-                                        <PasswordBox x:Name="LoginPassword" BorderThickness="0" Padding="15,10" 
-                     FontSize="14" Background="Transparent" Width="330">
-                                            <PasswordBox.ToolTip>
-                                                <ToolTip Content="Enter your password"/>
-                                            </PasswordBox.ToolTip>
-                                        </PasswordBox>
-                                    </Border>
-                                </Grid>
-
-                                <!-- 登录按钮 -->
-                                <Button Content="登录" Click="LoginButton_Click" 
-                                        HorizontalAlignment="Center" 
-                                        Background="#1aaae3" Foreground="White" 
-                                        FontWeight="Bold" FontSize="14" 
-                                        Height="45" BorderThickness="2" 
-                                        Padding="20,0"
-                                        Margin="0,0,0,15">
-                                    <Button.Effect>
-                                        <DropShadowEffect BlurRadius="10" Opacity="0.3" ShadowDepth="0" Color="#FF6A11"/>
-                                    </Button.Effect>
-                                </Button>
+                                <TextBlock Text="密码" FontSize="18" FontWeight="Medium"
+                                              Foreground="#2C3E50" Margin="0,0,0,10"/>
+                                <PasswordBox x:Name="LoginPassword" 
+                                                Margin="0,0,0,25" Height="45">
+                                    <PasswordBox.ToolTip>
+                                        <ToolTip Content="Enter your password"/>
+                                    </PasswordBox.ToolTip>
+                                </PasswordBox>
 
                                 <!-- 忘记密码链接 -->
-                                <TextBlock Text="忘记密码?" Foreground="#666" 
-                                           HorizontalAlignment="Right" Cursor="Hand"
-                                           Margin="0,0,30,20">
+                                <TextBlock Text="忘记密码?" Foreground="#4A90E2" FontWeight="Medium"
+                                               HorizontalAlignment="Right" Cursor="Hand"
+                                               Margin="0,0,0,35" FontSize="15">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="TextDecorations" Value="None"/>
                                             <Style.Triggers>
                                                 <Trigger Property="IsMouseOver" Value="True">
                                                     <Setter Property="TextDecorations" Value="Underline"/>
-                                                    <Setter Property="Foreground" Value="#1aaae3"/>
+                                                    <Setter Property="Foreground" Value="#5BA0F2"/>
                                                 </Trigger>
                                             </Style.Triggers>
                                         </Style>
                                     </TextBlock.Style>
                                 </TextBlock>
 
+                                <!-- 登录按钮 -->
+                                <Button Content="让我们开始吧" Click="LoginButton_Click" 
+                                            Style="{StaticResource ModernButton}"
+                                            HorizontalAlignment="Stretch" 
+                                            Padding="0" Margin="0,0,0,25" Width="200"/>
+
                                 <!-- 登录消息 -->
-                                <TextBlock x:Name="LoginMessage" Margin="0,10,0,0" 
-                                           Foreground="#1aaae3" TextWrapping="Wrap" 
-                                           HorizontalAlignment="Center" FontSize="12"/>
+                                <TextBlock x:Name="LoginMessage" Margin="0,0,0,20" 
+                                               Foreground="#E74C3C" TextWrapping="Wrap" 
+                                               HorizontalAlignment="Center" FontSize="14"
+                                               FontWeight="Medium" MinHeight="20"/>
                             </StackPanel>
+
                         </TabItem>
 
                         <!-- 注册标签页 -->
                         <TabItem Header="注册">
-                            <StackPanel VerticalAlignment="Center">
-                                <TextBlock Text="创建用户" FontSize="24" FontWeight="Bold" 
-                                           Foreground="#333" Margin="0,0,0,30"/>
+                            <StackPanel VerticalAlignment="Top" Margin="0,30,0,30">
+                                <TextBlock Text="创建账户" FontSize="32" FontWeight="Bold" 
+                                               Foreground="#2C3E50" Margin="0,0,0,10"/>
+                                <TextBlock Text="请填写以下信息完成注册" FontSize="16" 
+                                               Foreground="#7F8C8D" Margin="0,0,0,40"/>
 
                                 <!-- 用户名输入框 -->
-                                <Grid Margin="0,0,0,15">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <!-- 文字列 -->
-                                        <ColumnDefinition Width="*"/>
-                                        <!-- 输入框列 -->
-                                    </Grid.ColumnDefinitions>
-
-                                    <!-- 文字 -->
-                                    <TextBlock Text="用户名：" FontSize="20" VerticalAlignment="Center" 
-               Foreground="#333" Margin="0,0,10,0"/>
-
-                                    <!-- 输入框 -->
-                                    <Border Grid.Column="1" CornerRadius="5" BorderThickness="1" BorderBrush="#DDD" 
-            Background="White" Width="330">
-                                        <TextBox x:Name="RegisterUsername" BorderThickness="0" Padding="15,10" 
-                 FontSize="14" Background="Transparent" Width="330">
-                                            <TextBox.ToolTip>
-                                                <ToolTip Content="Choose a username"/>
-                                            </TextBox.ToolTip>
-                                        </TextBox>
-                                    </Border>
-                                </Grid>
+                                <TextBlock Text="用户名" FontSize="16" FontWeight="Medium"
+                                              Foreground="#2C3E50" Margin="0,0,0,10"/>
+                                <TextBox x:Name="RegisterUsername" 
+                                            Margin="0,0,0,25" Height="40">
+                                    <TextBox.ToolTip>
+                                        <ToolTip Content="Choose a username"/>
+                                    </TextBox.ToolTip>
+                                </TextBox>
 
                                 <!-- 邮箱输入框 -->
-                                <Grid Margin="0,0,0,15">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <!-- 文字列 -->
-                                        <ColumnDefinition Width="*"/>
-                                        <!-- 输入框列 -->
-                                    </Grid.ColumnDefinitions>
-
-                                    <!-- 文字 -->
-                                    <TextBlock Text="邮箱：" FontSize="20" VerticalAlignment="Center" 
-               Foreground="#333" Margin="0,0,10,0"/>
-
-                                    <!-- 输入框 -->
-                                    <Border Grid.Column="1" CornerRadius="5" BorderThickness="1" BorderBrush="#DDD" 
-            Background="White" Width="330" Margin="0,0,-20,0">
-                                        <TextBox x:Name="RegisterEmail" BorderThickness="0" Padding="15,10" 
-                 FontSize="14" Background="Transparent" Width="330">
-                                            <TextBox.ToolTip>
-                                                <ToolTip Content="Enter your email"/>
-                                            </TextBox.ToolTip>
-                                        </TextBox>
-                                    </Border>
-                                </Grid>
+                                <TextBlock Text="邮箱地址" FontSize="16" FontWeight="Medium"
+                                              Foreground="#2C3E50" Margin="0,0,0,10"/>
+                                <TextBox x:Name="RegisterEmail"
+                                            Margin="0,0,0,25" Height="40">
+                                    <TextBox.ToolTip>
+                                        <ToolTip Content="Enter your email"/>
+                                    </TextBox.ToolTip>
+                                </TextBox>
+                                <TextBlock Text="密码" FontSize="16" FontWeight="Medium"
+                                              Foreground="#2C3E50"/>
 
                                 <!-- 密码输入框 -->
-                                <Grid Margin="0,0,0,25">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <!-- 文字列 -->
-                                        <ColumnDefinition Width="*"/>
-                                        <!-- 输入框列 -->
-                                    </Grid.ColumnDefinitions>
-
-                                    <!-- 文字 -->
-                                    <TextBlock Text="密码：" FontSize="20" VerticalAlignment="Center" 
-               Foreground="#333" Margin="0,0,10,0"/>
-
-                                    <!-- 输入框 -->
-                                    <Border Grid.Column="1" CornerRadius="5" BorderThickness="1" BorderBrush="#DDD" 
-            Background="White" Width="330" Margin="0,0,-20,0">
-                                        <PasswordBox x:Name="RegisterPassword" BorderThickness="0" Padding="15,10" 
-                     FontSize="14" Background="Transparent" Width="330">
-                                            <PasswordBox.ToolTip>
-                                                <ToolTip Content="Create a password"/>
-                                            </PasswordBox.ToolTip>
-                                        </PasswordBox>
-                                    </Border>
-                                </Grid>
+                                <PasswordBox x:Name="RegisterPassword" 
+                                                Margin="0,0,0,35" Height="40">
+                                    <PasswordBox.ToolTip>
+                                        <ToolTip Content="Create a password"/>
+                                    </PasswordBox.ToolTip>
+                                </PasswordBox>
+                                <Button Content="加入我们吧 " Click="RegisterButton_Click" 
+                                            Style="{StaticResource ModernButton}" 
+                                            Padding="0" Width="200"/>
 
                                 <!-- 注册按钮 -->
-                                <Button Content="注册" Click="RegisterButton_Click" 
-                                        HorizontalAlignment="Center" 
-                                        Background="#1aaae3" Foreground="White" 
-                                        FontWeight="Bold" FontSize="14" 
-                                        Height="45" BorderThickness="0" 
-                                        Padding="20,0"
-                                        Margin="0,0,0,15">
-                                    <Button.Effect>
-                                        <DropShadowEffect BlurRadius="10" Opacity="0.3" ShadowDepth="0" Color="#FF6A11"/>
-                                    </Button.Effect>
-                                </Button>
 
                                 <!-- 注册消息 -->
-                                <TextBlock x:Name="RegisterMessage" Margin="0,10,0,0" 
-                                           Foreground="#1aaae3" TextWrapping="Wrap" 
-                                           HorizontalAlignment="Center" FontSize="12"/>
+                                <TextBlock x:Name="RegisterMessage" Margin="0,0,0,20" 
+                                               Foreground="#E74C3C" TextWrapping="Wrap" 
+                                               HorizontalAlignment="Center" FontSize="14"
+                                               FontWeight="Medium" MinHeight="20"/>
                             </StackPanel>
                         </TabItem>
                     </TabControl>
                 </Grid>
-            </Grid>
 
-            <!-- 关闭按钮 -->
-            <Button Content="✕" Width="30" Height="30" 
-                    HorizontalAlignment="Right" VerticalAlignment="Top" 
-                    Margin="0,10,10,0" FontSize="14" FontWeight="Bold"
-                    Foreground="#666" Background="Transparent" 
-                    BorderThickness="0" Click="CloseButton_Click" Grid.Column="1">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Background="{TemplateBinding Background}" 
-                                            CornerRadius="15">
-                                        <ContentPresenter HorizontalAlignment="Center" 
-                                                          VerticalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#F0F0F0"/>
-                                <Setter Property="Foreground" Value="#1aaae3"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+                <!-- 关闭按钮 -->
+                <Button Content="✕" Width="36" Height="36" 
+                        HorizontalAlignment="Right" VerticalAlignment="Top" 
+                        Margin="0,16,16,0" FontSize="16" FontWeight="Bold"
+                        Foreground="#8E8E93" Background="Transparent" 
+                        BorderThickness="0" Click="CloseButton_Click" 
+                        Grid.Column="1" Cursor="Hand">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" 
+                                                CornerRadius="18">
+                                            <ContentPresenter HorizontalAlignment="Center" 
+                                                              VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#F5F5F5"/>
+                                    <Setter Property="Foreground" Value="#FF5F56"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
         </Grid>
     </Border>
 </Window>
