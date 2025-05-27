@@ -14,7 +14,26 @@ namespace frontend.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
-        public bool IsCompleted { get; set; } = false;
+
+
+        private bool _isCompleted = false;
+        public bool IsCompleted
+        {
+            get => _isCompleted;
+            set
+            {
+                if (_isCompleted != value)
+                {
+                    _isCompleted = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(StatusText));
+                    OnPropertyChanged(nameof(IsOverdue));
+                    
+                }
+            }
+        }
+
+
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; }
@@ -28,5 +47,46 @@ namespace frontend.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        // 剩余时间属性
+        public string RemainingTime => GetRemainingTime();
+        private string GetRemainingTime()
+        { 
+             var now = DateTime.Now;
+             var timeLeft = DueDate - now;
+
+             if (timeLeft.TotalSeconds <= 0)
+                    return "已到期";
+
+             return $"{(int)timeLeft.TotalDays}天 {timeLeft.Hours}小时{timeLeft.Minutes}分钟";
+        }
+
+        public void UpdateRemainingTime()
+        {
+            OnPropertyChanged(nameof(RemainingTime));
+        }
+
+     
+
+        // 新增状态文本属性
+        public string StatusText
+        {
+            get
+            {
+                return IsCompleted ? "已完成" : "未完成";
+            }
+        }
+        public bool IsOverdue => !IsCompleted && DueDate < DateTime.Now;
+
+        public int RemainingSeconds
+        {
+            get
+            {
+                var diff = DueDate - DateTime.Now;
+                return diff.TotalSeconds > 0 ? (int)diff.TotalSeconds : 0;
+            }
+        }
+
+
     }
 }

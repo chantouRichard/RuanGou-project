@@ -30,6 +30,7 @@ public partial class MainWindow : INavigationWindow
         {
             floatingWindow = new FloatingWindow();
             floatingWindow.Show();
+
         }));
 
         // 注册关闭事件

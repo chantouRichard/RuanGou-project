@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "backend",
-    "version": "1.0"
+    "title": "AITranslationAPI",
+    "version": "v1"
   },
   "paths": {
     "/api/Auth/login": {
@@ -71,6 +71,27 @@
       "get": {
         "tags": [
           "Auth"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/City/adcode": {
+      "get": {
+        "tags": [
+          "City"
+        ],
+        "parameters": [
+          {
+            "name": "city",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -333,6 +354,93 @@
         }
       }
     },
+    "/api/Translation/text": {
+      "post": {
+        "tags": [
+          "Translation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextTranslationRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextTranslationRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextTranslationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Translation/image": {
+      "post": {
+        "tags": [
+          "Translation"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "from",
+                  "image",
+                  "to"
+                ],
+                "type": "object",
+                "properties": {
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "v": {
+                    "type": "integer",
+                    "format": "int32"
+                  }
+                }
+              },
+              "encoding": {
+                "image": {
+                  "style": "form"
+                },
+                "from": {
+                  "style": "form"
+                },
+                "to": {
+                  "style": "form"
+                },
+                "v": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/User": {
       "get": {
         "tags": [
@@ -417,6 +525,27 @@
           }
         }
       }
+    },
+    "/api/Weather": {
+      "get": {
+        "tags": [
+          "Weather"
+        ],
+        "parameters": [
+          {
+            "name": "cityCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -447,6 +576,29 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TextTranslationRequest": {
+        "required": [
+          "from",
+          "text",
+          "to"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "to": {
             "type": "string",
             "nullable": true
           }

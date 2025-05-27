@@ -1,23 +1,32 @@
-﻿using System;
+﻿using frontend.Models;
+using frontend.Services;
+using frontend.ViewModels;
+using Microsoft.Win32;
+using ModernWpf.Controls;
+
+// 为 NHotkey 添加这个 using 语句
+using NHotkey;
+using NHotkey.Wpf;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
-using Microsoft.Win32;
 using Forms = System.Windows.Forms;
 using Win = System.Windows;
 using WinControls = System.Windows.Controls;
-// 为 NHotkey 添加这个 using 语句
-using NHotkey;
-using NHotkey.Wpf;
 
 namespace frontend.Views.Windows
 {
     public partial class FloatingWindow : Window
     {
+        private FloatingViewModel viewModel = new FloatingViewModel();
+        private ApiService _apiService = new ApiService();
         public class ShortcutItem
         {
             public string Name { get; set; }
@@ -37,6 +46,22 @@ namespace frontend.Views.Windows
 
             // 使用 NHotkey 注册热键
             RegisterGlobalHotkey();
+
+            // 设置窗口为无边框、可拖动
+            this.WindowStyle = WindowStyle.None;
+            this.AllowsTransparency = true;
+            this.ShowInTaskbar = true;
+            this.Background = new Win.Media.SolidColorBrush(Win.Media.Colors.Transparent);
+            this.MouseDown += Window_MouseDown; // 允许拖动窗口
+
+            this.DataContext = viewModel; //设置数据上下文为 ViewModel
+            this.Loaded += Floating_Loaded; 
+
+        }
+
+        private async void Floating_Loaded(object sender, RoutedEventArgs e)
+        {
+            await viewModel.LoadTodos(); // 加载待办事项
         }
 
         private void RegisterGlobalHotkey()
@@ -213,5 +238,54 @@ namespace frontend.Views.Windows
                 Win.MessageBox.Show($"加载快捷方式失败：{ex.Message}", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+
+        private async void LoadTodos_Click(object sender, RoutedEventArgs e)
+        {
+            await  viewModel.LoadTodos();
+        }
+
+        private async void TaskCompleted_Changed(object sender, RoutedEventArgs e)
+        {
+            if (sender is CheckBox checkBox && checkBox.DataContext is TodoItem task)
+            {
+                try
+                {
+                    task.IsCompleted = checkBox.IsChecked ?? false;
+                    var result = await _apiService.UpdateTodo(task);
+                    if (!result.Success)
+                    {
+                        ShowErrorMessage(result.Message);
+                        // 恢复原状态
+                        checkBox.IsChecked = !task.IsCompleted;
+                        task.IsCompleted = !task.IsCompleted;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ShowErrorMessage($"更新任务状态失败: {ex.Message}");
+                    checkBox.IsChecked = !task.IsCompleted;
+                    task.IsCompleted = !task.IsCompleted;
+                }
+            }
+        }
+
+
+        private void ShowErrorMessage(string message)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                var dialog = new ContentDialog
+                {
+                    Title = "错误",
+                    Content = message,
+                    CloseButtonText = "确定",
+                    DefaultButton = ContentDialogButton.Close
+                };
+                dialog.ShowAsync();
+            });
+        }
+
     }
 }
