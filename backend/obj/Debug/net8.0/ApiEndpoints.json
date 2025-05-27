@@ -221,23 +221,18 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "image",
+        "Name": "Image",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
       },
       {
-        "Name": "from",
+        "Name": "From",
         "Type": "System.String",
         "IsRequired": false
       },
       {
-        "Name": "to",
+        "Name": "To",
         "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "v",
-        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

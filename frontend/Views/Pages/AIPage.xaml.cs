@@ -42,6 +42,7 @@ namespace frontend.Views.Pages
             _translationService = new TranslationService(httpClient);
         }
 
+        // 文本翻译方法（保持不变）
         private async void TranslateText_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -99,6 +100,7 @@ namespace frontend.Views.Pages
             }
         }
 
+        // 截图方法（保持不变）
         private void CaptureScreenshot_Click(object sender, RoutedEventArgs e)
         {
             var screenshotWindow = new Window
@@ -122,6 +124,7 @@ namespace frontend.Views.Pages
             screenshotWindow.ShowDialog();
         }
 
+        // 其他辅助方法（保持不变）
         private void Overlay_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _startPoint = e.GetPosition((IInputElement)sender);
@@ -217,6 +220,7 @@ namespace frontend.Views.Pages
             ImageTranslationResult.Text = string.Empty;
         }
 
+        // 图片翻译方法（修改为与后端对齐）
         private async void TranslateImage_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -247,70 +251,46 @@ namespace frontend.Views.Pages
                     {
                         ImageBytes = bytes,
                         From = fromLang,
-                        To = toLang,
-                        V = 3
+                        To = toLang
                     };
 
                     var result = await _translationService.TranslateImageAsync(request);
 
-                    if (!string.IsNullOrEmpty(result.ErrorCode))
+                    // 增强结果处理
+                    if (result.ErrorCode != "0") // 有道成功码为0
                     {
-                        MessageBox.Show($"翻译失败: {result.ErrorMsg}", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
-                        ImageTranslationResult.Text = $"错误: {result.ErrorCode}";
-                        return;
+                        throw new Exception($"API错误: {result.ErrorMsg} (代码:{result.ErrorCode})");
                     }
 
-                    if (result?.Data?.Content?.Count > 0)
+                    if (result.Regions?.Count > 0)
                     {
                         var sb = new StringBuilder();
-                        foreach (var content in result.Data.Content)
+                        foreach (var region in result.Regions)
                         {
-                            sb.AppendLine(content.Dst);
+                            sb.AppendLine($"位置: {region.BoundingBox}");
+                            sb.AppendLine($"原文: {region.OriginalText}");
+                            sb.AppendLine($"翻译: {region.TranslatedText}");
+                            sb.AppendLine(new string('-', 20));
                         }
-
-                        if (!string.IsNullOrEmpty(result.Data.SumDst))
-                        {
-                            sb.AppendLine();
-                            sb.AppendLine("汇总翻译:");
-                            sb.AppendLine(result.Data.SumDst);
-                        }
-
                         ImageTranslationResult.Text = sb.ToString();
-                        Debug.WriteLine($"Image translation successful: {ImageTranslationResult.Text}");
                     }
                     else
                     {
-                        ImageTranslationResult.Text = "未识别到文本";
-                        Debug.WriteLine("Image translation returned empty result");
+                        ImageTranslationResult.Text = "识别成功但未找到文本区域";
                     }
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Image translation error: {ex}");
-                MessageBox.Show($"图片翻译失败: {ex.Message}", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
-                ImageTranslationResult.Text = "翻译失败";
+                ImageTranslationResult.Text = $"翻译失败: {ex.Message}";
+                Debug.WriteLine($"完整错误堆栈: {ex.ToString()}");
             }
         }
 
-        private void SourceLanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // 语言选择变化处理逻辑
-        }
-
-        private void TargetLanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // 语言选择变化处理逻辑
-        }
-
-        private void ImageSourceLang_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // 图片源语言选择变化处理逻辑
-        }
-
-        private void ImageTargetLang_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // 图片目标语言选择变化处理逻辑
-        }
+        // 其他事件处理方法（保持不变）
+        private void SourceLanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) { }
+        private void TargetLanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) { }
+        private void ImageSourceLang_SelectionChanged(object sender, SelectionChangedEventArgs e) { }
+        private void ImageTargetLang_SelectionChanged(object sender, SelectionChangedEventArgs e) { }
     }
 }

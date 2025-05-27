@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\29586\\RuanGou-project\\frontend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\views\\pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\models\\translationmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:models\\translationmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\services\\translationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:services\\translationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\views\\pages\\aipage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\aipage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\services\\app\\applicationhostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:services\\app\\applicationhostservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\assets\\test.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:assets\\test.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\views\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,10 +67,6 @@
       "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\dailypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\views\\pages\\aipage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\aipage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\views\\pages\\commonpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\commonpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -83,24 +95,12 @@
       "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\oneclickpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\models\\translationmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:models\\translationmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\views\\pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\aipage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\controls\\contracts\\ipageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:controls\\contracts\\ipageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\assets\\cloud.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
       "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:assets\\cloud.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\services\\translationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:services\\translationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\29586\\ruangou-project\\frontend\\services\\app\\pageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -268,64 +268,77 @@
       "DocumentGroups": [
         {
           "DockedWidth": 138,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 4,
               "Title": "AIPage.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\AIPage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\AIPage.xaml",
               "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\AIPage.xaml",
               "RelativeToolTip": "Views\\Pages\\AIPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-24T19:17:13.672Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "QuickLaunchPage.xaml",
-              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\QuickLaunchPage.xaml",
-              "RelativeDocumentMoniker": "Views\\Pages\\QuickLaunchPage.xaml",
-              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\QuickLaunchPage.xaml",
-              "RelativeToolTip": "Views\\Pages\\QuickLaunchPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T06:35:45.154Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SettingPage.xaml",
-              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\SettingPage.xaml",
-              "RelativeDocumentMoniker": "Views\\Pages\\SettingPage.xaml",
-              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\SettingPage.xaml",
-              "RelativeToolTip": "Views\\Pages\\SettingPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-22T07:19:03.785Z"
+              "WhenOpened": "2025-05-24T19:17:13.672Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "UserViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\ViewModels\\UserViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\UserViewModel.cs",
-              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\ViewModels\\UserViewModel.cs",
-              "RelativeToolTip": "ViewModels\\UserViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAGAAAAAAAAAA==",
+              "Title": "ApplicationHostService.cs",
+              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Services\\App\\ApplicationHostService.cs",
+              "RelativeDocumentMoniker": "Services\\App\\ApplicationHostService.cs",
+              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Services\\App\\ApplicationHostService.cs",
+              "RelativeToolTip": "Services\\App\\ApplicationHostService.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAhwCkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T07:02:29.039Z"
+              "WhenOpened": "2025-05-22T07:21:08.843Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 6,
+              "Title": "test.jpg",
+              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Assets\\test.jpg",
+              "RelativeDocumentMoniker": "Assets\\test.jpg",
+              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Assets\\test.jpg",
+              "RelativeToolTip": "Assets\\test.jpg",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2025-05-26T07:07:33.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AIPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\AIPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Pages\\AIPage.xaml.cs",
+              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\AIPage.xaml.cs",
+              "RelativeToolTip": "Views\\Pages\\AIPage.xaml.cs",
+              "ViewState": "AgIAAAkBAAAAAAAAAAAnwBIBAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T16:46:19.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Views\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T08:55:47.643Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "CommonPage.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\CommonPage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\CommonPage.xaml",
@@ -337,42 +350,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Views\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAWwBkAAAAIAAAAAAAAAA==",
+              "Title": "TranslationService.cs",
+              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Services\\TranslationService.cs",
+              "RelativeDocumentMoniker": "Services\\TranslationService.cs",
+              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Services\\TranslationService.cs",
+              "RelativeToolTip": "Services\\TranslationService.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAIwGMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T08:55:47.643Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApplicationHostService.cs",
-              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Services\\App\\ApplicationHostService.cs",
-              "RelativeDocumentMoniker": "Services\\App\\ApplicationHostService.cs",
-              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Services\\App\\ApplicationHostService.cs",
-              "RelativeToolTip": "Services\\App\\ApplicationHostService.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAhwCEAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T07:21:08.843Z",
+              "WhenOpened": "2025-05-25T17:06:56.51Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "test.jpg",
-              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Assets\\test.jpg",
-              "RelativeDocumentMoniker": "Assets\\test.jpg",
-              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Assets\\test.jpg",
-              "RelativeToolTip": "Assets\\test.jpg",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-05-26T07:07:33.048Z"
+              "Title": "TranslationModels.cs",
+              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Models\\TranslationModels.cs",
+              "RelativeDocumentMoniker": "Models\\TranslationModels.cs",
+              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Models\\TranslationModels.cs",
+              "RelativeToolTip": "Models\\TranslationModels.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAwE8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T17:05:40.523Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
+              "Title": "UserViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\ViewModels\\UserViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\UserViewModel.cs",
+              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\ViewModels\\UserViewModel.cs",
+              "RelativeToolTip": "ViewModels\\UserViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T07:02:29.039Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SettingPage.xaml",
+              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\SettingPage.xaml",
+              "RelativeDocumentMoniker": "Views\\Pages\\SettingPage.xaml",
+              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\SettingPage.xaml",
+              "RelativeToolTip": "Views\\Pages\\SettingPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-22T07:19:03.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "QuickLaunchPage.xaml",
+              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\QuickLaunchPage.xaml",
+              "RelativeDocumentMoniker": "Views\\Pages\\QuickLaunchPage.xaml",
+              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\QuickLaunchPage.xaml",
+              "RelativeToolTip": "Views\\Pages\\QuickLaunchPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-14T06:35:45.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "LoginWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\LoginWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\LoginWindow.xaml.cs",
@@ -384,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "FloatingWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\FloatingWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\FloatingWindow.xaml.cs",
@@ -396,7 +433,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "AIPage.g.i.cs",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\obj\\Debug\\net8.0-windows\\Views\\Pages\\AIPage.g.i.cs",
               "RelativeDocumentMoniker": "obj\\Debug\\net8.0-windows\\Views\\Pages\\AIPage.g.i.cs",
@@ -408,7 +445,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "DailyPage.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\DailyPage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\DailyPage.xaml",
@@ -419,7 +456,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "MemoPage.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\MemoPage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\MemoPage.xaml",
@@ -430,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "FilePage.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\FilePage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\FilePage.xaml",
@@ -441,7 +478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "CloudRemindPage.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\CloudRemindPage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\CloudRemindPage.xaml",
@@ -452,7 +489,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "CalculatorPage.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\CalculatorPage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\CalculatorPage.xaml",
@@ -463,18 +500,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
               "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\App.xaml",
               "RelativeToolTip": "App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-13T08:08:44.314Z"
+              "WhenOpened": "2025-05-13T08:08:44.314Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Views\\MainWindow.xaml",
@@ -485,7 +523,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "LoginWindow.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\LoginWindow.xaml",
               "RelativeDocumentMoniker": "Views\\LoginWindow.xaml",
@@ -496,7 +534,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "OneClickPage.xaml",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\OneClickPage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\OneClickPage.xaml",
@@ -507,19 +545,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "TranslationModels.cs",
-              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Models\\TranslationModels.cs",
-              "RelativeDocumentMoniker": "Models\\TranslationModels.cs",
-              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Models\\TranslationModels.cs",
-              "RelativeToolTip": "Models\\TranslationModels.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAABIwBAAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T17:05:40.523Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "IPageService.cs",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Controls\\Contracts\\IPageService.cs",
               "RelativeDocumentMoniker": "Controls\\Contracts\\IPageService.cs",
@@ -531,7 +557,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "cloud.png",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Assets\\cloud.png",
               "RelativeDocumentMoniker": "Assets\\cloud.png",
@@ -554,18 +580,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "AIPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\AIPage.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Pages\\AIPage.xaml.cs",
-              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Views\\Pages\\AIPage.xaml.cs",
-              "RelativeToolTip": "Views\\Pages\\AIPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T16:46:19.672Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 26,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\App.xaml.cs",
@@ -575,18 +589,6 @@
               "ViewState": "AgIAADgAAAAAAAAAAAAhwEwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T08:19:11.789Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "TranslationService.cs",
-              "DocumentMoniker": "C:\\Users\\29586\\RuanGou-project\\frontend\\Services\\TranslationService.cs",
-              "RelativeDocumentMoniker": "Services\\TranslationService.cs",
-              "ToolTip": "C:\\Users\\29586\\RuanGou-project\\frontend\\Services\\TranslationService.cs",
-              "RelativeToolTip": "Services\\TranslationService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-25T17:06:56.51Z"
             },
             {
               "$type": "Document",

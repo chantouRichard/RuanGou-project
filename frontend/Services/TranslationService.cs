@@ -69,31 +69,34 @@ namespace frontend.Services
         {
             try
             {
-                Debug.WriteLine($"Sending image translation request (Size: {request.ImageBytes.Length} bytes)");
+                // 添加请求日志
+                Debug.WriteLine($"请求参数: From={request.From}, To={request.To}, ImageSize={request.ImageBytes.Length}");
 
                 using var content = new MultipartFormDataContent();
                 content.Add(new ByteArrayContent(request.ImageBytes), "image", "screenshot.png");
                 content.Add(new StringContent(request.From), "from");
                 content.Add(new StringContent(request.To), "to");
-                content.Add(new StringContent(request.V.ToString()), "v");
 
                 var response = await _httpClient.PostAsync("image", content);
                 var responseString = await response.Content.ReadAsStringAsync();
 
-                Debug.WriteLine($"Received image translation response: {responseString}");
+                // 关键调试日志
+                Debug.WriteLine($"API原始响应: {responseString}");
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    throw new Exception($"API请求失败: {response.StatusCode}");
+                    throw new Exception($"HTTP {response.StatusCode}");
                 }
 
-                return JsonConvert.DeserializeObject<ImageTranslationResult>(responseString);
+                var result = JsonConvert.DeserializeObject<ImageTranslationResult>(responseString);
+                return result ?? throw new Exception("反序列化结果为null");
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Image translation error: {ex}");
+                Debug.WriteLine($"完整错误: {ex}");
                 throw;
             }
         }
+
     }
 }

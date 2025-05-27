@@ -395,39 +395,32 @@
             "multipart/form-data": {
               "schema": {
                 "required": [
-                  "from",
-                  "image",
-                  "to"
+                  "From",
+                  "Image",
+                  "To"
                 ],
                 "type": "object",
                 "properties": {
-                  "image": {
+                  "Image": {
                     "type": "string",
                     "format": "binary"
                   },
-                  "from": {
+                  "From": {
                     "type": "string"
                   },
-                  "to": {
+                  "To": {
                     "type": "string"
-                  },
-                  "v": {
-                    "type": "integer",
-                    "format": "int32"
                   }
                 }
               },
               "encoding": {
-                "image": {
+                "Image": {
                   "style": "form"
                 },
-                "from": {
+                "From": {
                   "style": "form"
                 },
-                "to": {
-                  "style": "form"
-                },
-                "v": {
+                "To": {
                   "style": "form"
                 }
               }
