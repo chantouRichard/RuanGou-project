@@ -37,17 +37,20 @@ namespace backend.Controllers
             try
             {
                 using var memoryStream = new MemoryStream();
-                await request.image.CopyToAsync(memoryStream);
+                await request.Image.CopyToAsync(memoryStream);
                 var result = await _translationService.ImageTranslateAsync(
                     memoryStream.ToArray(),
-                    request.from.ToLower(),
-                    request.to.ToLower(),
-                    request.v);
+                    request.From,
+                    request.To);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { error = ex.Message });
+                return StatusCode(500, new
+                {
+                    errorCode = "500",
+                    errorMsg = ex.Message
+                });
             }
         }
     }

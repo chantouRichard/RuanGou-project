@@ -1,25 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using backend.Models;
-using System.Net.Http.Headers;
+using System.Linq;
 
 namespace backend.Services
 {
     public class TranslationService : ITranslationService
     {
         private readonly HttpClient _httpClient;
-        private const string ApiKey = "7gQTJ63Rv733T37KOGm5wIqS";
-        private const string SecretKey = "gpfbDFezS1D7cWP1SIqrEtTXtv92621s";
-        private const string AuthUrl = "https://aip.baidubce.com/oauth/2.0/token";
-        private const string TextTranslateUrl = "https://aip.baidubce.com/rpc/2.0/mt/texttrans/v1";
-        private const string ImageTranslateUrl = "https://aip.baidubce.com/file/2.0/mt/pictrans/v1";
 
-        private static string _cachedAccessToken;
-        private static DateTime _tokenExpiryTime = DateTime.MinValue;
+        // 有道翻译配置
+        private const string YoudaoAppKey = "40cf4baf117afd3c";
+        private const string YoudaoAppSecret = "H3vXAsumdbrMSWmTiEOKp9Tj4MwGlxVL";
+        private const string YoudaoImageTranslateUrl = "https://openapi.youdao.com/ocrtransapi";
+
+        // 百度翻译配置
+        private const string BaiduApiKey = "7gQTJ63Rv733T37KOGm5wIqS";
+        private const string BaiduSecretKey = "gpfbDFezS1D7cWP1SIqrEtTXtv92621s";
+        private const string BaiduAuthUrl = "https://aip.baidubce.com/oauth/2.0/token";
+        private const string BaiduTextTranslateUrl = "https://aip.baidubce.com/rpc/2.0/mt/texttrans/v1";
+
+        private static string _cachedBaiduAccessToken;
+        private static DateTime _baiduTokenExpiryTime = DateTime.MinValue;
 
         public TranslationService(HttpClient httpClient)
         {
@@ -30,8 +37,8 @@ namespace backend.Services
         {
             try
             {
-                var token = await GetValidAccessTokenAsync();
-                var requestUrl = $"{TextTranslateUrl}?access_token={token}";
+                var token = await GetBaiduAccessTokenAsync();
+                var requestUrl = $"{BaiduTextTranslateUrl}?access_token={token}";
 
                 var requestBody = new
                 {
@@ -69,66 +76,60 @@ namespace backend.Services
             }
         }
 
-        public async Task<ImageTranslationResult> ImageTranslateAsync(byte[] imageBytes, string from, string to, int v)
+        public async Task<ImageTranslationResult> ImageTranslateAsync(
+            byte[] imageBytes,
+            string from,
+            string to
+            )
         {
-            const string boundary = "----BaiduPictransBoundary";
+            const string type = "1";
+            const string render = "1";
             try
             {
-                // 1. 获取Token
-                var token = await GetValidAccessTokenAsync();
+                // 生成请求参数
+                var q = Convert.ToBase64String(imageBytes);
+                var salt = Guid.NewGuid().ToString("N");
+                var curtime = ((DateTimeOffset)DateTime.UtcNow).ToUnixTimeSeconds().ToString();
 
-                // 2. 构建Multipart请求
-                using var content = new MultipartFormDataContent(boundary);
+                // 计算签名
+                var input = q.Length > 20 ?
+                    q.Substring(0, 10) + q.Length + q.Substring(q.Length - 10) :
+                    q;
 
-                // 图片部分（关键修正）
-                var imageContent = new ByteArrayContent(imageBytes);
-                imageContent.Headers.ContentType = MediaTypeHeaderValue.Parse(GetImageMimeType(imageBytes));
-                content.Add(imageContent, "image", "translation_image.png");
+                var signStr = YoudaoAppKey + input + salt + curtime + YoudaoAppSecret;
+                var sign = ComputeSha256Hash(signStr);
 
-                // 文本参数（保持小写字段名）
-                content.Add(new StringContent(from.ToLower()), "from");
-                content.Add(new StringContent(to.ToLower()), "to");
-                content.Add(new StringContent(v.ToString()), "v");
-                // ============= 调试输出开始 =============
-                Console.WriteLine("\n=== MultipartContent 详细信息 ===");
-                Console.WriteLine($"Boundary: {content.Headers.ContentType?.Parameters.FirstOrDefault(p => p.Name == "boundary")?.Value}");
-                Console.WriteLine($"Content-Type: {content.Headers.ContentType}");
-
-                foreach (var part in content)
+                // 构建请求参数
+                var formData = new Dictionary<string, string>
                 {
-                    Console.WriteLine($"\n-- Part: {part.Headers.ContentDisposition?.Name} --");
-                    Console.WriteLine($"Headers: {string.Join("; ", part.Headers.Select(h => $"{h.Key}={string.Join(",", h.Value)}"))}");
+                    {"q", q},
+                    {"from", from},
+                    {"to", to},
+                    {"appKey", YoudaoAppKey},
+                    {"salt", salt},
+                    {"sign", sign},
+                    {"signType", "v3"},
+                    {"curtime", curtime},
+                    {"type", type},
+                    {"render", render},
+                    {"docType", "json"}
+                };
 
-                    if (part is StringContent stringPart)
-                    {
-                        Console.WriteLine($"String Content: {await stringPart.ReadAsStringAsync()}");
-                    }
-                    else if (part is ByteArrayContent bytePart)
-                    {
-                        var bytes = await bytePart.ReadAsByteArrayAsync();
-                        Console.WriteLine($"Byte Length: {bytes.Length}");
-                        Console.WriteLine($"Hex Preview: {BitConverter.ToString(bytes.Take(32).ToArray())}...");
-                    }
-                }
-                // ============= 调试输出结束 =============
-                // 3. 配置HttpClient
-                using var httpClient = new HttpClient();
-                httpClient.DefaultRequestHeaders.Accept.Clear();
-                httpClient.Timeout = TimeSpan.FromSeconds(30);
-
-                // 4. 发送请求
-                var response = await httpClient.PostAsync(
-                    $"{ImageTranslateUrl}?access_token={token}",
-                    content);
-
+                // 发送请求
+                var content = new FormUrlEncodedContent(formData);
+                var response = await _httpClient.PostAsync(YoudaoImageTranslateUrl, content);
                 var responseContent = await response.Content.ReadAsStringAsync();
 
-                // 5. 处理响应（严格匹配您的ImageTranslationResult结构）
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception($"API请求失败: {response.StatusCode}\n{responseContent}");
+                }
+
                 var result = JsonConvert.DeserializeObject<ImageTranslationResult>(responseContent);
 
-                if (!response.IsSuccessStatusCode || !string.IsNullOrEmpty(result.ErrorCode))
+                if (result.ErrorCode != "0")
                 {
-                    throw new Exception($"翻译失败{(result.ErrorCode != null ? $"[{result.ErrorCode}]" : "")}: {result.ErrorMsg ?? "未知错误"}");
+                    throw new Exception($"翻译失败: {result.ErrorMsg ?? "未知错误"}");
                 }
 
                 return result;
@@ -140,44 +141,36 @@ namespace backend.Services
             }
         }
 
-        private string GetImageMimeType(byte[] imageBytes)
+        private string ComputeSha256Hash(string rawData)
         {
-            // PNG检测
-            if (imageBytes.Length > 8 &&
-                imageBytes[0] == 0x89 &&
-                imageBytes[1] == 0x50 &&
-                imageBytes[2] == 0x4E &&
-                imageBytes[3] == 0x47)
+            using (SHA256 sha256Hash = SHA256.Create())
             {
-                return "image/png";
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
             }
-            // JPEG检测
-            if (imageBytes.Length > 2 &&
-                imageBytes[0] == 0xFF &&
-                imageBytes[1] == 0xD8)
-            {
-                return "image/jpeg";
-            }
-            throw new ArgumentException("不支持的图片格式，仅接受PNG或JPEG");
         }
 
-
-        private async Task<string> GetValidAccessTokenAsync()
+        private async Task<string> GetBaiduAccessTokenAsync()
         {
-            if (!string.IsNullOrEmpty(_cachedAccessToken) && DateTime.UtcNow < _tokenExpiryTime)
+            if (!string.IsNullOrEmpty(_cachedBaiduAccessToken) && DateTime.UtcNow < _baiduTokenExpiryTime)
             {
-                return _cachedAccessToken;
+                return _cachedBaiduAccessToken;
             }
 
             try
             {
                 var response = await _httpClient.PostAsync(
-                    AuthUrl,
+                    BaiduAuthUrl,
                     new FormUrlEncodedContent(new Dictionary<string, string>
                     {
                         ["grant_type"] = "client_credentials",
-                        ["client_id"] = ApiKey,
-                        ["client_secret"] = SecretKey
+                        ["client_id"] = BaiduApiKey,
+                        ["client_secret"] = BaiduSecretKey
                     }));
 
                 var responseContent = await response.Content.ReadAsStringAsync();
@@ -193,10 +186,10 @@ namespace backend.Services
                     throw new Exception("获取的AccessToken为空");
                 }
 
-                _cachedAccessToken = result.AccessToken;
-                _tokenExpiryTime = DateTime.UtcNow.AddSeconds(result.ExpiresIn - 300);
+                _cachedBaiduAccessToken = result.AccessToken;
+                _baiduTokenExpiryTime = DateTime.UtcNow.AddSeconds(result.ExpiresIn - 300);
 
-                return _cachedAccessToken;
+                return _cachedBaiduAccessToken;
             }
             catch (Exception ex)
             {

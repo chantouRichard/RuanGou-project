@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace frontend.Models
 {
-    // 文本翻译请求
+    // 文本翻译请求（保持不变）
     public class TextTranslationRequest
     {
         [JsonProperty("text")]
@@ -16,16 +16,16 @@ namespace frontend.Models
         public string To { get; set; }
     }
 
-    // 修正后的文本翻译结果
+    // 文本翻译结果（保持不变）
     public class TextTranslationResult
     {
-        [JsonProperty("logId")]  // 与后端返回一致
+        [JsonProperty("logId")]
         public long LogId { get; set; }
 
-        [JsonProperty("errorCode")]  // 修正大小写
+        [JsonProperty("errorCode")]
         public string ErrorCode { get; set; }
 
-        [JsonProperty("errorMsg")]  // 修正大小写
+        [JsonProperty("errorMsg")]
         public string ErrorMsg { get; set; }
 
         [JsonProperty("result")]
@@ -40,7 +40,7 @@ namespace frontend.Models
         [JsonProperty("to")]
         public string To { get; set; }
 
-        [JsonProperty("transResult")]  // 修正大小写
+        [JsonProperty("transResult")]
         public List<TranslationItem> TransResult { get; set; }
     }
 
@@ -53,7 +53,7 @@ namespace frontend.Models
         public string Dst { get; set; }
     }
 
-    // 图片翻译请求
+    // 图片翻译请求（修改为与后端对齐）
     public class ImageTranslationRequest
     {
         public byte[] ImageBytes { get; set; }
@@ -63,63 +63,54 @@ namespace frontend.Models
 
         [JsonProperty("to")]
         public string To { get; set; }
-
-        [JsonProperty("v")]
-        public int V { get; set; } = 3;
     }
 
-    // 图片翻译结果
+    // 图片翻译结果（修改为与后端对齐）
+    // 修正属性命名以严格匹配有道API响应
     public class ImageTranslationResult
     {
-        [JsonProperty("errorCode")]  // 修正大小写
+        [JsonProperty("errorCode")]
         public string ErrorCode { get; set; }
 
-        [JsonProperty("errorMsg")]  // 修正大小写
+        // 修正属性名称为errorMsg（注意小写）
+        [JsonProperty("errorMsg")]
         public string ErrorMsg { get; set; }
 
-        [JsonProperty("data")]
-        public ImageTranslationData Data { get; set; }
+        [JsonProperty("orientation")]
+        public string Orientation { get; set; }
+
+        [JsonProperty("lanFrom")]
+        public string SourceLanguage { get; set; }
+
+        [JsonProperty("lanTo")]
+        public string TargetLanguage { get; set; }
+
+        [JsonProperty("resRegions")]
+        public List<TextRegion> Regions { get; set; }
+
+        public class TextRegion
+        {
+            [JsonProperty("boundingBox")]
+            public string BoundingBox { get; set; }
+
+            [JsonProperty("context")]
+            public string OriginalText { get; set; }
+
+            [JsonProperty("tranContent")]
+            public string TranslatedText { get; set; }
+        }
     }
 
-    public class ImageTranslationData
+
+    public class TranslationRegion
     {
-        [JsonProperty("from")]
-        public string From { get; set; }
+        [JsonProperty("boundingBox")]
+        public string BoundingBox { get; set; }
 
-        [JsonProperty("to")]
-        public string To { get; set; }
+        [JsonProperty("context")]
+        public string Context { get; set; }
 
-        [JsonProperty("content")]
-        public List<ImageTranslationContent> Content { get; set; }
-
-        [JsonProperty("sumSrc")]
-        public string SumSrc { get; set; }
-
-        [JsonProperty("sumDst")]
-        public string SumDst { get; set; }
-    }
-
-    public class ImageTranslationContent
-    {
-        [JsonProperty("src")]
-        public string Src { get; set; }
-
-        [JsonProperty("dst")]
-        public string Dst { get; set; }
-
-        [JsonProperty("rect")]
-        public string Rect { get; set; }
-
-        [JsonProperty("points")]
-        public List<Point> Points { get; set; }
-    }
-
-    public class Point
-    {
-        [JsonProperty("x")]
-        public int X { get; set; }
-
-        [JsonProperty("y")]
-        public int Y { get; set; }
+        [JsonProperty("tranContent")]
+        public string TranContent { get; set; }
     }
 }
