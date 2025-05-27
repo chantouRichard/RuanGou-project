@@ -47,13 +47,6 @@ namespace frontend.Views.Windows
             // 使用 NHotkey 注册热键
             RegisterGlobalHotkey();
 
-            // 设置窗口为无边框、可拖动
-            this.WindowStyle = WindowStyle.None;
-            this.AllowsTransparency = true;
-            this.ShowInTaskbar = true;
-            this.Background = new Win.Media.SolidColorBrush(Win.Media.Colors.Transparent);
-            this.MouseDown += Window_MouseDown; // 允许拖动窗口
-
             this.DataContext = viewModel; //设置数据上下文为 ViewModel
             this.Loaded += Floating_Loaded; 
 
@@ -197,9 +190,23 @@ namespace frontend.Views.Windows
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                try
+                {
+                    this.DragMove();
+                }
+                catch (InvalidOperationException)
+                {
+                    // 忽略拖动过程中出现的异常，比如在窗口关闭时调用
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"拖动失败: {ex.Message}");
+                }
+            }
         }
+
 
         private void SaveShortcuts()
         {

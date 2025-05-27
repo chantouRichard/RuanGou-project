@@ -1205,11 +1205,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\backend\\backend.csproj",
+      "projectPath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\m1510\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\backend\\obj\\",
+      "outputPath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2WmKOUZJa18=",
+  "dgSpecHash": "bWB8S5MstA0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\frontend.csproj",
+  "projectFilePath": "C:\\Users\\m1510\\Desktop\\test\\RuanGou-project\\frontend\\frontend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\m1510\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\m1510\\.nuget\\packages\\commonwin32\\2.1.0.3\\commonwin32.2.1.0.3.nupkg.sha512",
