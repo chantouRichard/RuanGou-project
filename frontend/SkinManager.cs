@@ -24,6 +24,11 @@ namespace frontend
         private string Font_family = "consola";
         private string Font_color = "#000000";
 
+        //新增属性
+        private Stretch _backgroundStretch = Stretch.Uniform;
+        private AlignmentX alignmentX = AlignmentX.Center;
+        private AlignmentY alignmentY = AlignmentY.Center;
+
         public double OutOpacity
         {
             get => Out_opacity;
@@ -79,6 +84,36 @@ namespace frontend
             set
             {
                 Background_pic = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Stretch BackgroundStretch
+        {
+            get => _backgroundStretch;
+            set
+            {
+                _backgroundStretch = value;
+                OnPropertyChanged();
+            }
+        }   
+
+        public AlignmentX BackgroundAlignmentX
+        {
+            get => alignmentX;
+            set
+            {
+                alignmentX = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public AlignmentY BackgroundAlignmentY
+        {
+            get => alignmentY;
+            set
+            {
+                alignmentY = value;
                 OnPropertyChanged();
             }
         }
