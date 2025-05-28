@@ -3,18 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\frontend\\views\\pages\\cloudremindpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\cloudremindpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\frontend\\views\\pages\\userpage.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\userpage.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\frontend\\assets\\blue_pattern_bg.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:assets\\blue_pattern_bg.jpg||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\frontend\\views\\pages\\userpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\userpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
@@ -25,40 +13,26 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 176,
-          "SelectedChildIndex": 0,
+          "DockedWidth": 100,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CloudRemindPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\CloudRemindPage.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Pages\\CloudRemindPage.xaml.cs",
-              "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\CloudRemindPage.xaml.cs",
-              "RelativeToolTip": "Views\\Pages\\CloudRemindPage.xaml.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAIAxwCMAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T14:50:15.979Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "UserPage.xaml",
               "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\UserPage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\UserPage.xaml",
               "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\UserPage.xaml",
               "RelativeToolTip": "Views\\Pages\\UserPage.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-28T14:49:13.077Z",
+              "WhenOpened": "2025-05-28T14:54:50.165Z",
               "EditorCaption": ""
             }
           ]
         },
         {
           "DockedWidth": 100,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -71,30 +45,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "blue_pattern_bg.jpg",
-              "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Assets\\blue_pattern_bg.jpg",
-              "RelativeDocumentMoniker": "Assets\\blue_pattern_bg.jpg",
-              "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Assets\\blue_pattern_bg.jpg",
-              "RelativeToolTip": "Assets\\blue_pattern_bg.jpg",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2025-05-28T14:49:35.511Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserPage.xaml",
-              "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\UserPage.xaml",
-              "RelativeDocumentMoniker": "Views\\Pages\\UserPage.xaml",
-              "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\UserPage.xaml",
-              "RelativeToolTip": "Views\\Pages\\UserPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-28T14:46:50.598Z",
-              "EditorCaption": ""
             }
           ]
         }

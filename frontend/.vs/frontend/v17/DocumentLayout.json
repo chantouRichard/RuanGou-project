@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\",
+  "WorkspaceRootPath": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\qq864\\desktop\\project\\\u8F6F\u6784\u9879\u76EE\\ruangou-project\\frontend\\views\\pages\\userpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\users\\m1510\\desktop\\ruangou-project\\frontend\\views\\pages\\userpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\userpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
@@ -17,34 +17,20 @@
           "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "UserPage.xaml",
-              "DocumentMoniker": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\UserPage.xaml",
+              "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\Views\\Pages\\UserPage.xaml",
               "RelativeDocumentMoniker": "Views\\Pages\\UserPage.xaml",
-              "ToolTip": "C:\\Users\\qq864\\Desktop\\Project\\\u8F6F\u6784\u9879\u76EE\\RuanGou-project\\frontend\\Views\\Pages\\UserPage.xaml",
+              "ToolTip": "C:\\Users\\m1510\\Desktop\\RuanGou-project\\frontend\\Views\\Pages\\UserPage.xaml",
               "RelativeToolTip": "Views\\Pages\\UserPage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-05-28T14:54:50.165Z",
               "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 100,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             }
           ]
         }
