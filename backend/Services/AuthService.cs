@@ -16,6 +16,21 @@ namespace backend.Services
             _context = context;
         }
 
+        public async Task<ApiResponse<User>> changePwd(int userId, string newPwd)
+        {
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if (user == null)
+                return new ApiResponse<User> { Success = false, Message = "User not found" };
+
+            user.PasswordHash = CreatePasswordHash(newPwd);
+
+            await _context.SaveChangesAsync();
+
+            return new ApiResponse<User> { Success = true, Message = "修改密码成功" };
+        }
+
         public async Task<ApiResponse<AuthResponse>> Login(LoginRequest request)
         {
             var user = await _context.Users
