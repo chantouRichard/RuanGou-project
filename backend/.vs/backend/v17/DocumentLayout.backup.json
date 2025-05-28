@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\dtos\\countdowndaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:dtos\\countdowndaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\models\\countdownday.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:models\\countdownday.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\controllers\\countdowncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:controllers\\countdowncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\dtos\\countdowndaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:dtos\\countdowndaydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,14 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\services\\icountdownservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -79,10 +87,6 @@
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -111,10 +115,6 @@
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|c:\\users\\m1510\\desktop\\test1\\ruangou-project\\backend\\models\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAEDFA29-342E-4400-A57E-E793CB9E6E70}|backend.csproj|solutionrelative:models\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -134,11 +134,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 262,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 28,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CountdownDayDto.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Dtos\\CountdownDayDto.cs",
               "RelativeDocumentMoniker": "Dtos\\CountdownDayDto.cs",
@@ -151,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "backend",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\backend.csproj",
               "RelativeDocumentMoniker": "backend.csproj",
@@ -164,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ICountdownService.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Services\\ICountdownService.cs",
               "RelativeDocumentMoniker": "Services\\ICountdownService.cs",
@@ -177,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "CityController.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Controllers\\CityController.cs",
               "RelativeDocumentMoniker": "Controllers\\CityController.cs",
@@ -190,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "CountdownController.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Controllers\\CountdownController.cs",
               "RelativeDocumentMoniker": "Controllers\\CountdownController.cs",
@@ -203,20 +203,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "CountdownDay.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\CountdownDay.cs",
               "RelativeDocumentMoniker": "Models\\CountdownDay.cs",
               "ToolTip": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\CountdownDay.cs",
               "RelativeToolTip": "Models\\CountdownDay.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-28T09:05:16.685Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "Geo.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\Geo.cs",
               "RelativeDocumentMoniker": "Models\\Geo.cs",
@@ -229,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "TranslationModels.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\TranslationModels.cs",
               "RelativeDocumentMoniker": "Models\\TranslationModels.cs",
@@ -241,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "GoogleBooksResponse.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\GoogleBooksResponse.cs",
               "RelativeDocumentMoniker": "Models\\GoogleBooksResponse.cs",
@@ -254,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "BooksController.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Controllers\\BooksController.cs",
               "RelativeDocumentMoniker": "Controllers\\BooksController.cs",
@@ -267,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Services\\UserService.cs",
@@ -279,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Services\\IUserService.cs",
               "RelativeDocumentMoniker": "Services\\IUserService.cs",
@@ -291,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -304,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "TodoController.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Controllers\\TodoController.cs",
               "RelativeDocumentMoniker": "Controllers\\TodoController.cs",
@@ -317,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "TodoService.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Services\\TodoService.cs",
               "RelativeDocumentMoniker": "Services\\TodoService.cs",
@@ -330,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "ITodoService.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Services\\ITodoService.cs",
               "RelativeDocumentMoniker": "Services\\ITodoService.cs",
@@ -343,7 +343,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "TodoItem.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\TodoItem.cs",
               "RelativeDocumentMoniker": "Models\\TodoItem.cs",
@@ -368,7 +368,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "ApiResponse.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\ApiResponse.cs",
               "RelativeDocumentMoniker": "Models\\ApiResponse.cs",
@@ -380,7 +380,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 2,
               "Title": "backend.http",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\backend.http",
               "RelativeDocumentMoniker": "backend.http",
@@ -388,11 +388,12 @@
               "RelativeToolTip": "backend.http",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-04-27T07:36:53.151Z"
+              "WhenOpened": "2025-04-27T07:36:53.151Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "ServiceExtensions.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Extensions\\ServiceExtensions.cs",
               "RelativeDocumentMoniker": "Extensions\\ServiceExtensions.cs",
@@ -417,7 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Services\\AuthService.cs",
@@ -430,7 +431,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "AuthResponse.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\AuthResponse.cs",
               "RelativeDocumentMoniker": "Models\\AuthResponse.cs",
@@ -454,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\LoginRequest.cs",
               "RelativeDocumentMoniker": "Models\\LoginRequest.cs",
@@ -466,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -478,7 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -491,20 +492,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAywA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACoAAABpAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-25T06:40:50.301Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -517,13 +518,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\Users\\m1510\\Desktop\\test1\\RuanGou-project\\backend\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-04-25T06:38:45.73Z",
               "EditorCaption": ""

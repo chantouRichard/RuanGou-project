@@ -21,11 +21,12 @@ namespace frontend.ViewModels
         private DispatcherTimer _timer = new DispatcherTimer();
         public FloatingViewModel()
         {
-            _timer.Interval = TimeSpan.FromSeconds(10);
+            //定时器
+            _timer.Interval = TimeSpan.FromSeconds(5);
             _timer.Tick += Timer_Tick;
             _timer.Start();
 
-            // 创建排序视图
+            //创建排序视图
             SortedToDoItems = CollectionViewSource.GetDefaultView(ToDoItems);
             SortedToDoItems.SortDescriptions.Add(new SortDescription(nameof(TodoItem.IsCompleted), ListSortDirection.Ascending)); // 未完成在前
             SortedToDoItems.SortDescriptions.Add(new SortDescription(nameof(TodoItem.IsOverdue), ListSortDirection.Descending));  // 已到期在前
@@ -91,7 +92,48 @@ namespace frontend.ViewModels
 
         private async void Timer_Tick(object sender, EventArgs e)
         {
-            await LoadTodos(); // 每分钟刷新一次待办事项列表
+            await LoadTodos(); //5s刷新一次待办事项列表
+        }
+
+        public async Task Refresh()
+        {
+            try
+            {
+                // 获取已完成的任务
+                var completedTasks = ToDoItems.Where(t => t.IsCompleted).ToList();
+
+                if (completedTasks.Count == 0)
+                {
+                    return;
+                }
+
+                bool allSuccess = true;
+                string errorMessage = "";
+
+                foreach (var task in completedTasks)
+                {
+                    var result = await _apiService.DeleteTodo(task.Id);
+                    if (!result.Success)
+                    {
+                        allSuccess = false;
+                        errorMessage = result.Message;
+                        break;
+                    }
+                }
+
+                if (allSuccess)
+                {
+                    await LoadTodos();
+                }
+                else
+                {
+                    //ShowErrorMessage($"清理失败: {errorMessage}");
+                }
+            }
+            catch (Exception ex)
+            {
+                //ShowErrorMessage($"清除已完成任务失败: {ex.Message}");
+            }
         }
 
 

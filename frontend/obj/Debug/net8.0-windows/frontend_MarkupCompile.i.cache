@@ -16,5 +16,5 @@ C:\Users\m1510\Desktop\test1\RuanGou-project\frontend\App.xaml
 2552136503785
 Controls\Navigation\Styles\DefaultNavigationViewItemStyle.xaml;Controls\Navigation\Styles\Navigation.xaml;Controls\Navigation\Styles\NavigationLeftFluent.xaml;Controls\Navigation\Styles\NavigationView.xaml;Controls\Navigation\Styles\NavigationViewBasePaneButtonStyle.xaml;Controls\Navigation\Styles\NavigationViewBottom.xaml;Controls\Navigation\Styles\NavigationViewCompact.xaml;Controls\Navigation\Styles\NavigationViewConstants.xaml;Controls\Navigation\Styles\NavigationViewContentPresenter.xaml;Controls\Navigation\Styles\NavigationViewItemHeader.xaml;Controls\Navigation\Styles\NavigationViewItemSeparator.xaml;Controls\Navigation\Styles\NavigationViewLeftMinimalCompact.xaml;Controls\Navigation\Styles\NavigationViewTop.xaml;Styles\Fonts.xaml;Styles\Light.xaml;Views\FloatingWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\Pages\AIPage.xaml;Views\Pages\CalculatorPage.xaml;Views\Pages\CloudRemindPage.xaml;Views\Pages\CommonPage.xaml;Views\Pages\DailyPage.xaml;Views\Pages\DashboardPage.xaml;Views\Pages\FilePage.xaml;Views\Pages\HotkeyBindingPage.xaml;Views\Pages\InfoPage.xaml;Views\Pages\MemoPage.xaml;Views\Pages\OneClickPage.xaml;Views\Pages\QuickLaunchPage.xaml;Views\Pages\SettingPage.xaml;Views\Pages\SystemToolPage.xaml;Views\Pages\UserPage.xaml;
 
-True
+False
 

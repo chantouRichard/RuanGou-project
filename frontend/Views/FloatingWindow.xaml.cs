@@ -278,6 +278,7 @@ namespace frontend.Views.Windows
             }
         }
 
+        
 
         private void ShowErrorMessage(string message)
         {
@@ -294,5 +295,9 @@ namespace frontend.Views.Windows
             });
         }
 
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await viewModel.Refresh(); // 刷新待办事项列表
+        }
     }
 }
