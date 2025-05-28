@@ -27,6 +27,7 @@
     <None Remove="Assets\Avatar\avatar4.png" />
     <None Remove="Assets\Avatar\avatar5.png" />
     <None Remove="Assets\Avatar\avatar6.png" />
+    <None Remove="Assets\blue_pattern_bg.jpg" />
     <None Remove="Assets\cloud.png" />
     <None Remove="Assets\icon.ico" />
     <None Remove="Assets\test.jpg" />
@@ -45,6 +46,9 @@
     <Resource Include="Assets\Avatar\avatar4.png" />
     <Resource Include="Assets\Avatar\avatar5.png" />
     <Resource Include="Assets\Avatar\avatar6.png" />
+    <Resource Include="Assets\blue_pattern_bg.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\cloud.png" />
     <Resource Include="Assets\icon.ico" />
     <Resource Include="Assets\test.jpg" />
@@ -58,7 +62,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\" />
     <Folder Include="Styles\" />
   </ItemGroup>
 
