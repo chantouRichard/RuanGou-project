@@ -71,12 +71,18 @@
 
         </StackPanel>
     </hc:Window.NonClientAreaContent>
-    <Border Background="{StaticResource CloudDrawingBrush}">
+    <Grid>
+        <!-- 背景层：DrawingBrush 纹理背景 -->
+        <Border Background="{StaticResource CloudDrawingBrush}" />
+
+        <!-- 内容层：页面内容可显示自己的背景 -->
         <lc:NavigationView
-            x:Name="RootNavigation"
-            Opacity="{Binding Source={x:Static local:SkinManager.Current}, Path=OutOpacity}"
-            FooterMenuItemsSource="{Binding ViewModel.NavigationFooter, Mode=OneWay}"
-            MenuItemsSource="{Binding ViewModel.NavigationItems, Mode=OneWay}"
-            PaneDisplayMode="Left" />
-    </Border>
+        x:Name="RootNavigation"
+        Background="Transparent"
+        Opacity="{Binding Source={x:Static local:SkinManager.Current}, Path=OutOpacity}"
+        FooterMenuItemsSource="{Binding ViewModel.NavigationFooter, Mode=OneWay}"
+        MenuItemsSource="{Binding ViewModel.NavigationItems, Mode=OneWay}"
+        PaneDisplayMode="Left" />
+    </Grid>
+
 </hc:Window>
