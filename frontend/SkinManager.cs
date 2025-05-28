@@ -16,8 +16,8 @@ namespace frontend
         public static SkinManager Current { get; } = new SkinManager();
 
         // 皮肤属性（支持动态更新）
-        private double Out_opacity = 0.6;
-        private double In_opacity = 0.4;
+        private double Out_opacity = 0.9;
+        private double In_opacity = 0.6;
         private ImageSource Background_pic = new BitmapImage(new Uri("pack://application:,,,/frontend;component/Assets/test.jpg"));
 
         private int Add_fontSize = 20;

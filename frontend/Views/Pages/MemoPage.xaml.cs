@@ -55,7 +55,7 @@ namespace frontend.Views.Pages
                 }
                 else
                 {
-                    ShowErrorMessage(result.Message);
+                    Console.WriteLine(result.Message);
                 }
             });
         }
@@ -70,7 +70,7 @@ namespace frontend.Views.Pages
 
             if (DueDatePicker.SelectedDate == null)
             {
-                ShowErrorMessage("请选择截止日期");
+                MessageBox.Show("请选择截止日期");
                 return;
             }
 
@@ -93,12 +93,12 @@ namespace frontend.Views.Pages
                 }
                 else
                 {
-                    ShowErrorMessage(result.Message);
+                    Console.WriteLine(result.Message);
                 }
             }
             catch (Exception ex)
             {
-                ShowErrorMessage($"添加任务失败: {ex.Message}");
+                Console.WriteLine($"添加任务失败: {ex.Message}");
             }
         }
 
@@ -120,7 +120,7 @@ namespace frontend.Views.Pages
                 }
                 catch (Exception ex)
                 {
-                    ShowErrorMessage($"删除任务失败: {ex.Message}");
+                    MessageBox.Show($"删除任务失败: {ex.Message}");
                 }
             }
         }
@@ -150,7 +150,7 @@ namespace frontend.Views.Pages
                 }
                 catch (Exception ex)
                 {
-                    ShowErrorMessage($"获取任务详情失败: {ex.Message}");
+                    MessageBox.Show($"获取任务详情失败: {ex.Message}");
                 }
             }
         }
@@ -164,13 +164,13 @@ namespace frontend.Views.Pages
         {
             if (string.IsNullOrWhiteSpace(EditTitleTextBox.Text))
             {
-                ShowErrorMessage("请输入任务标题");
+                MessageBox.Show("请输入任务标题");
                 return;
             }
 
             if (EditDueDatePicker.SelectedDate == null)
             {
-                ShowErrorMessage("请选择截止日期");
+                MessageBox.Show("请选择截止日期");
                 return;
             }
 
@@ -199,7 +199,7 @@ namespace frontend.Views.Pages
             }
             catch (Exception ex)
             {
-                //ShowErrorMessage($"更新任务失败: {_editingTaskId}/{updatedTask.Title}/{updatedTask.Description}/{updatedTask.DueDate}/{updatedTask.IsCompleted}");
+                MessageBox.Show("更新任务失败");
             }
         }
 
@@ -221,7 +221,7 @@ namespace frontend.Views.Pages
                 }
                 catch (Exception ex)
                 {
-                    ShowErrorMessage($"更新任务状态失败: {ex.Message}");
+                    MessageBox.Show($"更新任务状态失败: {ex.Message}");
                     checkBox.IsChecked = !task.IsCompleted;
                     task.IsCompleted = !task.IsCompleted;
                 }
@@ -258,7 +258,7 @@ namespace frontend.Views.Pages
             }
             catch (Exception ex)
             {
-                ShowErrorMessage($"清除已完成任务失败: {ex.Message}");
+                MessageBox.Show($"清除已完成任务失败: {ex.Message}");
             }
         }
 

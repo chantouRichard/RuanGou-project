@@ -6,12 +6,92 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:frontend.Models"
              mc:Ignorable="d"
-             d:DesignHeight="500" d:DesignWidth="800">
+             d:DesignHeight="600" d:DesignWidth="900">
 
     <UserControl.Resources>
         <!-- 转换器定义 -->
         <BooleanToVisibilityConverter x:Key="BoolToVisibility"/>
+
+        <!-- 蓝色主题样式 -->
+        <SolidColorBrush x:Key="PrimaryBlue" Color="#1976D2"/>
+        <SolidColorBrush x:Key="LightBlue" Color="#E3F2FD"/>
+        <SolidColorBrush x:Key="DarkBlue" Color="#0D47A1"/>
+        <SolidColorBrush x:Key="AccentBlue" Color="#2196F3"/>
+
+        <!-- 文本样式 -->
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
+
+        <!-- 按钮样式 -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10 5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- 文本框样式 -->
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <!-- 日期选择器样式 -->
+        <Style TargetType="DatePicker">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="MinHeight" Value="30"/>
+        </Style>
+
+        <!-- 列表视图样式 -->
+        <Style TargetType="ListView">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+
+        <!-- 列表视图项样式 -->
+        <Style TargetType="ListViewItem">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0 2"/>
+            <Setter Property="Background" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource LightBlue}"/>
+                </Trigger>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{StaticResource LightBlue}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource AccentBlue}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- 任务标题样式 -->
         <Style TargetType="TextBlock" x:Key="TaskTitleStyle">
+            <Setter Property="FontWeight" Value="SemiBold"/>
             <Style.Triggers>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter Property="TextDecorations" Value="Strikethrough"/>
@@ -19,124 +99,167 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <!-- 网格视图列标题样式 -->
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="Background" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10 5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
     </UserControl.Resources>
 
-    <Grid Margin="10">
+    <Grid Margin="10" Background="{StaticResource LightBlue}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!-- 标题区域 -->
+        <Border Grid.Row="0" Background="{StaticResource PrimaryBlue}" 
+                CornerRadius="5" Margin="0,0,0,10" Padding="15">
+            <TextBlock Text="待办事项管理" Foreground="White" 
+                       FontSize="24" FontWeight="Bold"/>
+        </Border>
+
         <!-- 添加任务区域 -->
-        <Border Grid.Row="0" Background="#F5F5F5" Padding="10" CornerRadius="5" Margin="0,0,0,10">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="任务标题：" FontSize="12" VerticalAlignment="Center"></TextBlock>
-                <TextBox x:Name="TaskTitleTextBox" Width="200" Height="30" 
-                         VerticalContentAlignment="Center" Margin="10,0,10,0"
-                         TextWrapping="NoWrap" ToolTip="输入任务标题"/>
+        <Border Grid.Row="1" Background="White" Padding="15" 
+                CornerRadius="5" Margin="0,0,0,10"
+                BorderThickness="4" BorderBrush="{StaticResource AccentBlue}" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <StackPanel Orientation="Vertical" Width="220" Margin="0,0,15,0">
+                    <TextBlock Text="任务标题" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
+                    <TextBox x:Name="TaskTitleTextBox" 
+                             ToolTip="输入任务标题"/>
+                </StackPanel>
 
-                <TextBlock Text="任务描述：" FontSize="12" VerticalAlignment="Center"></TextBlock>
-                <TextBox x:Name="TaskDesciptionTextBox" Width="200" Height="30"
-                         VerticalAlignment="Center" Margin="10,0,10,0"
-                         TextWrapping="NoWrap" ToolTip="输入任务描述"/>
+                <StackPanel Orientation="Vertical" Width="220" Margin="0,0,15,0">
+                    <TextBlock Text="任务描述" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
+                    <TextBox x:Name="TaskDesciptionTextBox" 
+                             ToolTip="输入任务描述"/>
+                </StackPanel>
 
-                <DatePicker x:Name="DueDatePicker" Width="120" Height="30" 
-                            SelectedDate="{x:Static sys:DateTime.Now}" Margin="0,0,10,0"/>
+                <StackPanel Orientation="Vertical" Width="160" Margin="0,0,15,0">
+                    <TextBlock Text="截止日期" FontSize="16" Margin="0,0,0,5" FontWeight="Bold"/>
+                    <DatePicker x:Name="DueDatePicker" 
+                                SelectedDate="{x:Static sys:DateTime.Now}"/>
+                </StackPanel>
 
-                <Button Content="添加任务" Width="80" Height="30" 
-                        Click="AddTask_Click" Background="#4CAF50" Foreground="White"/>
+                <Button Content="添加任务" Width="100" Height="30" 
+                        Click="AddTask_Click" Margin="15,0,0,0"
+                        Background="{StaticResource DarkBlue}" VerticalAlignment="Center" Cursor="Hand"/>
             </StackPanel>
         </Border>
 
         <!-- 操作按钮区域 -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
-            <Button Content="刷新列表" Width="80" Height="30" Margin="0,0,10,0"
-                    Click="RefreshList_Click" Background="#2196F3" Foreground="White"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,10">
+            <Button Content="刷新列表" Width="100" Height="30" 
+                    Click="RefreshList_Click" 
+                    Background="{StaticResource AccentBlue}"/>
 
-            <Button Content="清除已完成" Width="100" Height="30"
-                    Click="ClearCompleted_Click" Background="#F44336" Foreground="White"/>
+            <Button Content="清除已完成" Width="120" Height="30"
+                    Click="ClearCompleted_Click" 
+                    Background="{StaticResource DarkBlue}"/>
         </StackPanel>
 
-        <!-- 任务列表 - 简化GridView版本 -->
-        <ListView Grid.Row="2" x:Name="TodoListView" Margin="10"
-          ScrollViewer.HorizontalScrollBarVisibility="Auto"
-          Background="Transparent">
-            <ListView.View>
-                <GridView>
-                    <!-- 复选框列 -->
-                    <GridViewColumn Header="完成" Width="50">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsCompleted}" 
-                                  HorizontalAlignment="Center"
-                                  Checked="TaskCompleted_Changed" 
-                                  Unchecked="TaskCompleted_Changed"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+        <!-- 任务列表 -->
+        <Border Grid.Row="3" Background="White" CornerRadius="5"
+                BorderThickness="1" BorderBrush="#CCCCCC">
+            <ListView x:Name="TodoListView" Margin="0" FontSize="16" BorderBrush="{StaticResource AccentBlue}" BorderThickness="4"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <ListView.View>
+                    <GridView>
+                        <!-- 复选框列 -->
+                        <GridViewColumn Header="完成" Width="60">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsCompleted}" 
+                                              HorizontalAlignment="Center"
+                                              Checked="TaskCompleted_Changed" 
+                                              Unchecked="TaskCompleted_Changed"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <!-- 标题列 -->
-                    <GridViewColumn Header="任务标题" Width="200" DisplayMemberBinding="{Binding Title}"/>
+                        <!-- 标题列 -->
+                        <GridViewColumn Header="任务标题" Width="220">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Title}" 
+                                               Style="{StaticResource TaskTitleStyle}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <!-- 截止日期列 -->
-                    <GridViewColumn Header="截止日期" Width="120">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding DueDate, StringFormat='yyyy-MM-dd'}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                        <!-- 截止日期列 -->
+                        <GridViewColumn Header="截止日期" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding DueDate, StringFormat='yyyy-MM-dd'}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <!-- 描述列 -->
-                    <GridViewColumn Header="任务描述" Width="250" DisplayMemberBinding="{Binding Description}"/>
+                        <!-- 描述列 -->
+                        <GridViewColumn Header="任务描述" Width="280" 
+                                        DisplayMemberBinding="{Binding Description}"/>
 
-                    <!-- 操作按钮列 -->
-                    <GridViewColumn Header="操作" Width="120">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Content="编辑" Width="50" Margin="2" 
-                                    Click="EditTask_Click" Tag="{Binding Id}"
-                                    Background="#FFC107" Foreground="White"/>
-                                    <Button Content="删除" Width="50" Margin="2"
-                                    Click="DeleteTask_Click" Tag="{Binding Id}"
-                                    Background="#F44336" Foreground="White"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                        <!-- 操作按钮列 -->
+                        <GridViewColumn Header="操作" Width="150">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="编辑" Width="60" 
+                                                Click="EditTask_Click" Tag="{Binding Id}"
+                                                Background="{StaticResource AccentBlue}"/>
+                                        <Button Content="删除" Width="60"
+                                                Click="DeleteTask_Click" Tag="{Binding Id}"
+                                                Background="{StaticResource DarkBlue}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
 
         <!-- 编辑窗口 -->
         <Popup x:Name="EditTaskPopup" 
                Placement="Center" 
                StaysOpen="False"
-               Width="400"
-               Height="360">
+               Width="450"
+               Height="400">
             <Border Background="White" 
-                    BorderBrush="#CCCCCC" 
-                    BorderThickness="1"
+                    BorderBrush="{StaticResource PrimaryBlue}" 
+                    BorderThickness="2"
                     CornerRadius="10">
-                <StackPanel Margin="10">
-                    <TextBlock Text="标题:" Margin="0,0,0,5"/>
-                    <TextBox x:Name="EditTitleTextBox" Margin="0,0,0,10"/>
+                <StackPanel Margin="20">
+                    <TextBlock Text="编辑任务" FontSize="16" FontWeight="Bold" 
+                               Foreground="{StaticResource PrimaryBlue}" 
+                               Margin="0,0,0,15"/>
 
-                    <TextBlock Text="截止日期:" Margin="0,0,0,5"/>
-                    <DatePicker x:Name="EditDueDatePicker" Margin="0,0,0,10"/>
+                    <TextBlock Text="标题:" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <TextBox x:Name="EditTitleTextBox" Margin="0,0,0,15"/>
 
-                    <TextBlock Text="描述:" Margin="0,0,0,5"/>
+                    <TextBlock Text="截止日期:" Margin="0,0,0,5" FontWeight="SemiBold"/>
+                    <DatePicker x:Name="EditDueDatePicker" Margin="0,0,0,15"/>
+
+                    <TextBlock Text="描述:" Margin="0,0,0,5" FontWeight="SemiBold"/>
                     <TextBox x:Name="EditDescriptionTextBox" AcceptsReturn="True" 
-                             TextWrapping="Wrap" Height="80" Margin="0,0,0,10"/>
+                             TextWrapping="Wrap" Height="100" Margin="0,0,0,15"/>
 
-                    <CheckBox x:Name="EditIsCompletedCheckBox" Content="已完成" Margin="0,10,0,10"/>
+                    <CheckBox x:Name="EditIsCompletedCheckBox" Content="已完成" 
+                              Margin="0,10,0,20" FontWeight="SemiBold"/>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button Content="保存" Width="80" Margin="0,0,10,0" 
-                                Click="SaveTask_Click" Background="#4CAF50" Foreground="White"/>
-                        <Button Content="取消" Width="80" Click="CancelEdit_Click"/>
+                        <Button Content="取消" Width="80" Click="CancelEdit_Click"
+                                Background="White" Foreground="{StaticResource PrimaryBlue}"
+                                BorderBrush="{StaticResource PrimaryBlue}" BorderThickness="1"/>
+                        <Button Content="保存" Width="80" Margin="10,0,0,0" 
+                                Click="SaveTask_Click" Background="{StaticResource PrimaryBlue}"/>
                     </StackPanel>
                 </StackPanel>
             </Border>
