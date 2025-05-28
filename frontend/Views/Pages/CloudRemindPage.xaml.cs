@@ -1,11 +1,12 @@
-﻿using System;
+﻿using frontend.Models;
+using frontend.ViewModels;
+using System;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
-using frontend.Models;
 
 namespace frontend.Views.Pages
 {
@@ -32,23 +33,12 @@ namespace frontend.Views.Pages
 
         #region 倒数日相关
 
-        public class CountdownDayItem
-        {
-            public string Name { get; set; }
-            public DateTime TargetDate { get; set; }
-            public int DaysLeft => (TargetDate - DateTime.Now.Date).Days;
-            public override string ToString() => $"{Name} - 剩余 {DaysLeft} 天";
-        }
+        private ObservableCollection<CountdownDay> countdownDays = new ObservableCollection<CountdownDay>();
+        private readonly HttpClient httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:5166/") };
 
-        private ObservableCollection<CountdownDayItem> _countdownDays = new ObservableCollection<CountdownDayItem>();
 
         #endregion
 
-        #region 书籍推荐相关
-
-        private readonly HttpClient _httpClient = new HttpClient { BaseAddress = new Uri("https://localhost:5166/") };
-
-        #endregion
 
         public CloudRemindPage()
         {
@@ -69,13 +59,11 @@ namespace frontend.Views.Pages
             #endregion
 
             #region 倒数日初始化
-            LoadCountdownDays();
-            CountdownDaysListView.ItemsSource = _countdownDays;
+            CountdownListBox.ItemsSource = countdownDays;
+            DatePicker.SelectedDate = DateTime.Today;
+            Loaded += CloudRemindPage_Loaded;
             #endregion
 
-            #region 书籍推荐初始化
-            
-            #endregion
         }
 
         #region 番茄钟逻辑
@@ -235,84 +223,132 @@ namespace frontend.Views.Pages
         #endregion
 
         #region 倒数日逻辑
-
-        private void LoadCountdownDays()
+        private async void CloudRemindPage_Loaded(object sender, RoutedEventArgs e)
         {
-            // 示例数据，实际项目中可从数据库或配置文件加载
-            _countdownDays.Clear();
-            _countdownDays.Add(new CountdownDayItem { Name = "毕业", TargetDate = new DateTime(DateTime.Now.Year, 7, 1) });
-            _countdownDays.Add(new CountdownDayItem { Name = "项目截止", TargetDate = new DateTime(DateTime.Now.Year, 12, 31) });
-            _countdownDays.Add(new CountdownDayItem { Name = "生日", TargetDate = new DateTime(DateTime.Now.Year, 10, 15) });
-
-            RefreshCountdownDays();
+            await LoadCountdownDays();
         }
 
-        // 刷新倒数日剩余天数显示，建议定时更新
-        private DispatcherTimer _countdownDaysTimer;
-
-        private void StartCountdownDaysTimer()
-        {
-            if (_countdownDaysTimer == null)
-            {
-                _countdownDaysTimer = new DispatcherTimer();
-                _countdownDaysTimer.Interval = TimeSpan.FromHours(1); // 每小时刷新一次
-                _countdownDaysTimer.Tick += (s, e) => RefreshCountdownDays();
-                _countdownDaysTimer.Start();
-            }
-        }
-
-        private void RefreshCountdownDays()
-        {
-            // 触发界面刷新（因为DaysLeft是计算属性）
-            // 这里调用CollectionView刷新
-            var view = System.Windows.Data.CollectionViewSource.GetDefaultView(_countdownDays);
-            if (view != null)
-            {
-                view.Refresh();
-            }
-        }
-        #endregion
-
-        #region 书籍逻辑
-        private async void RecommendButton_Click(object sender, RoutedEventArgs e)
+        private async Task LoadCountdownDays()
         {
             try
             {
-                var book = await _httpClient.GetFromJsonAsync<BookItem>("api/books/recommend");
-                if (book != null)
+                var list = await httpClient.GetFromJsonAsync<CountdownDay[]>("api/CountdownDays");
+                countdownDays.Clear();
+                if (list != null)
                 {
+                    foreach (var item in list)
+                    {
+                        countdownDays.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("加载倒数日失败：" + ex.Message);
+            }
+        }
 
-                    BooksListView.ItemsSource = new List<BookItem> { book };
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            string name = NameTextBox.Text.Trim();
+            DateTime? targetDate = DatePicker.SelectedDate;
+
+            if (string.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("请输入纪念日名称");
+                return;
+            }
+            if (targetDate == null)
+            {
+                MessageBox.Show("请选择日期");
+                return;
+            }
+
+            var newCountdown = new CountdownDay
+            {
+                Name = name,
+                TargetDate = targetDate.Value
+            };
+
+            try
+            {
+                var response = await httpClient.PostAsJsonAsync("api/CountdownDays", newCountdown);
+                if (response.IsSuccessStatusCode)
+                {
+                    var created = await response.Content.ReadFromJsonAsync<CountdownDay>();
+                    if (created != null)
+                    {
+                        countdownDays.Add(created);
+                        NameTextBox.Text = "";
+                        DatePicker.SelectedDate = DateTime.Today;
+                    }
                 }
                 else
-                    MessageBox.Show("没有推荐的书籍！");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"请求失败: {ex.Message}");
-            }
-        }
-
-        private async void SearchButton_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var query = SearchBox.Text;
-                if (string.IsNullOrWhiteSpace(query))
                 {
-                    MessageBox.Show("请输入搜索关键词！");
-                    return;
+                    MessageBox.Show("添加倒数日失败：" + response.ReasonPhrase);
                 }
-
-                var books = await _httpClient.GetFromJsonAsync<List<BookItem>>($"api/books/search?query={Uri.EscapeDataString(query)}");
-                BooksListView.ItemsSource = books ?? new List<BookItem>();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"请求失败: {ex.Message}");
+                MessageBox.Show("添加倒数日异常：" + ex.Message);
             }
         }
+
+        private async void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is CountdownDay item)
+            {
+                var confirm = MessageBox.Show($"确定要删除 \"{item.Name}\" 吗？", "确认删除", MessageBoxButton.YesNo);
+                if (confirm != MessageBoxResult.Yes) return;
+
+                try
+                {
+                    var response = await httpClient.DeleteAsync($"api/CountdownDays/{item.Id}");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        countdownDays.Remove(item);
+                    }
+                    else
+                    {
+                        MessageBox.Show("删除倒数日失败：" + response.ReasonPhrase);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("删除倒数日异常：" + ex.Message);
+                }
+            }
+        }
+
+        private async void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button && button.Tag is CountdownDay item)
+            {
+                try
+                {
+                    var response = await httpClient.PutAsJsonAsync($"api/CountdownDays/{item.Id}", item);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("更新成功");
+                        // 因为我们直接绑定 Name 和 TargetDate，界面会自动更新
+                    }
+                    else
+                    {
+                        MessageBox.Show("更新失败：" + response.ReasonPhrase);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("更新异常：" + ex.Message);
+                }
+            }
+        }
+
+
+
+
+        #endregion
+
     }
-    #endregion
 }
 

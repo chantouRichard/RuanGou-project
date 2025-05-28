@@ -1,5 +1,6 @@
 ﻿using backend.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json.Serialization;
 
@@ -15,6 +16,13 @@ namespace backend.Controllers
         public BooksController(ILogger<BooksController> logger, IHttpClientFactory httpClientFactory)
         {
             _logger = logger;
+
+            var handler = new HttpClientHandler
+            {
+                Proxy = new WebProxy("http://127.0.0.1:7897"),
+                UseProxy = true,
+                ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true // 可选，用于临时忽略 SSL 错误
+            };
             _httpClient = httpClientFactory.CreateClient();
         }
 

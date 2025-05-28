@@ -84,6 +84,64 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "backend.Controllers.CountdownDaysController",
+    "Method": "GetAll",
+    "RelativePath": "api/CountdownDays",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "backend.Controllers.CountdownDaysController",
+    "Method": "Create",
+    "RelativePath": "api/CountdownDays",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "backend.Dtos.CountdownDayDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "backend.Controllers.CountdownDaysController",
+    "Method": "GetById",
+    "RelativePath": "api/CountdownDays/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "backend.Controllers.CountdownDaysController",
+    "Method": "Delete",
+    "RelativePath": "api/CountdownDays/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "backend.Controllers.TodoController",
     "Method": "GetAll",
     "RelativePath": "api/Todo",

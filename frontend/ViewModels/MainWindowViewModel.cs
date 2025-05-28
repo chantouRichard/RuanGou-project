@@ -115,7 +115,7 @@ public partial class MainWindowViewModel : ObservableObject
                     },
                     new NavigationViewItem
                     {
-                        Content = "云端提醒功能",
+                        Content = "时间管理",
                         Icon = new SymbolIcon {Symbol = SymbolRegular.ClockAlarm20},
                         TargetPageType = typeof(CloudRemindPage)
                     }
