@@ -42,7 +42,6 @@ namespace frontend.Views.Pages
             _translationService = new TranslationService(httpClient);
         }
 
-        // 文本翻译方法（保持不变）
         private async void TranslateText_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -100,7 +99,6 @@ namespace frontend.Views.Pages
             }
         }
 
-        // 截图方法（保持不变）
         private void CaptureScreenshot_Click(object sender, RoutedEventArgs e)
         {
             var screenshotWindow = new Window
@@ -124,7 +122,6 @@ namespace frontend.Views.Pages
             screenshotWindow.ShowDialog();
         }
 
-        // 其他辅助方法（保持不变）
         private void Overlay_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _startPoint = e.GetPosition((IInputElement)sender);
@@ -220,7 +217,6 @@ namespace frontend.Views.Pages
             ImageTranslationResult.Text = string.Empty;
         }
 
-        // 图片翻译方法（修改为与后端对齐）
         private async void TranslateImage_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -256,8 +252,7 @@ namespace frontend.Views.Pages
 
                     var result = await _translationService.TranslateImageAsync(request);
 
-                    // 增强结果处理
-                    if (result.ErrorCode != "0") // 有道成功码为0
+                    if (!string.IsNullOrEmpty(result.ErrorCode))
                     {
                         throw new Exception($"API错误: {result.ErrorMsg} (代码:{result.ErrorCode})");
                     }
