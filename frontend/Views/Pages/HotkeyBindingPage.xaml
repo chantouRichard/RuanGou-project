@@ -46,7 +46,7 @@
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 8">
                         <Label Content="主键：" Width="80"/>
                         <ComboBox x:Name="KeyComboBox" Width="200">
-      <ComboBoxItem Content="A"/>
+<ComboBoxItem Content="A"/>
     <ComboBoxItem Content="B"/>
     <ComboBoxItem Content="C"/>
     <ComboBoxItem Content="D"/>
