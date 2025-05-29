@@ -33,13 +33,18 @@ namespace frontend.Views
         public HotkeyBindingWindow()
         {
             InitializeComponent();
+            CustomPathBox.Visibility = Visibility.Collapsed;
+            BrowseButton.Visibility = Visibility.Collapsed;
             LoadHotkeySettings();
         }
 
+
         private void ActionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var selected = ((ComboBoxItem)ActionComboBox.SelectedItem)?.Content?.ToString();
-            CustomPathBox.Visibility = selected == "自定义程序" ? Visibility.Visible : Visibility.Collapsed;
+            var selected = (ActionComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
+            var visible = selected == "自定义程序" ? Visibility.Visible : Visibility.Collapsed;
+            CustomPathBox.Visibility = visible;
+            BrowseButton.Visibility = visible;
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)

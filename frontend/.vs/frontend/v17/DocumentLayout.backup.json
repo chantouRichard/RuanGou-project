@@ -1,0 +1,98 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Download\\REPO\\frontend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\download\\repo\\frontend\\views\\pages\\quicklaunchpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\quicklaunchpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\download\\repo\\frontend\\views\\pages\\hotkeybindingpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\hotkeybindingpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\download\\repo\\frontend\\views\\pages\\hotkeybindingpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\hotkeybindingpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|c:\\download\\repo\\frontend\\views\\pages\\quicklaunchpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{2C057109-E805-4CDC-BF83-42C8C859937C}|frontend.csproj|solutionrelative:views\\pages\\quicklaunchpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HotkeyBindingPage.xaml.cs",
+              "DocumentMoniker": "C:\\Download\\REPO\\frontend\\Views\\Pages\\HotkeyBindingPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Pages\\HotkeyBindingPage.xaml.cs",
+              "ToolTip": "C:\\Download\\REPO\\frontend\\Views\\Pages\\HotkeyBindingPage.xaml.cs",
+              "RelativeToolTip": "Views\\Pages\\HotkeyBindingPage.xaml.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA+wC4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T10:10:51.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HotkeyBindingPage.xaml",
+              "DocumentMoniker": "C:\\Download\\REPO\\frontend\\Views\\Pages\\HotkeyBindingPage.xaml",
+              "RelativeDocumentMoniker": "Views\\Pages\\HotkeyBindingPage.xaml",
+              "ToolTip": "C:\\Download\\REPO\\frontend\\Views\\Pages\\HotkeyBindingPage.xaml",
+              "RelativeToolTip": "Views\\Pages\\HotkeyBindingPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-29T10:10:49.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuickLaunchPage.xaml.cs",
+              "DocumentMoniker": "C:\\Download\\REPO\\frontend\\Views\\Pages\\QuickLaunchPage.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Pages\\QuickLaunchPage.xaml.cs",
+              "ToolTip": "C:\\Download\\REPO\\frontend\\Views\\Pages\\QuickLaunchPage.xaml.cs",
+              "RelativeToolTip": "Views\\Pages\\QuickLaunchPage.xaml.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAkwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T10:06:21.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuickLaunchPage.xaml",
+              "DocumentMoniker": "C:\\Download\\REPO\\frontend\\Views\\Pages\\QuickLaunchPage.xaml",
+              "RelativeDocumentMoniker": "Views\\Pages\\QuickLaunchPage.xaml",
+              "ToolTip": "C:\\Download\\REPO\\frontend\\Views\\Pages\\QuickLaunchPage.xaml",
+              "RelativeToolTip": "Views\\Pages\\QuickLaunchPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-29T10:06:16.323Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
