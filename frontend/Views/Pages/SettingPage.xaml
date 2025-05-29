@@ -26,10 +26,10 @@
             <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
                 <StackPanel Margin="0,0,20,0">
 
-                    <TextBlock FontSize="24" FontWeight="Bold" Text="应用程序设置" Foreground="#2563EB" HorizontalAlignment="Left" Margin="0,0,0,20"/>
+                    <TextBlock FontSize="24" FontWeight="Bold" Text="皮肤设置" Foreground="#2563EB" HorizontalAlignment="Left" Margin="0,0,0,20"/>
 
                     <!-- 皮肤设置 -->
-                    <GroupBox Header="皮肤设置" Padding="10" Margin="0,0,0,20" BorderBrush="#2563EB" BorderThickness="2">
+                    <GroupBox Header="选择自带皮肤" Width="240" FontSize="14" FontWeight="Bold" Padding="10" Margin="0,0,0,30" BorderBrush="#2563EB" BorderThickness="1">
                         <ComboBox Width="220">
                             <ComboBoxItem Content="默认皮肤"/>
                             <ComboBoxItem Content="高对比度"/>
@@ -38,7 +38,7 @@
                     </GroupBox>
 
                     <!-- 透明度设置 -->
-                    <GroupBox Header="透明度设置" Padding="10" Margin="0,0,0,20" BorderBrush="#2563EB" BorderThickness="2">
+                    <GroupBox Width="240" Header="透明度设置" FontSize="14" FontWeight="Bold" Padding="10" Margin="0,0,0,30" BorderBrush="#2563EB" BorderThickness="1">
                         <StackPanel>
                             <TextBlock Text="外部透明度" Margin="0,0,0,5"/>
                             <Slider Minimum="0.1" Maximum="1.0" Value="{Binding OutOpacity, Mode=TwoWay}" Width="220"/>
@@ -51,7 +51,7 @@
                     </GroupBox>
 
                     <!-- 主题设置 -->
-                    <GroupBox Header="主题设置" Padding="10" Margin="0,0,0,20" BorderBrush="#2563EB" BorderThickness="2">
+                    <GroupBox Width="240" Header="主题设置" FontSize="14" FontWeight="Bold" Padding="10" Margin="0,0,0,30" BorderBrush="#2563EB" BorderThickness="1">
                         <ComboBox Width="220" SelectedValuePath="Content" SelectedValue="{Binding SelectedTheme, Mode=TwoWay}">
                             <ComboBoxItem Content="浅色主题"/>
                             <ComboBoxItem Content="深色主题"/>
@@ -61,8 +61,8 @@
                     </GroupBox>
 
                     <!-- 背景上传 -->
-                    <GroupBox Header="背景设置" Padding="10" Margin="0,0,0,20" BorderBrush="#2563EB" BorderThickness="2">
-                        <Button Content="上传图片" Click="OnUploadImageClick" Width="120" Background="#2563EB" Foreground="White"/>
+                    <GroupBox Width="240" Header="自定义背景设置" FontSize="14" FontWeight="Bold" Padding="10" Margin="0,0,0,20" BorderBrush="#2563EB" BorderThickness="1">
+                        <Button Content="上传图片" Click="OnUploadImageClick" Width="100" Background="#2563EB" Foreground="White"/>
                     </GroupBox>
 
                     <!-- 保存按钮 -->
@@ -73,8 +73,8 @@
                         Foreground="White"
                         Padding="10,6"
                         FontWeight="Bold"
-                        Width="120"
-                        HorizontalAlignment="Left"/>
+                        Width="100"
+                        HorizontalAlignment="Center"/>
                 </StackPanel>
             </ScrollViewer>
 
@@ -83,34 +83,41 @@
 
             <!-- 右侧字体设置 -->
             <StackPanel Grid.Column="2" Margin="20,0,0,0">
-                <TextBlock FontSize="18" FontWeight="Bold" Text="字体设置" Foreground="#2563EB" Margin="0,0,0,20"/>
+                <TextBlock FontSize="24" FontWeight="Bold" Text="字体设置" Foreground="#2563EB" HorizontalAlignment="Left" Margin="0,0,0,20"/>
 
-                <TextBlock Text="字体增量：" />
-                <Slider Minimum="-5" Maximum="30" Value="{Binding AddFontSize}" Width="250"/>
-                <TextBlock Text="{Binding AddFontSize}" Margin="0,0,0,10"/>
+                <TextBlock FontSize="14" FontWeight="Bold" Text="字体增量：" />
+                <Slider Minimum="-5" Maximum="30" Value="{Binding AddFontSize}" Width="250" Margin="0,10,0,10"/>
 
-                <TextBlock Text="字体：" />
-                <ComboBox Width="220" SelectedValuePath="Content" SelectedValue="{Binding FontFamily, Mode=TwoWay}">
+
+                <TextBlock FontSize="14" FontWeight="Bold" Text="字体：" />
+                <ComboBox Width="220" SelectedValuePath="Content" SelectedValue="{Binding FontFamily, Mode=TwoWay}" Margin="0,10,0,10">
                     <ComboBoxItem Content="Consolas"/>
                     <ComboBoxItem Content="鸿雷行书简体"/>
                     <ComboBoxItem Content="Microsoft YaHei"/>
                     <ComboBoxItem Content="Arial"/>
                 </ComboBox>
 
-                <TextBlock Text="字体颜色：" Margin="10,10,0,0"/>
-                <hc:ColorPicker SelectedBrush="{Binding FontBrush, Mode=TwoWay}" Width="220"/>
+                <TextBlock FontSize="14" FontWeight="Bold" Text="字体颜色：" Margin="0,10,0,10"/>
+                <hc:ColorPicker SelectedBrush="{Binding FontBrush, Mode=TwoWay}" Width="240" Margin="0,10,0,10"/>
 
-                <TextBox Text="{Binding FontColor}" Width="220" Margin="0,5,0,0"/>
-                <TextBlock Text="示例：#000000" FontSize="10" Foreground="Gray" Margin="0,0,0,10"/>
 
-                <TextBlock Text="字体预览：" Margin="10,20,0,0"/>
-                <TextBlock 
+                <Grid Margin="0,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <TextBlock FontSize="14" FontWeight="Bold" Text="字体预览：" Margin="2,2,0,0"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBlock 
                     Text="Hello, world!"
                     FontSize="{Binding ActualFontSize}"
                     FontFamily="{Binding FontFamily}"
                     Foreground="{Binding FontColor, Converter={StaticResource ColorConverter}}"
-                    Width="250"
-                    TextWrapping="Wrap"/>
+                    TextWrapping="Wrap" VerticalAlignment="Center"/>
+                    </Grid>
+                </Grid>
             </StackPanel>
         </Grid>
     </Border>

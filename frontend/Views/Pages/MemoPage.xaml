@@ -169,22 +169,30 @@
                 BorderThickness="1" BorderBrush="#CCCCCC">
             <ListView x:Name="TodoListView" Margin="0" FontSize="16" BorderBrush="{StaticResource AccentBlue}" BorderThickness="4"
                       ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Height" Value="50"/>
+                        <!-- 根据需要调整这个值 -->
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
                         <!-- 复选框列 -->
                         <GridViewColumn Header="完成" Width="60">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <CheckBox IsChecked="{Binding IsCompleted}" 
+                                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                        <CheckBox IsChecked="{Binding IsCompleted}" 
                                               HorizontalAlignment="Center"
                                               Checked="TaskCompleted_Changed" 
                                               Unchecked="TaskCompleted_Changed"/>
+                                    </Grid>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
                         <!-- 标题列 -->
-                        <GridViewColumn Header="任务标题" Width="220">
+                        <GridViewColumn Header="任务标题" Width="200">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Title}" 
@@ -211,10 +219,10 @@
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Content="编辑" Width="60" 
+                                        <Button Content="编辑" Width="60" Height="40" FontSize="14"
                                                 Click="EditTask_Click" Tag="{Binding Id}"
                                                 Background="{StaticResource AccentBlue}"/>
-                                        <Button Content="删除" Width="60"
+                                        <Button Content="删除" Width="60" Height="40" FontSize="14"
                                                 Click="DeleteTask_Click" Tag="{Binding Id}"
                                                 Background="{StaticResource DarkBlue}"/>
                                     </StackPanel>

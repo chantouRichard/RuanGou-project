@@ -36,6 +36,10 @@
     <None Remove="Assets\cloud.png" />
     <None Remove="Assets\icon.ico" />
     <None Remove="Assets\test.jpg" />
+    <None Remove="Assets\Video\cloudy.mp4" />
+    <None Remove="Assets\Video\rain.mp4" />
+    <None Remove="Assets\Video\sun.mp4" />
+    <None Remove="Assets\Video\yintian.mp4" />
     <None Remove="Assets\welcome.png" />
     <None Remove="Styles\Fonts\FluentSystemIcons-Filled.ttf" />
     <None Remove="Styles\Fonts\FluentSystemIcons-Regular.ttf" />
@@ -63,6 +67,18 @@
     <Resource Include="Assets\cloud.png" />
     <Resource Include="Assets\icon.ico" />
     <Resource Include="Assets\test.jpg" />
+    <Content Include="Assets\Video\cloudy.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Video\rain.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Video\sun.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Video\yintian.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Assets\welcome.png" />
     <Resource Include="Styles\Fonts\FluentSystemIcons-Filled.ttf" />
     <Resource Include="Styles\Fonts\FluentSystemIcons-Regular.ttf" />

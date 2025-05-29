@@ -82,21 +82,26 @@
                 <StackPanel Grid.Column="1" VerticalAlignment="Center">
                     <!-- 昵称 -->
                     <StackPanel Margin="0,0,0,15">
-                        <TextBlock Text="昵称" Foreground="#4D8DFF" Margin="0,0,0,2"/>
+                        <TextBlock Text="昵称" Foreground="Black" Margin="0,0,0,2" FontSize="18" FontWeight="Bold"/>
                         <TextBox Text="{Binding CurrentUser.Nickname, UpdateSourceTrigger=PropertyChanged}"
                              Padding="8" Width="300" BorderBrush="#A0B8E0"/>
                     </StackPanel>
 
                     <!-- 邮箱 -->
                     <StackPanel Margin="0,0,0,15">
-                        <TextBlock Text="邮箱" Foreground="#4D8DFF" Margin="0,0,0,2"/>
+                        <TextBlock Text="邮箱" Foreground="Black" Margin="0,0,0,2" FontSize="18" FontWeight="Bold"/>
                         <TextBox Text="{Binding CurrentUser.Email, UpdateSourceTrigger=PropertyChanged}"
                              Padding="8" Width="300" BorderBrush="#A0B8E0"/>
                     </StackPanel>
 
                     <!-- 密码 -->
+                    <StackPanel Margin="0,0,0,15">
+                        <TextBlock Text="新密码" Foreground="Black" Margin="0,0,0,2" FontSize="18" FontWeight="Bold"/>
+                        <PasswordBox Padding="8" Width="300" BorderBrush="#A0B8E0"/>
+                    </StackPanel>
+
                     <StackPanel Margin="0,0,0,20">
-                        <TextBlock Text="新密码" Foreground="#4D8DFF" Margin="0,0,0,2"/>
+                        <TextBlock Text="确认新密码" Foreground="Black" Margin="0,0,0,2" FontSize="18" FontWeight="Bold"/>
                         <PasswordBox Padding="8" Width="300" BorderBrush="#A0B8E0"/>
                     </StackPanel>
 
@@ -112,7 +117,7 @@
                     VerticalAlignment="Bottom"
                     Margin="0,20,0,0">
                 <Button Content="💾 保存"
-                    Width="120" Height="36"
+                    Width="120" Height="36" FontSize="16" FontWeight="Medium"
                     Background="#4D8DFF" Foreground="White"
                     BorderThickness="0" Command="{Binding SaveCommand}"
                     Margin="0,0,10,0">
@@ -142,7 +147,7 @@
                     Foreground="#4D8DFF"
                     Background="Transparent"
                     BorderBrush="#4D8DFF"
-                    BorderThickness="1"
+                    BorderThickness="1" FontSize="16" FontWeight="Medium"
                     Command="{Binding ChangeAvatarCommand}">
                     <Button.Style>
                         <Style TargetType="Button">

@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using Newtonsoft.Json;
 using frontend.Services;
 using frontend.Controls.Converters;
+using System.IO;
 
 namespace frontend.Views.Pages
 {
@@ -25,6 +26,18 @@ namespace frontend.Views.Pages
                     CityTextBox.Focus();
                 }
             };
+            CityTextBox.Text = "武汉";
+            GetWeather_Click(null,null);
+        }
+
+        private void WeatherVideoPlayer_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            // 使用 Dispatcher 确保播放操作在下一帧执行
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                WeatherVideoPlayer.Position = TimeSpan.Zero;
+                WeatherVideoPlayer.LoadedBehavior = MediaState.Play;
+            }), System.Windows.Threading.DispatcherPriority.Render);
         }
 
         private async void GetWeather_Click(object sender, RoutedEventArgs e)
@@ -63,6 +76,51 @@ namespace frontend.Views.Pages
                     HumidityText.Text = $"湿度: {weatherData?.humidity}%";
                     TimeText.Text = $"更新时间: {weatherData?.reporttime}";
                     WeatherPanel.Visibility = Visibility.Visible;
+                });
+
+                //播放视频
+                // 获取天气状态
+                string weather = weatherData?.weather?.ToString().ToLower();
+
+                // 根据天气设置视频路径
+                string videoPath = "Assets/Video/";
+
+                switch (weather)
+                {
+                    case "晴":
+                        videoPath += "sun.mp4";
+                        break;
+                    case "阴":
+                        videoPath += "yintian.mp4";
+                        break;
+                    case "多云":
+                        videoPath += "cloudy.mp4";
+                        break;
+                    case "雨":
+                    case "小雨":
+                    case "中雨":
+                    case "大雨":
+                        videoPath += "rain.mp4";
+                        break;
+                    // 可以继续添加其他天气类型
+                    default:
+                        //VideoCard.Visibility = Visibility.Visible;
+                        return;
+                }
+
+                // 播放视频
+                Dispatcher.Invoke(() =>
+                {
+                    if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, videoPath)))
+                    {
+                        Uri videoUri = new Uri(videoPath, UriKind.RelativeOrAbsolute);
+                        WeatherVideoPlayer.Source = videoUri;
+                        //VideoCard.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        //VideoCard.Visibility = Visibility.Visible;
+                    }
                 });
             }
             catch (Exception ex)
