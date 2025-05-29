@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Login/Register" Height="600" Width="1000"
+        Title="Login/Register" Height="570" Width="900"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True"
         Background="Transparent"
@@ -25,7 +25,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" 
-                                CornerRadius="8"
+                                CornerRadius="12"
                                 Padding="{TemplateBinding Padding}">
                             <Border.Effect>
                                 <DropShadowEffect BlurRadius="8" Opacity="0.2" ShadowDepth="2" Color="#4A90E2"/>
@@ -130,18 +130,18 @@
 
     <!-- 窗口阴影效果 -->
     <Window.Effect>
-        <DropShadowEffect BlurRadius="25" ShadowDepth="0" Color="#30000000"/>
+        <DropShadowEffect BlurRadius="24" ShadowDepth="0" Color="#30000000"/>
     </Window.Effect>
 
     <!-- 主容器 -->
-    <Border CornerRadius="16" Background="White">
+    <Border CornerRadius="24" Background="White">
         <Border.Effect>
             <DropShadowEffect BlurRadius="15" Opacity="0.1" ShadowDepth="0"/>
         </Border.Effect>
 
         <Grid>
             <!-- 背景渐变装饰 -->
-            <Border CornerRadius="16" Opacity="0.05">
+            <Border CornerRadius="24" Opacity="0.05">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#4A90E2" Offset="0"/>
@@ -158,11 +158,11 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- 左侧欢迎区域 -->
-                <Border Grid.Column="0" CornerRadius="16,0,0,16">
+                <Border Grid.Column="0" CornerRadius="24,0,0,24">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                             <GradientStop Color="#667eea" Offset="0"/>
-                            <GradientStop Color="#764ba2" Offset="1"/>
+                            <GradientStop Color="#46bfe3" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
 
@@ -224,7 +224,7 @@
                         </TabControl.Resources>
 
                         <!-- 登录标签页 -->
-                        <TabItem Header="登录">
+                        <TabItem Header="登录" FontSize="20">
 
                             <StackPanel VerticalAlignment="Top" Margin="0,30,0,30">
                                 <TextBlock Text="登录账户" FontSize="32" FontWeight="Bold" 
@@ -284,7 +284,7 @@
                         </TabItem>
 
                         <!-- 注册标签页 -->
-                        <TabItem Header="注册">
+                        <TabItem Header="注册" FontSize="20">
                             <StackPanel VerticalAlignment="Top" Margin="0,30,0,30">
                                 <TextBlock Text="创建账户" FontSize="32" FontWeight="Bold" 
                                                Foreground="#2C3E50" Margin="0,0,0,10"/>
@@ -295,7 +295,7 @@
                                 <TextBlock Text="用户名" FontSize="16" FontWeight="Medium"
                                               Foreground="#2C3E50" Margin="0,0,0,10"/>
                                 <TextBox x:Name="RegisterUsername" 
-                                            Margin="0,0,0,25" Height="40">
+                                            Margin="0,0,0,15" Height="40">
                                     <TextBox.ToolTip>
                                         <ToolTip Content="Choose a username"/>
                                     </TextBox.ToolTip>
@@ -305,7 +305,7 @@
                                 <TextBlock Text="邮箱地址" FontSize="16" FontWeight="Medium"
                                               Foreground="#2C3E50" Margin="0,0,0,10"/>
                                 <TextBox x:Name="RegisterEmail"
-                                            Margin="0,0,0,25" Height="40">
+                                            Margin="0,0,0,15" Height="40">
                                     <TextBox.ToolTip>
                                         <ToolTip Content="Enter your email"/>
                                     </TextBox.ToolTip>
@@ -315,7 +315,7 @@
 
                                 <!-- 密码输入框 -->
                                 <PasswordBox x:Name="RegisterPassword" 
-                                                Margin="0,0,0,35" Height="40">
+                                                Margin="0,0,0,25" Height="40">
                                     <PasswordBox.ToolTip>
                                         <ToolTip Content="Create a password"/>
                                     </PasswordBox.ToolTip>

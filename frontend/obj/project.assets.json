@@ -57,6 +57,39 @@
           }
         }
       },
+      "MaterialDesignColors/5.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/MaterialDesignColors.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MaterialDesignColors.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "MaterialDesignThemes/5.2.1": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignColors": "5.2.1",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
+        },
+        "compile": {
+          "lib/net8.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/MaterialDesignThemes.targets": {}
+        }
+      },
       "Microsoft.Extensions.Configuration/9.0.4": {
         "type": "package",
         "dependencies": {
@@ -1569,6 +1602,68 @@
         "lib/netcoreapp3.1/HandyControl.deps.json",
         "lib/netcoreapp3.1/HandyControl.dll",
         "lib/netcoreapp3.1/HandyControl.xml",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
+    "MaterialDesignColors/5.2.1": {
+      "sha512": "D0HW6E2/kzsnEWCh1KDG/K09Fpkvs9mR3n91Y8YSOsEAoQmGZbVAj58ssyAxGTiIPj2zB4ZVnwxkizwO35/v8A==",
+      "type": "package",
+      "path": "materialdesigncolors/5.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "docs/README.md",
+        "images/MaterialDesignColors.Icon.png",
+        "lib/net462/MaterialDesignColors.dll",
+        "lib/net462/MaterialDesignColors.pdb",
+        "lib/net6.0/MaterialDesignColors.dll",
+        "lib/net6.0/MaterialDesignColors.pdb",
+        "lib/net8.0/MaterialDesignColors.dll",
+        "lib/net8.0/MaterialDesignColors.pdb",
+        "materialdesigncolors.5.2.1.nupkg.sha512",
+        "materialdesigncolors.nuspec"
+      ]
+    },
+    "MaterialDesignThemes/5.2.1": {
+      "sha512": "x8JDqNHJcTLLxIoVts3w7AbSq5Zo0FXTw89XqPN7+n0EKqLXFwWsywiUn08HDyTGAmZVJqbQsWKxKWCI8qfWsQ==",
+      "type": "package",
+      "path": "materialdesignthemes/5.2.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MaterialDesignThemes.targets",
+        "build/Resources/Roboto/Roboto-Black.ttf",
+        "build/Resources/Roboto/Roboto-BlackItalic.ttf",
+        "build/Resources/Roboto/Roboto-Bold.ttf",
+        "build/Resources/Roboto/Roboto-BoldItalic.ttf",
+        "build/Resources/Roboto/Roboto-Italic.ttf",
+        "build/Resources/Roboto/Roboto-Light.ttf",
+        "build/Resources/Roboto/Roboto-LightItalic.ttf",
+        "build/Resources/Roboto/Roboto-Medium.ttf",
+        "build/Resources/Roboto/Roboto-MediumItalic.ttf",
+        "build/Resources/Roboto/Roboto-Regular.ttf",
+        "build/Resources/Roboto/Roboto-Thin.ttf",
+        "build/Resources/Roboto/Roboto-ThinItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Bold.ttf",
+        "build/Resources/Roboto/RobotoCondensed-BoldItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Italic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Light.ttf",
+        "build/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Regular.ttf",
+        "docs/README.md",
+        "images/MaterialDesignThemes.Icon.png",
+        "lib/net462/MaterialDesignThemes.Wpf.dll",
+        "lib/net462/MaterialDesignThemes.Wpf.pdb",
+        "lib/net462/MaterialDesignThemes.Wpf.xml",
+        "lib/net6.0/MaterialDesignThemes.Wpf.dll",
+        "lib/net6.0/MaterialDesignThemes.Wpf.pdb",
+        "lib/net6.0/MaterialDesignThemes.Wpf.xml",
+        "lib/net8.0/MaterialDesignThemes.Wpf.dll",
+        "lib/net8.0/MaterialDesignThemes.Wpf.pdb",
+        "lib/net8.0/MaterialDesignThemes.Wpf.xml",
+        "materialdesignthemes.5.2.1.nupkg.sha512",
+        "materialdesignthemes.nuspec",
         "tools/VisualStudioToolsManifest.xml"
       ]
     },
@@ -3519,6 +3614,7 @@
       "CommonWin32 >= 2.1.0.3",
       "CommunityToolkit.Mvvm >= 8.4.0",
       "HandyControl >= 3.5.1",
+      "MaterialDesignThemes >= 5.2.1",
       "Microsoft.Extensions.Hosting >= 9.0.4",
       "Microsoft.Extensions.Http >= 9.0.4",
       "Microsoft.Xaml.Behaviors.Wpf >= 1.1.135",
@@ -3535,23 +3631,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\29586\\.nuget\\packages\\": {},
+    "C:\\Users\\qq864\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\29586\\RuanGou-project\\frontend\\frontend.csproj",
+      "projectUniqueName": "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\frontend.csproj",
       "projectName": "frontend",
-      "projectPath": "C:\\Users\\29586\\RuanGou-project\\frontend\\frontend.csproj",
-      "packagesPath": "C:\\Users\\29586\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\29586\\RuanGou-project\\frontend\\obj\\",
+      "projectPath": "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\frontend.csproj",
+      "packagesPath": "C:\\Users\\qq864\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\qq864\\Desktop\\Project\\软构项目\\RuanGou-project\\frontend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\29586\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\qq864\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3581,7 +3677,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -3602,6 +3698,10 @@
           "HandyControl": {
             "target": "Package",
             "version": "[3.5.1, )"
+          },
+          "MaterialDesignThemes": {
+            "target": "Package",
+            "version": "[5.2.1, )"
           },
           "Microsoft.Extensions.Hosting": {
             "target": "Package",
@@ -3675,7 +3775,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

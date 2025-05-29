@@ -5,24 +5,431 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:frontend.Views.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     mc:Ignorable="d">
-    <Grid>
+
+    <Page.Resources>
+        <Style x:Key="CardStyle"
+                TargetType="Border">
+            <Setter Property="Background"
+                    Value="#FFF"/>
+            <Setter Property="CornerRadius"
+                    Value="8"/>
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="10"
+                            ShadowDepth="2"
+                            Opacity="0.2"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Margin"
+                    Value="10"/>
+            <Setter Property="Padding"
+                    Value="15"/>
+        </Style>
+
+        <Style x:Key="SectionTitleStyle"
+                TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="18"/>
+            <Setter Property="FontWeight"
+                    Value="SemiBold"/>
+            <Setter Property="Foreground"
+                    Value="#1976D2"/>
+            <Setter Property="Margin"
+                    Value="0,0,0,10"/>
+        </Style>
+
+        <LinearGradientBrush x:Key="HeaderGradient"
+                StartPoint="0,0"
+                EndPoint="1,1">
+            <GradientStop Color="#2196F3"
+                    Offset="0"/>
+            <GradientStop Color="#1976D2"
+                    Offset="1"/>
+        </LinearGradientBrush>
+    </Page.Resources>
+
+    <Grid Background="#F5F9FF">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock
-            Margin="20,10"
-            FontSize="28"
-            Text="DashboardPage" />
-        <Border Grid.Row="1">
-            <StackPanel VerticalAlignment="Top" Orientation="Horizontal">
-                <Button
-                    Margin="20,0"
-                    Command="{Binding ViewModel.WriteToLogClickCommand}"
-                    Content="写入日志"
-                    Style="{StaticResource ButtonSuccess}" />
+
+        <!-- Header with animation -->
+        <Border Grid.Row="0"
+                Background="{StaticResource HeaderGradient}">
+            <Border.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="Opacity"
+                                From="0"
+                                    To="1"
+                                    Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Border.Triggers>
+
+            <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    Margin="20,15">
+                <materialDesign:PackIcon
+                    Kind="ViewDashboard"
+                    Foreground="White"
+                    Width="32"
+                    Height="32"
+                    Margin="0,0,15,0"/>
+
+                <TextBlock
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    Foreground="White"
+                    Text="小帮宝 v1.0.0"
+                    VerticalAlignment="Center"/>
             </StackPanel>
         </Border>
+
+        <!-- Main content with animation -->
+        <ScrollViewer Grid.Row="1"
+                Padding="20"
+                VerticalScrollBarVisibility="Auto">
+            <ScrollViewer.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation
+                                Storyboard.TargetProperty="Margin"
+                                From="0,20,0,0"
+                                    To="0,0,0,0"
+                                Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </ScrollViewer.Triggers>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Welcome card -->
+                <Border Grid.Row="0"
+                        Style="{StaticResource CardStyle}">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource SectionTitleStyle}"
+                                Text="欢迎使用"/>
+                        <TextBlock TextWrapping="Wrap"
+                                Margin="0,0,0,15">
+                            <Run Text="欢迎使用我们的项目管理系统，这里您可以监控项目进度、管理任务并与团队成员协作。"/>
+                            <LineBreak/>
+                            <Run Text="系统采用最新技术构建，为您提供流畅高效的工作体验。"/>
+                        </TextBlock>
+                        <Button
+                            HorizontalAlignment="Left"
+                            Command="{Binding ViewModel.WriteToLogClickCommand}"
+                            Content="开始使用"
+                            Style="{StaticResource ButtonSuccess}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Project stats -->
+                <Border Grid.Row="1"
+                        Style="{StaticResource CardStyle}"
+                        Margin="0,20,0,0"
+                        Height="160">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource SectionTitleStyle}"
+                                Text="项目概览"/>
+
+                        <Grid Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Stat 1 -->
+                            <StackPanel Grid.Column="0"
+                                    HorizontalAlignment="Center">
+                                <TextBlock
+                                    Text="4大"
+                                    FontSize="28"
+                                    FontWeight="Bold"
+                                    Foreground="#1976D2"
+                                    HorizontalAlignment="Center"/>
+                                <TextBlock
+                                    Text="功能模块"
+                                    FontSize="14"
+                                    Foreground="#666"
+                                    HorizontalAlignment="Center"/>
+                            </StackPanel>
+
+                            <!-- Stat 2 -->
+                            <StackPanel Grid.Column="1"
+                                    HorizontalAlignment="Center">
+                                <TextBlock
+                                    Text="9个"
+                                    FontSize="28"
+                                    FontWeight="Bold"
+                                    Foreground="#1976D2"
+                                    HorizontalAlignment="Center"/>
+                                <TextBlock
+                                    Text="细分小模块"
+                                    FontSize="14"
+                                    Foreground="#666"
+                                    HorizontalAlignment="Center"/>
+                            </StackPanel>
+
+                            <!-- Stat 3 -->
+                            <StackPanel Grid.Column="2"
+                                    HorizontalAlignment="Center">
+                                <TextBlock
+                                    Text="4大"
+                                    FontSize="28"
+                                    FontWeight="Bold"
+                                    Foreground="#1976D2"
+                                    HorizontalAlignment="Center"/>
+                                <TextBlock
+                                    Text="核心开发成员"
+                                    FontSize="14"
+                                    Foreground="#666"
+                                    HorizontalAlignment="Center"/>
+                            </StackPanel>
+
+                            <!-- Stat 4 -->
+                            <StackPanel Grid.Column="3"
+                                    HorizontalAlignment="Center">
+                                <TextBlock
+                                    Text="28天"
+                                    FontSize="28"
+                                    FontWeight="Bold"
+                                    Foreground="#1976D2"
+                                    HorizontalAlignment="Center"/>
+                                <TextBlock
+                                    Text="开发时间"
+                                    FontSize="14"
+                                    Foreground="#666"
+                                    HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <!-- Team members - Static version -->
+                <Border Grid.Row="2"
+                        Style="{StaticResource CardStyle}"
+                        Margin="0,20,0,0">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource SectionTitleStyle}"
+                                Text="我们的团队"/>
+
+                        <WrapPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                            <!-- Member A -->
+                            <Border
+                                Width="160"
+                                Height="180"
+                                Margin="15"
+                                CornerRadius="8"
+                                Background="#F0F7FF">
+                                <Border.Triggers>
+                                    <EventTrigger RoutedEvent="MouseEnter">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetProperty="Opacity"
+                                                    To="0.9"
+                                                        Duration="0:0:0.2"/>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                                    To="1.05"
+                                                        Duration="0:0:0.2"/>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                                    To="1.05"
+                                                        Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                    <EventTrigger RoutedEvent="MouseLeave">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetProperty="Opacity"
+                                                    To="1"
+                                                        Duration="0:0:0.2"/>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                                    To="1"
+                                                        Duration="0:0:0.2"/>
+                                                <DoubleAnimation
+                                                    Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                                    To="1"
+                                                        Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Border.Triggers>
+                                <Border.RenderTransform>
+                                    <ScaleTransform/>
+                                </Border.RenderTransform>
+
+                                <StackPanel VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                    <!-- 修正后的圆形+文字部分 -->
+                                    <Grid Width="80"
+                                            Height="80"
+                                            Margin="0,0,0,10">
+                                        <Image Source="/Assets/Avatar/1.png" Stretch="UniformToFill"></Image>
+                                        
+                                    </Grid>
+
+                                    <TextBlock
+                                        Text="陈涛"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        HorizontalAlignment="Center"/>
+
+                                    <TextBlock
+                                        Text="高级开发工程师"
+                                        FontSize="12"
+                                        Foreground="#666"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,5,0,0"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Member B -->
+                            <Border
+                                Width="160"
+                                Height="180"
+                                Margin="15"
+                                CornerRadius="8"
+                                Background="#F0F7FF">
+                                <!-- 相同的动画效果 -->
+                                <Border.Triggers>
+                                    <!-- 同Member A的动画 -->
+                                </Border.Triggers>
+                                <Border.RenderTransform>
+                                    <ScaleTransform/>
+                                </Border.RenderTransform>
+
+                                <StackPanel VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                    <!-- 修正后的圆形+文字部分 -->
+                                    <Grid Width="80"
+                                            Height="80"
+                                            Margin="0,0,0,10">
+                                        <Image Source="/Assets/Avatar/2.png" Stretch="UniformToFill"></Image>
+                                        
+                                    </Grid>
+
+                                    <TextBlock
+                                        Text="韩柯"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        HorizontalAlignment="Center"/>
+
+                                    <TextBlock
+                                        Text="高级开发工程师"
+                                        FontSize="12"
+                                        Foreground="#666"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,5,0,0"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Member C -->
+                            <Border
+                                Width="160"
+                                Height="180"
+                                Margin="15"
+                                CornerRadius="8"
+                                Background="#F0F7FF">
+                                <!-- 相同的动画效果 -->
+                                <Border.Triggers>
+                                    <!-- 同Member A的动画 -->
+                                </Border.Triggers>
+                                <Border.RenderTransform>
+                                    <ScaleTransform/>
+                                </Border.RenderTransform>
+
+                                <StackPanel VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                    <!-- 修正后的圆形+文字部分 -->
+                                    <Grid Width="80"
+                                            Height="80"
+                                            Margin="0,0,0,10">
+                                        <Image Source="/Assets/Avatar/3.png" Stretch="UniformToFill"></Image>
+                                        
+                                    </Grid>
+
+                                    <TextBlock
+                                        Text="李森"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        HorizontalAlignment="Center"/>
+
+                                    <TextBlock
+                                        Text="高级开发工程师"
+                                        FontSize="12"
+                                        Foreground="#666"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,5,0,0"/>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Member D -->
+                            <Border
+                                Width="160"
+                                Height="180"
+                                Margin="15"
+                                CornerRadius="8"
+                                Background="#F0F7FF">
+                                <!-- 相同的动画效果 -->
+                                <Border.Triggers>
+                                    <!-- 同Member A的动画 -->
+                                </Border.Triggers>
+                                <Border.RenderTransform>
+                                    <ScaleTransform/>
+                                </Border.RenderTransform>
+
+                                <StackPanel VerticalAlignment="Center"
+                                        HorizontalAlignment="Center">
+                                    <!-- 修正后的圆形+文字部分 -->
+                                    <Grid Width="80"
+                                            Height="80"
+                                            Margin="0,0,0,10">
+                                        <Image Source="/Assets/Avatar/4.png" Stretch="UniformToFill"></Image>
+                                        
+                                    </Grid>
+
+                                    <TextBlock
+                                        Text="李欣雨"
+                                        FontSize="16"
+                                        FontWeight="SemiBold"
+                                        HorizontalAlignment="Center"/>
+
+                                    <TextBlock
+                                        Text="高级开发工程师"
+                                        FontSize="12"
+                                        Foreground="#666"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,5,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

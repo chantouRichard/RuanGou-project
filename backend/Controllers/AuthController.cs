@@ -52,5 +52,13 @@ namespace backend.Controllers
 
             return Ok(new { Token = token });
         }
+
+        [HttpPost("changePwd")]
+        public async Task<ApiResponse<User>> changePwd(int userId,string newPwd)
+        {
+            var response = await _authService.changePwd(userId, newPwd);
+
+            return response;
+        }
     }
 }

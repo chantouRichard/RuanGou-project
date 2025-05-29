@@ -12,6 +12,8 @@ namespace backend.Data
 
         public DbSet<TodoItem> TodoItems { get; set; }
 
+        public DbSet<CountdownDay> CountdownDays { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>(entity =>
@@ -32,6 +34,7 @@ namespace backend.Data
 
             modelBuilder.Entity<TodoItem>()
                 .HasIndex(t => t.UserId);
+
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

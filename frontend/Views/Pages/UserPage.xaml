@@ -6,124 +6,161 @@
       xmlns:local="clr-namespace:frontend"
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="700"
-      Title="User Profile"
-      Background="#F5F9FF">
+      Title="User Profile">
 
-    <Grid Margin="20">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <Page.Resources>
+        <VisualBrush x:Key="PageBackgroundBrush" Stretch="UniformToFill" Opacity="1">
+            <VisualBrush.Visual>
+                <Grid>
+                    <Image Source="/Assets/blue_pattern_bg.jpeg" Stretch="UniformToFill"/>
+                </Grid>
+            </VisualBrush.Visual>
+        </VisualBrush>
+    </Page.Resources>
 
-        <!-- 顶部标题 -->
-        <TextBlock Text="User Profile"
-                   FontFamily="{Binding Source={x:Static local:SkinManager.Current}, Path=FontFamily}"
-                   FontSize="{Binding EffectiveFontSize}"
+    <Grid Background="{StaticResource PageBackgroundBrush}">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- 顶部标题 -->
+            <TextBlock Text="👤 用户资料"
+                   FontSize="26"
                    FontWeight="Bold"
                    Foreground="#1A3B7B"
                    Margin="0,0,0,20"/>
 
-        <!-- 主内容区 -->
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <!-- 主内容区 -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <!-- 用户头像区域（简化版） -->
-            <Border Grid.Column="0" 
-                    Width="120" 
-                    Height="120"
+                <!-- 用户头像区域 -->
+                <Border Grid.Column="0" 
+                    Width="130" Height="130"
                     Margin="0,0,30,0"
-                    CornerRadius="60"
+                    CornerRadius="65"
                     Background="#E6F0FF"
                     BorderBrush="#4D8DFF"
-                    BorderThickness="3">
-                <Image Source="{Binding CurrentUser.ImageSource, TargetNullValue=/Assets/DefaultIcon.png}"
+                    BorderThickness="3"
+                    RenderTransformOrigin="0.5,0.5">
+                    <Border.RenderTransform>
+                        <ScaleTransform x:Name="avatarScale" ScaleX="1" ScaleY="1"/>
+                    </Border.RenderTransform>
+                    <Border.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" To="1.05" Duration="0:0:0.2"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" To="1.05" Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" To="1" Duration="0:0:0.2"/>
+                                    <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" To="1" Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Border.Triggers>
+
+                    <Image Source="{Binding CurrentUser.ImageSource, TargetNullValue=/Assets/DefaultIcon.png}"
                        Stretch="UniformToFill">
-                    <Image.Clip>
-                        <EllipseGeometry Center="60,60" RadiusX="60" RadiusY="60"/>
-                    </Image.Clip>
-                </Image>
-            </Border>
+                        <Image.Clip>
+                            <EllipseGeometry Center="65,65" RadiusX="65" RadiusY="65"/>
+                        </Image.Clip>
+                    </Image>
+                </Border>
 
-            <!-- 用户信息编辑区（简化版） -->
-            <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <!-- 用户名 -->
-                <StackPanel Margin="0,0,0,15">
-                    <TextBlock Text="昵称" 
-                               Foreground="#4D8DFF"
-                               Margin="0,0,0,2"/>
-                    <TextBox Text="{Binding CurrentUser.Nickname, UpdateSourceTrigger=PropertyChanged}"
-                             Padding="8"
-                             Width="300"
-                             BorderBrush="#A0B8E0"/>
+                <!-- 信息编辑区域 -->
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <!-- 昵称 -->
+                    <StackPanel Margin="0,0,0,15">
+                        <TextBlock Text="昵称" Foreground="Black" Margin="0,0,0,2" FontSize="18" FontWeight="Bold"/>
+                        <TextBox Text="{Binding CurrentUser.Nickname, UpdateSourceTrigger=PropertyChanged}"
+                             Padding="8" Width="300" BorderBrush="#A0B8E0"/>
+                    </StackPanel>
+
+                    <!-- 邮箱 -->
+                    <StackPanel Margin="0,0,0,15">
+                        <TextBlock Text="邮箱" Foreground="Black" Margin="0,0,0,2" FontSize="18" FontWeight="Bold"/>
+                        <TextBox Text="{Binding CurrentUser.Email, UpdateSourceTrigger=PropertyChanged}"
+                             Padding="8" Width="300" BorderBrush="#A0B8E0"/>
+                    </StackPanel>
+
+                    <!-- 密码 -->
+                    <StackPanel Margin="0,0,0,15">
+                        <TextBlock Text="新密码" Foreground="Black" Margin="0,0,0,2" FontSize="18" FontWeight="Bold"/>
+                        <PasswordBox Padding="8" Width="300" BorderBrush="#A0B8E0"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <TextBlock Text="确认新密码" Foreground="Black" Margin="0,0,0,2" FontSize="18" FontWeight="Bold"/>
+                        <PasswordBox Padding="8" Width="300" BorderBrush="#A0B8E0"/>
+                    </StackPanel>
+
+                    <!-- 注册时间 -->
+                    <TextBlock Text="{Binding CurrentUser.CreatedAt, StringFormat='注册于 {0:yyyy年MM月}'}"
+                           FontSize="13" Foreground="#6E7F99"/>
                 </StackPanel>
+            </Grid>
 
-                <!-- 邮箱 -->
-                <StackPanel Margin="0,0,0,15">
-                    <TextBlock Text="邮箱" 
-                               Foreground="#4D8DFF"
-                               Margin="0,0,0,2"/>
-                    <TextBox Text="{Binding CurrentUser.Email, UpdateSourceTrigger=PropertyChanged}"
-                             Padding="8"
-                             Width="300"
-                             BorderBrush="#A0B8E0"/>
-                </StackPanel>
-
-                <!-- 密码 -->
-                <StackPanel Margin="0,0,0,20">
-                    <TextBlock Text="新密码" 
-                               Foreground="#4D8DFF"
-                               Margin="0,0,0,2"/>
-                    <PasswordBox Padding="8"
-             Width="300"
-             BorderBrush="#A0B8E0"
-             Tag="{Binding RelativeSource={RelativeSource AncestorType=Page}}"/>
-                </StackPanel>
-
-                <!-- 注册日期 -->
-                <TextBlock Text="{Binding CurrentUser.CreatedAt, StringFormat='Member since {0:MMMM yyyy}'}"
-                           FontSize="13"
-                           Foreground="#6E7F99"/>
-            </StackPanel>
-        </Grid>
-
-        <!-- 底部操作按钮（简化版） -->
-        <StackPanel Grid.Row="1"
-                    Orientation="Horizontal"
+            <!-- 操作按钮 -->
+            <StackPanel Grid.Row="1" Orientation="Horizontal"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Bottom"
                     Margin="0,20,0,0">
-            <Button Content="保存"
-                    Width="120"
-                    Height="36"
-                    Background="#4D8DFF"
-                    Foreground="White"
-                    BorderThickness="0"
-                    Command="{Binding SaveCommand}"
+                <Button Content="💾 保存"
+                    Width="120" Height="36" FontSize="16" FontWeight="Medium"
+                    Background="#4D8DFF" Foreground="White"
+                    BorderThickness="0" Command="{Binding SaveCommand}"
                     Margin="0,0,10,0">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="4"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
 
-            <Button Content="更换头像"
-                    Width="120"
-                    Height="36"
+                <Button Content="🖼 更换头像"
+                    Width="120" Height="36"
                     Foreground="#4D8DFF"
                     Background="Transparent"
                     BorderBrush="#4D8DFF"
-                    BorderThickness="1"
+                    BorderThickness="1" FontSize="16" FontWeight="Medium"
                     Command="{Binding ChangeAvatarCommand}">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="4"/>
-                    </Style>
-                </Button.Resources>
-            </Button>
-        </StackPanel>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Opacity" Value="1"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.8"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>

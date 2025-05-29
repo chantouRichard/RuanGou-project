@@ -103,18 +103,19 @@ namespace frontend.Services
         #region 待办事项相关方法
         public async Task<ApiResponse<List<TodoItem>>> GetAllTodos()
         {
-            Console.WriteLine($"获取到的数据: {Properties.Settings.Default.UserId}");
+            try
+            {
+                var response = await _httpClient.GetAsync($"todo?userId={Properties.Settings.Default.UserId}");
+                response.EnsureSuccessStatusCode();
 
-            var response = await _httpClient.GetAsync($"todo?userId={Properties.Settings.Default.UserId}");
-            response.EnsureSuccessStatusCode();
+                var responseString = await response.Content.ReadAsStringAsync();
 
-            Console.WriteLine($"获取到的数据: {response}");
-
-            var responseString = await response.Content.ReadAsStringAsync();
-
-            Console.WriteLine($"响应内容: {responseString}");
-
-            return JsonConvert.DeserializeObject<ApiResponse<List<TodoItem>>>(responseString);
+                return JsonConvert.DeserializeObject<ApiResponse<List<TodoItem>>>(responseString);
+            }catch(Exception e)
+            {
+                Console.WriteLine("报错显示:", e);
+                return new ApiResponse<List<TodoItem>> { Success = false, Data = null, Message = "获取列表失败" };
+            }
         }
 
         public async Task<ApiResponse<TodoItem>> GetTodoById(int id)

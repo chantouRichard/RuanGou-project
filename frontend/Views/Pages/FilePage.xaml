@@ -32,6 +32,7 @@
         </StackPanel>
 
         <ListBox Name="ResultsList"
+                 Focusable="True"
          Grid.Row="2"
          SelectionChanged="ResultsList_SelectionChanged"
          MouseDoubleClick="ResultsList_MouseDoubleClick"

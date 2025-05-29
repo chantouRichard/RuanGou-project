@@ -50,6 +50,29 @@ namespace frontend.ViewModels
             }
         }
 
+        private string _newPassword;
+        private string _confirmPassword;
+
+        public string NewPassword
+        {
+            get => _newPassword;
+            set
+            {
+                _newPassword = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string ConfirmPassword
+        {
+            get => _confirmPassword;
+            set
+            {
+                _confirmPassword = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand SaveCommand { get; }
         public ICommand ChangeAvatarCommand { get; }
 
