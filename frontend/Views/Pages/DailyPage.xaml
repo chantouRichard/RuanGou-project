@@ -94,6 +94,7 @@
         </Style>
     </Page.Resources>
 
+
     <Grid>
         <!-- 视频背景 -->
         <MediaElement x:Name="WeatherVideoPlayer"
